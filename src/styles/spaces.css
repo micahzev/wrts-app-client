@@ -1,5 +1,5 @@
 .Space {
-  
+
 }
 
 .spacecontainer {
@@ -23,4 +23,17 @@
     border-bottom-color: black;
     border-bottom-style: solid;
     border-bottom-width: thin;
+}
+
+.spaceaddress {
+
+}
+
+.spaceurl {
+  font-style:italic;
+}
+
+
+.spacename {
+  font-weight: bold;
 }

@@ -16,10 +16,10 @@ class Spaceslist extends Component {
   render() {
     return (
       <div className="Space">
-        <ul>
           {this.props.spaces.map((spaceData,idx) =>
-            <Space key={idx} space={spaceData} />)}
-        </ul>
+            <Space key={idx} space={spaceData} />
+          )}
+
       </div>
     );
   }

@@ -3,7 +3,8 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
-  routing: routerReducer
+  routing: routerReducer,
+  spaces: spaces
 });
 
 export default rootReducer;

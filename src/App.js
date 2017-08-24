@@ -36,7 +36,7 @@ class App extends Component {
             <Col xs={12} md={4} className="Column" >
               <Agenda />
             </Col>
-            <Col xs={12} md={4} className="Column" >
+            <Col xs={12} md={4} className="Column spacescolumn" >
               <Spaces />
             </Col>
           </Row>

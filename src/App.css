@@ -26,3 +26,7 @@
 .Row {
   margin:1em;
 }
+
+.spacescolumn {
+  overflow:scroll;
+}

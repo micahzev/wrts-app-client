@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as ListActions from '../actions/list_spaces';
+import fetch from '~/src/components/fetch';
+import { fetchSpaces } from '~/src/actions/spaces';
+import Space from './Space';
 
 import '../styles/spaces.css';
 
@@ -9,41 +11,35 @@ class Spaceslist extends Component {
 
   constructor(props) {
     super(props);
-
-    // this.state = {
-    // };
   }
 
-  // const spaces = this.props.spaces.map((item,idx) => {
-  //   return <li key={idx}>{item}</li>
-  // })
-
-  // {spaces}
-
-
   render() {
-
-
     return (
       <div className="Space">
         <ul>
-
+          {this.props.spaces.map((spaceData,idx) =>
+            <Space key={idx} space={spaceData} />)}
         </ul>
       </div>
     );
   }
 }
 
-function mapStateToProps(state, prop) {
-  return {
-    spaces: state.spaces
-  }
+const FetchedSpaces = fetch(Spaceslist, {
+  actions: [fetchSpaces]
+});
+
+
+function mapStateToProps(state) {
+  const spaces = state.spaces;
+  return { spaces };
 }
+
 
 function mapDispatchToProps(dispatch) {
   return {
-    action: bindActionCreators(ListActions, dispatch)
-  }
+    fetchSpaces: bindActionCreators(fetchSpaces, dispatch),
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Spaceslist);
+export default connect(mapStateToProps, mapDispatchToProps)(FetchedSpaces);

@@ -5,8 +5,8 @@ import config from '../config';
 const methods = ['get', 'post', 'put', 'patch', 'del'];
 
 function formatUrl(path) {
-  const adjustedPath = path[0] !== '/' ? '/'  path : path;
-  return config.apiProtocol  '://'  config.apiHost  ':'  config.apiPort  '/v1'  adjustedPath;
+  const adjustedPath = path[0] !== '/' ? '/' + path : path;
+  return config.apiProtocol + '://' +  config.apiHost +   '/prod' +  adjustedPath;
 }
 
 /*
@@ -29,7 +29,7 @@ class _ApiClient {
             request.send(data);
           }
           if (this.authToken) {
-            request.set('Authorization', 'Bearer '  this.authToken);
+            request.set('Authorization', 'Bearer ',  this.authToken);
           }
           if (progressCallback){
             request.on('progress', progressCallback);

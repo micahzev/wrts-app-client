@@ -4,7 +4,6 @@ import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-route
 import { syncHistoryWithStore } from 'react-router-redux';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { syncReduxAndRouter } from 'redux-simple-router';
 import { createBrowserHistory } from 'history';
 
 import App from './App';

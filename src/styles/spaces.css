@@ -37,3 +37,10 @@
 .spacename {
   font-weight: bold;
 }
+
+.loginButton {
+  color:red;
+  position:absolute;
+  bottom:0;
+  right:0;
+}

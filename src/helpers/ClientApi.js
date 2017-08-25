@@ -14,7 +14,28 @@ export function fetchSpacesAPI() {
           if (err || !res.ok) {
             console.log('Oh no! error' + JSON.stringify(err));
           } else {
-            console.log('yay got ' + JSON.stringify(res.body));
+            // console.log('yay got ' + JSON.stringify(res.body));
+            resolve(res.body);
+          }
+        })
+    })();
+  });
+}
+;
+
+
+//// GET ALL EVENTS
+
+export function fetchEventsAPI() {
+  return new Promise((resolve, reject) => {
+    var getResult = (() => {
+      request.get(UrlAPI + 'events' + '/')
+        .set('Content-Type', 'application/json')
+        .end(function(err, res) {
+          if (err || !res.ok) {
+            console.log('Oh no! error' + JSON.stringify(err));
+          } else {
+            // console.log('yay got ' + JSON.stringify(res.body));
             resolve(res.body);
           }
         })

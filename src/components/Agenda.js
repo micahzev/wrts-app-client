@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import AgendaItem from './AgendaItem';
+
+import _ from 'lodash';
+
 import '../styles/agenda.css';
 
 class Agenda extends Component {
@@ -10,9 +13,14 @@ class Agenda extends Component {
 
   render() {
 
-    const allEvents = this.props.events ? this.props.events : {};
+    let allEvents = this.props.events ? this.props.events : {};
 
     const allSpaces = this.props.spaces ? this.props.spaces : undefined;
+
+    // sort all events by start date
+    if (Object.keys(allEvents).length > 0) {
+      allEvents = _.sortBy(allEvents, [function(o) { return o.eventStartDate; }]);
+    }
 
     return (
       <div className="Space">

@@ -6,6 +6,8 @@ class AgendaItem extends Component {
   constructor(props) {
     super(props);
     this.updateComponent.bind(this);
+    this.sameDay.bind(this);
+    this.pastDay.bind(this);
     this.state = {
       spaceName:"",
       startDate:"",
@@ -14,6 +16,8 @@ class AgendaItem extends Component {
       exposition:"",
       startTime:"",
       endTime:"",
+      isVernissage:false,
+      hasHappened:false
     }
   }
 
@@ -35,9 +39,20 @@ class AgendaItem extends Component {
   }
 
   updateComponent(inputProps) {
+
+      // find space name
       const space = _.find(inputProps.spaces, function(o) {
         return o.spaceId == inputProps.events.spaceId;
       });
+
+      // check vernissage
+      const today = new Date();
+      const vernissage = new Date(inputProps.events.eventStartDate);
+      const isVernissage = this.sameDay(today,vernissage);
+
+      const hasHappened = this.pastDay(today, vernissage);
+
+
       this.setState({
         spaceName:space.spaceName,
         startDate:inputProps.events.eventStartDate.replace(/-/g,'.'),
@@ -46,14 +61,32 @@ class AgendaItem extends Component {
         exposition:inputProps.events.eventExposition,
         startTime:inputProps.events.eventStartTime,
         endTime:inputProps.events.eventEndTime,
+        isVernissage:isVernissage,
+        hasHappened:hasHappened
       });
   }
 
+
+  sameDay(d1, d2) {
+    return d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate();
+  }
+
+  pastDay(today, otherDay) {
+    return otherDay.setHours(0,0,0,0) < today.setHours(0,0,0,0);
+  }
+
   render() {
+
+    const styler = this.state.isVernissage ? {color:'red'} : {};
+
+    const expos = {fontStyle:'italic'};
+
     return (
-      <div className="eventcontainer">
+      <div style={styler} className="eventcontainer">
         <div className="agendaData">
-           {this.state.startDate}
+           {this.state.startDate} {this.state.hasHappened && "to " + this.state.endDate}
          </div>
 
               <div className="agendaData">
@@ -66,14 +99,17 @@ class AgendaItem extends Component {
                      {this.state.artist}
                  </div>
 
-                 <div>
+                 <div style={expos}>
                      {this.state.exposition}
                  </div>
 
              </div>
-             <div className="agendaData">
-               {this.state.startTime}-{this.state.endTime}
-             </div>
+             {
+               !this.state.hasHappened &&
+                 <div className="agendaData">
+                   {this.state.startTime}-{this.state.endTime}
+                 </div>
+             }
       </div>
     );
   }

@@ -44,3 +44,10 @@
   bottom:0;
   right:0;
 }
+
+.contactButton {
+  color:red;
+  position:absolute;
+  top:0;
+  right:0;
+}

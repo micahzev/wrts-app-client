@@ -12,7 +12,7 @@ import fetch from './fetch';
 import { fetchSpaces } from '~/src/actions/spaces';
 import { fetchEvents } from '~/src/actions/events';
 
-
+import EditableEvents from './EditableEvents';
 import '../styles/backend.css';
 
 
@@ -38,19 +38,35 @@ class Backend extends Component {
 
   }
 
+  attachedIndeces(relevantEvents){
+    relevantEvents.forEach((relevantEvent) => {
+      relevantEvent.index = this.props.events.findIndex(obj => obj == relevantEvent);
+    }
+
+
+  )
+
+    return relevantEvents;
+  }
+
 
   render() {
 
     const thisSpace = (this.findRelevantSpace.bind(this))();
+
+    const relevantEvents = this.props.events.filter(event => event.spaceId == thisSpace.spaceId);
+
+    const updatedRelevantEvents = (this.attachedIndeces.bind(this))(relevantEvents);
 
     return (
       <div className="Backend">
           <h1>
           WRTS BACKEND - {thisSpace.spaceName}
           </h1>
-
+            <br/>
           <EditSpace space={thisSpace}/>
-
+          <br/>
+          <EditableEvents space={thisSpace} events={relevantEvents} />
 
       </div>
     );

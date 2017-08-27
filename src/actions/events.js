@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-import { fetchEventsAPI } from '~/src/helpers/ClientAPI';
+import { fetchEventsAPI,  addEventAPI, deleteEventAPI, updateEventAPI  } from '~/src/helpers/ClientAPI';
 
 export function fetchEvents(options) {
     return {
@@ -9,3 +9,33 @@ export function fetchEvents(options) {
       }
     }
   };
+
+
+  export function unboundAddEvent(data) {
+      return {
+        type: types.ADD_EVENT,
+        payload: {
+          promise: addEventAPI(data)
+        }
+      }
+    };
+
+
+    export function unboundDeleteEvent(data) {
+        return {
+          type: types.DELETE_EVENT,
+          payload: {
+            promise: deleteEventAPI(data)
+          }
+        }
+      };
+
+
+      export function unboundUpdateEvent(data) {
+          return {
+            type: types.UPDATE_EVENT,
+            payload: {
+              promise: updateEventAPI(data)
+            }
+          }
+        };

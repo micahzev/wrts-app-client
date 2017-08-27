@@ -110,7 +110,7 @@ class Login extends Component {
           <Button
             block
             bsSize="large"
-            disabled={ ! this.validateForm() }
+            disabled={ ! (this.validateForm.bind(this))() }
             type="submit">
             Login
           </Button>

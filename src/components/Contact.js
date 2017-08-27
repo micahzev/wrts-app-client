@@ -5,30 +5,20 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     this.hideMe.bind(this);
-    this.state ={
-      show:false,
-    };
   }
 
-
-  componentDidUpdate() {
-      this.setState({
-        show:this.props.show,
-      });
-
-  }
 
   hideMe() {
-    this.setState({
-      show:false,
-    });
     this.props.undoShow();
   }
 
   render() {
+
+    const show = this.props.show;
+
     return (
       <div>
-      {this.state.show?
+      {show?
           <div className="contactOverlay">
             <div className="closeButton" onClick={this.hideMe.bind(this)}>
             </div>
@@ -41,7 +31,7 @@ class Contact extends Component {
                   </div>
                   <div className="contactTextUR">
                     THE
-                    
+
                      SPACE
                   </div>
 

@@ -27,9 +27,9 @@ class Backend extends Component {
 
     const userSpaceId = decode(this.props.userToken)['custom:spaceId'];
 
-    const userSpaceObject = this.props.spaces.length >0 ? this.props.spaces.find(x => x.spaceId == userSpaceId) : {spaceName:"Loading...", spaceAddress:"Loading...", spaceUrl:"Loading..."};
+    const userSpaceObject = this.props.spaces.length >0 ? this.props.spaces.find((x) => x.spaceId == userSpaceId) : {spaceName:'Loading...', spaceAddress:'Loading...', spaceUrl:'Loading...'};
 
-    const spaceIndex = this.props.spaces.length >0 ? this.props.spaces.findIndex(x => x.spaceId == userSpaceId) : -1;
+    const spaceIndex = this.props.spaces.length >0 ? this.props.spaces.findIndex((x) => x.spaceId == userSpaceId) : -1;
 
     userSpaceObject.index = spaceIndex;
 
@@ -40,11 +40,11 @@ class Backend extends Component {
 
   attachedIndeces(relevantEvents){
     relevantEvents.forEach((relevantEvent) => {
-      relevantEvent.index = this.props.events.findIndex(obj => obj == relevantEvent);
+      relevantEvent.index = this.props.events.findIndex((obj) => obj == relevantEvent);
     }
 
 
-  )
+    )
 
     return relevantEvents;
   }
@@ -54,19 +54,19 @@ class Backend extends Component {
 
     const thisSpace = (this.findRelevantSpace.bind(this))();
 
-    const relevantEvents = this.props.events.filter(event => event.spaceId == thisSpace.spaceId);
+    const relevantEvents = this.props.events.filter((event) => event.spaceId == thisSpace.spaceId);
 
     const updatedRelevantEvents = (this.attachedIndeces.bind(this))(relevantEvents);
 
     return (
       <div className="Backend">
-          <h1>
+        <h1>
           WRTS BACKEND - {thisSpace.spaceName}
-          </h1>
-            <br/>
-          <EditSpace space={thisSpace}/>
-          <br/>
-          <EditableEvents space={thisSpace} events={relevantEvents} />
+        </h1>
+        <br/>
+        <EditSpace space={thisSpace}/>
+        <br/>
+        <EditableEvents space={thisSpace} events={relevantEvents} />
 
       </div>
     );

@@ -58,30 +58,30 @@ class Login extends Component {
 
     }
     catch(e) {
-        console.log(e);
+      console.log(e);
     }
   }
 
   login(username, password) {
-        const userPool = new CognitoUserPool({
-          UserPoolId: config.cognito.USER_POOL_ID,
-          ClientId: config.cognito.APP_CLIENT_ID
-        });
-        const authenticationData = {
-          Username: username,
-          Password: password
-        };
+    const userPool = new CognitoUserPool({
+      UserPoolId: config.cognito.USER_POOL_ID,
+      ClientId: config.cognito.APP_CLIENT_ID
+    });
+    const authenticationData = {
+      Username: username,
+      Password: password
+    };
 
-        const user = new CognitoUser({ Username: username, Pool: userPool });
-       const authenticationDetails = new AuthenticationDetails(authenticationData);
+    const user = new CognitoUser({ Username: username, Pool: userPool });
+    const authenticationDetails = new AuthenticationDetails(authenticationData);
 
-       return new Promise((resolve, reject) => (
-         user.authenticateUser(authenticationDetails, {
-           onSuccess: (result) => resolve(result.getIdToken().getJwtToken()),
-           onFailure: (err) => reject(err),
-         })
-       ));
-}
+    return new Promise((resolve, reject) => (
+      user.authenticateUser(authenticationDetails, {
+        onSuccess: (result) => resolve(result.getIdToken().getJwtToken()),
+        onFailure: (err) => reject(err),
+      })
+    ));
+  }
 
 
   render() {
@@ -89,9 +89,9 @@ class Login extends Component {
       <div className="Login">
 
         <form onSubmit={this.handleSubmit.bind(this)}>
-        <h1>
+          <h1>
         Login to WRTS
-        </h1>
+          </h1>
           <FormGroup controlId="username" bsSize="large">
             <ControlLabel>Email</ControlLabel>
             <FormControl
@@ -110,7 +110,7 @@ class Login extends Component {
           <Button
             block
             bsSize="large"
-            disabled={ ! (this.validateForm.bind(this))() }
+            disabled={! (this.validateForm.bind(this))()}
             type="submit">
             Login
           </Button>

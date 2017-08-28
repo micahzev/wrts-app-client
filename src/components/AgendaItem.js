@@ -9,13 +9,13 @@ class AgendaItem extends Component {
     this.sameDay.bind(this);
     this.pastDay.bind(this);
     this.state = {
-      spaceName:"",
-      startDate:"",
-      endDate:"",
-      artist:"",
-      exposition:"",
-      startTime:"",
-      endTime:"",
+      spaceName:'',
+      startDate:'',
+      endDate:'',
+      artist:'',
+      exposition:'',
+      startTime:'',
+      endTime:'',
       isVernissage:false,
       hasHappened:false
     }
@@ -40,30 +40,30 @@ class AgendaItem extends Component {
 
   updateComponent(inputProps) {
 
-      // find space name
-      const space = _.find(inputProps.spaces, function(o) {
-        return o.spaceId == inputProps.events.spaceId;
-      });
+    // find space name
+    const space = _.find(inputProps.spaces, function(o) {
+      return o.spaceId == inputProps.events.spaceId;
+    });
 
       // check vernissage
-      const today = new Date();
-      const vernissage = new Date(inputProps.events.eventStartDate);
-      const isVernissage = this.sameDay(today,vernissage);
+    const today = new Date();
+    const vernissage = new Date(inputProps.events.eventStartDate);
+    const isVernissage = this.sameDay(today,vernissage);
 
-      const hasHappened = this.pastDay(today, vernissage);
+    const hasHappened = this.pastDay(today, vernissage);
 
 
-      this.setState({
-        spaceName:space.spaceName,
-        startDate:inputProps.events.eventStartDate.replace(/-/g,'.'),
-        endDate:inputProps.events.eventEndDate.replace(/-/g,'.'),
-        artist:inputProps.events.eventArtist,
-        exposition:inputProps.events.eventExposition,
-        startTime:inputProps.events.eventStartTime,
-        endTime:inputProps.events.eventEndTime,
-        isVernissage:isVernissage,
-        hasHappened:hasHappened
-      });
+    this.setState({
+      spaceName:space.spaceName,
+      startDate:inputProps.events.eventStartDate.replace(/-/g,'.'),
+      endDate:inputProps.events.eventEndDate.replace(/-/g,'.'),
+      artist:inputProps.events.eventArtist,
+      exposition:inputProps.events.eventExposition,
+      startTime:inputProps.events.eventStartTime,
+      endTime:inputProps.events.eventEndTime,
+      isVernissage:isVernissage,
+      hasHappened:hasHappened
+    });
   }
 
 
@@ -86,30 +86,30 @@ class AgendaItem extends Component {
     return (
       <div style={styler} className="eventcontainer">
         <div className="agendaData">
-           {this.state.startDate} {this.state.hasHappened && "to " + this.state.endDate}
-         </div>
+          {this.state.startDate} {this.state.hasHappened && 'to ' + this.state.endDate}
+        </div>
 
-              <div className="agendaData">
-                  {this.state.spaceName}
-              </div>
+        <div className="agendaData">
+          {this.state.spaceName}
+        </div>
 
-              <div className="agendaData">
+        <div className="agendaData">
 
-                 <div >
-                     {this.state.artist}
-                 </div>
+          <div >
+            {this.state.artist}
+          </div>
 
-                 <div style={expos}>
-                     {this.state.exposition}
-                 </div>
+          <div style={expos}>
+            {this.state.exposition}
+          </div>
 
-             </div>
-             {
-               !this.state.hasHappened &&
+        </div>
+        {
+          !this.state.hasHappened &&
                  <div className="agendaData">
                    {this.state.startTime}-{this.state.endTime}
                  </div>
-             }
+        }
       </div>
     );
   }

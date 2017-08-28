@@ -29,27 +29,27 @@ class RouteContainer extends Component {
 
 
 
-    updateUserToken(userToken) {
-      this.setState({
-        userToken: userToken
-      });
-    }
+  updateUserToken(userToken) {
+    this.setState({
+      userToken: userToken
+    });
+  }
 
 
 
   render() {
-        const childProps = {
-            userToken: this.state.userToken,
-            updateUserToken: this.updateUserToken.bind(this),
-        };
+    const childProps = {
+      userToken: this.state.userToken,
+      updateUserToken: this.updateUserToken.bind(this),
+    };
 
     return (
       <Router basename="/">
         <App>
-              <Route exact path="/" component={Layout} />
-              <AppliedRoute path="/login" component={Login} props={childProps}/>
-              <AppliedRoute path="/backend" component={requireAuthentication(Backend)} props={childProps}/>
-              <AppliedRoute path="/admin-backend" component={requireAuthenticationAdmin(AdminBackend)} props={childProps}/>
+          <Route exact path="/" component={Layout} />
+          <AppliedRoute path="/login" component={Login} props={childProps}/>
+          <AppliedRoute path="/backend" component={requireAuthentication(Backend)} props={childProps}/>
+          <AppliedRoute path="/admin-backend" component={requireAuthenticationAdmin(AdminBackend)} props={childProps}/>
         </App>
       </Router>
     );

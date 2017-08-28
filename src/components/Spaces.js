@@ -17,9 +17,9 @@ class Spaces extends Component {
   }
 
   contactsOverlay() {
-      this.setState({
-        showOverLay:true,
-      })
+    this.setState({
+      showOverLay:true,
+    })
   }
 
   undoShow(){
@@ -35,11 +35,11 @@ class Spaces extends Component {
     return (
       <div>
         <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>contact</p>
-          <Contact show={this.state.showOverLay} undoShow={this.undoShow.bind(this)}/>
+        <Contact show={this.state.showOverLay} undoShow={this.undoShow.bind(this)}/>
         <div className="Space">
-            {allSpaces.map((spaceData,idx) =>
-              <Space key={idx} space={spaceData} />
-            )}
+          {allSpaces.map((spaceData,idx) =>
+            <Space key={idx} space={spaceData} />
+          )}
         </div>
         <NavLink className="loginButton" to="/login">login</NavLink>
       </div>

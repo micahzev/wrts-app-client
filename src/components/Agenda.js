@@ -24,9 +24,9 @@ class Agenda extends Component {
 
     return (
       <div className="Space">
-          {allEvents.map((eventData,idx) =>
-            <AgendaItem key={idx} events={eventData} spaces={allSpaces}/>
-          )}
+        {allEvents.map((eventData,idx) =>
+          <AgendaItem key={idx} events={eventData} spaces={allSpaces}/>
+        )}
       </div>
     );
   }

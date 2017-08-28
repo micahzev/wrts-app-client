@@ -9,17 +9,17 @@ class Space extends Component {
   render() {
     return (
       <div className="spacecontainer">
-      <div className="leftspacecontainer spacename">
-        {this.props.space.spaceName}
-      </div>
-      <div className="rightspacecontainer">
-        <div className="spaceaddress">
-          {this.props.space.spaceAddress}
+        <div className="leftspacecontainer spacename">
+          {this.props.space.spaceName}
         </div>
-        <div className="spaceurl">
-          {this.props.space.spaceUrl}
+        <div className="rightspacecontainer">
+          <div className="spaceaddress">
+            {this.props.space.spaceAddress}
+          </div>
+          <div className="spaceurl">
+            {this.props.space.spaceUrl}
+          </div>
         </div>
-      </div>
 
 
 

@@ -7,12 +7,12 @@ import '../styles/map.css';
 
 import mapStyle from '../constants/mapStyle';
 
-const SimpleMapExampleGoogleMap = withGoogleMap(props => (
+const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap
     defaultZoom={12}
     defaultCenter={{ lat: 48.855924, lng: 2.34532 }}
     defaultOptions={{ styles: mapStyle }}
-    disableDefaultUI={true}
+    disableDefaultUI
   />
 ));
 
@@ -25,10 +25,10 @@ class Map extends Component {
         className="Map"
 
         containerElement={
-          <div style={{ height: `100%` }} />
+          <div style={{ height: '100%' }} />
         }
         mapElement={
-          <div style={{ height: `100%` }} />
+          <div style={{ height: '100%' }} />
         }
       />
     );

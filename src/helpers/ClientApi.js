@@ -7,7 +7,7 @@ const UrlAPI = apiURL;
 
 export function fetchSpacesAPI() {
   return new Promise((resolve, reject) => {
-    var getResult = (() => {
+    let getResult = (() => {
       request.get(UrlAPI + 'spaces' + '/')
         .set('Content-Type', 'application/json')
         .end(function(err, res) {
@@ -48,7 +48,7 @@ export function addSpaceAPI(data) {
 
 export function fetchEventsAPI() {
   return new Promise((resolve, reject) => {
-    var getResult = (() => {
+    let getResult = (() => {
       request.get(UrlAPI + 'events' + '/')
         .set('Content-Type', 'application/json')
         .end(function(err, res) {
@@ -72,7 +72,7 @@ export function fetchEventsAPI() {
 
 export function deleteSpaceAPI(object) {
   return new Promise((resolve, reject) => {
-    var getResult = (() => {
+    let getResult = (() => {
       request.del(UrlAPI + 'spaces' + '/' + object.spaceId)
         .set('Content-Type', 'application/json')
         .end(function(err, res) {
@@ -145,7 +145,7 @@ export function addEventAPI(data) {
 
 export function deleteEventAPI(object) {
   return new Promise((resolve, reject) => {
-    var getResult = (() => {
+    let getResult = (() => {
       request.del(UrlAPI + 'events' + '/' + object.eventId)
         .set('Content-Type', 'application/json')
         .send(object)

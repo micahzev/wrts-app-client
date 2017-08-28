@@ -22,27 +22,27 @@ class EditSpace extends Component {
 
   editSpace(event){
 
-        const spaceId = this.props.space.spaceId;
+    const spaceId = this.props.space.spaceId;
 
-        const spaceIndex = this.props.space.index;
+    const spaceIndex = this.props.space.index;
 
-         const spaceData = {
-           spaceName:this.spaceName.value,
-           spaceAddress:this.spaceAddress.value,
-           spaceUrl:this.spaceUrl.value,
-           spaceId:spaceId,
-           index:spaceIndex
-         };
+    const spaceData = {
+      spaceName:this.spaceName.value,
+      spaceAddress:this.spaceAddress.value,
+      spaceUrl:this.spaceUrl.value,
+      spaceId:spaceId,
+      index:spaceIndex
+    };
 
-         if (spaceData.spaceName == "" || spaceData.spaceAddress == "" || spaceData.spaceUrl == "") {
-           this.handlealertEmptyFieldShow()
-           return;
-         } else {
+    if (spaceData.spaceName == '' || spaceData.spaceAddress == '' || spaceData.spaceUrl == '') {
+      this.handlealertEmptyFieldShow()
+      return;
+    } else {
 
-           this.props.boundUpdateSpace(spaceData);
-         }
+      this.props.boundUpdateSpace(spaceData);
+    }
 
-         this.closeEditSpaceModal();
+    this.closeEditSpaceModal();
   }
 
   editSpaceModal() {
@@ -50,7 +50,7 @@ class EditSpace extends Component {
   }
 
   closeEditSpaceModal(){
-this.setState({showEditSpaceModal:false});
+    this.setState({showEditSpaceModal:false});
   }
 
 
@@ -65,72 +65,72 @@ this.setState({showEditSpaceModal:false});
     const space = this.props.space;
 
     const tooltip = (
-        <Tooltip id="tooltip">Click here change your space information.</Tooltip>
-      );
+      <Tooltip id="tooltip">Click here change your space information.</Tooltip>
+    );
 
     return (
       <div className="Backend">
-      <h2>
+        <h2>
         Space Data:
-      </h2>
+        </h2>
         <ListGroup >
-        <OverlayTrigger placement="bottom" overlay={tooltip} delay={0}>
-         <ListGroupItem  onClick={this.editSpaceModal.bind(this)} header={space.spaceName}>
-         <span>
-          <div><b>Address:</b> {space.spaceAddress}</div>
-          <div><b>Site:</b>  {space.spaceUrl}</div>
+          <OverlayTrigger placement="bottom" overlay={tooltip} delay={0}>
+            <ListGroupItem  onClick={this.editSpaceModal.bind(this)} header={space.spaceName}>
+              <span>
+                <div><b>Address:</b> {space.spaceAddress}</div>
+                <div><b>Site:</b>  {space.spaceUrl}</div>
 
-         </span>
+              </span>
 
-         </ListGroupItem>
+            </ListGroupItem>
           </OverlayTrigger>
         </ListGroup>
 
         <Modal show={this.state.showEditSpaceModal} onHide={this.closeEditSpaceModal.bind(this)} backdrop="static">
-         <Modal.Header closeButton>
-           <Modal.Title>Edit {space.spaceName}</Modal.Title>
-         </Modal.Header>
-         <Modal.Body>
-         <Form horizontal>
-           <FormGroup controlId="formHorizontalName">
-             <Col componentClass={ControlLabel} sm={2}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit {space.spaceName}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form horizontal>
+              <FormGroup controlId="formHorizontalName">
+                <Col componentClass={ControlLabel} sm={2}>
                Name
-             </Col>
-             <Col sm={10}>
-               <FormControl inputRef={ref => { this.spaceName = ref; }} type="text" placeholder="Name" defaultValue={space.spaceName} />
-             </Col>
-           </FormGroup>
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.spaceName = ref; }} type="text" placeholder="Name" defaultValue={space.spaceName} />
+                </Col>
+              </FormGroup>
 
-           <FormGroup controlId="formHorizontalAddress">
-             <Col componentClass={ControlLabel} sm={2}>
+              <FormGroup controlId="formHorizontalAddress">
+                <Col componentClass={ControlLabel} sm={2}>
                Address
-             </Col>
-             <Col sm={10}>
-               <FormControl inputRef={ref => { this.spaceAddress = ref; }} placeholder="Address" defaultValue={space.spaceAddress}  />
-             </Col>
-           </FormGroup>
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.spaceAddress = ref; }} placeholder="Address" defaultValue={space.spaceAddress}  />
+                </Col>
+              </FormGroup>
 
-           <FormGroup controlId="formHorizontalUrl">
-             <Col componentClass={ControlLabel} sm={2}>
+              <FormGroup controlId="formHorizontalUrl">
+                <Col componentClass={ControlLabel} sm={2}>
                Site
-             </Col>
-             <Col sm={10}>
-               <FormControl inputRef={ref => { this.spaceUrl = ref; }} placeholder="Site" defaultValue={space.spaceUrl} />
-             </Col>
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.spaceUrl = ref; }} placeholder="Site" defaultValue={space.spaceUrl} />
+                </Col>
 
-           </FormGroup>
-           { this.state.alertEmptyField ?
-           <Alert bsStyle="danger" onDismiss={ this.handlealertEmptyFieldDismiss.bind(this) }>
-             <p>All fields must be filled out</p>
-           </Alert> : null }
+              </FormGroup>
+              {this.state.alertEmptyField ?
+                <Alert bsStyle="danger" onDismiss={this.handlealertEmptyFieldDismiss.bind(this)}>
+                  <p>All fields must be filled out</p>
+                </Alert> : null}
 
 
-           </Form>
-         </Modal.Body>
-         <Modal.Footer>
-           <Button onClick={this.closeEditSpaceModal.bind(this)}>Close</Button>
-           <Button bsStyle="primary" onClick={this.editSpace.bind(this)}>Save changes</Button>
-         </Modal.Footer>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.closeEditSpaceModal.bind(this)}>Close</Button>
+            <Button bsStyle="primary" onClick={this.editSpace.bind(this)}>Save changes</Button>
+          </Modal.Footer>
         </Modal>
 
       </div>
@@ -141,7 +141,7 @@ this.setState({showEditSpaceModal:false});
 
 
 function mapStateToProps(state) {
-return {};
+  return {};
 }
 
 

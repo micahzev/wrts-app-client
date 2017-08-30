@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import '../styles/spaces.css';
 
 class Space extends Component {
@@ -7,6 +9,9 @@ class Space extends Component {
   }
 
   render() {
+
+    const URL = "http://" + this.props.space.spaceUrl;
+
     return (
       <div className="spacecontainer">
         <div className="leftspacecontainer spacename">
@@ -16,14 +21,10 @@ class Space extends Component {
           <div className="spaceaddress">
             {this.props.space.spaceAddress}
           </div>
-          <div className="spaceurl">
+          <a href={URL} className="spaceurl">
             {this.props.space.spaceUrl}
-          </div>
+          </a>
         </div>
-
-
-
-
       </div>
     );
   }

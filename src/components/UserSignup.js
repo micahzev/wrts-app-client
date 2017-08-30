@@ -48,6 +48,9 @@ class UserSignup extends Component {
     event.preventDefault();
     this.setState({ isLoading: true });
 
+    debugger;
+    return;
+
     try {
       const newUser = await this.signup(this.state.username, this.state.password, this.state.space);
       this.setState({

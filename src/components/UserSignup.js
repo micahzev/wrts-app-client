@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
 import LoaderButton from './LoaderButton';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import ReactConfirmAlert, { confirmAlert } from 'react-confirm-alert';
 
 import {
   AuthenticationDetails,
@@ -43,13 +45,40 @@ class UserSignup extends Component {
     });
   }
 
-
-  async handleSubmit(event) {
+  submitAndConfirm(event) {
     event.preventDefault();
     this.setState({ isLoading: true });
 
-    debugger;
-    return;
+    if (this.state.space == 'admin') {
+      confirmAlert({
+        title: 'Confirm to add user!',                        // Title dialog
+        message: 'Are you sure to add an administrator user? (this user will be able to add other users and edit all spaces)',
+        confirmLabel: 'Confirm',                           // Text button confirm
+        cancelLabel: 'Cancel',                             // Text button cancel
+        onConfirm: () => this.handleSubmit(event),    // Action after Confirm
+        onCancel: () => this.resetToNormal(),      // Action after Cancel
+      });
+    } else {
+      this.handleSubmit(event);
+    }
+
+
+};
+
+  resetToNormal(){
+    this.setState({
+      newUser: null,
+      isLoading: false,
+      username: '',
+      password: '',
+      space:'-----',
+
+    });
+  }
+
+
+  async handleSubmit(event) {
+    event.preventDefault();
 
     try {
       const newUser = await this.signup(this.state.username, this.state.password, this.state.space);
@@ -123,7 +152,7 @@ class UserSignup extends Component {
         <h2>
         Sign Up New Users
         </h2>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={this.submitAndConfirm.bind(this)}>
           <FormGroup controlId="username" bsSize="large">
             <ControlLabel>Email</ControlLabel>
             <FormControl

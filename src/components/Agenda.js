@@ -11,19 +11,31 @@ class Agenda extends Component {
     super(props);
   }
 
+  sortAndFilterEvents(events){
+    const sortedEvents = _.sortBy(events, [function(o) {
+      let splitted = o.eventStartDate.split('-');
+      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-'));
+    }]);
+
+    return sortedEvents.filter(function(o) {
+      let splitted = o.eventEndDate.split('-');
+      let today = new Date();
+      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) > today;
+    });
+
+
+  }
+
   render() {
 
-    let allEvents = this.props.events ? this.props.events : {};
+    const allEvents = this.props.events ? this.props.events : [];
+    const filteredEvents = this.props.events ? this.sortAndFilterEvents(allEvents) : [];
 
     const allSpaces = this.props.spaces ? this.props.spaces : undefined;
 
-    // sort all events by start date
-    if (Object.keys(allEvents).length > 0) {
-      allEvents = _.sortBy(allEvents, [function(o) { return o.eventStartDate; }]);
-    }
     return (
       <div className="Space">
-        {allEvents.map((eventData,idx) =>
+        {filteredEvents.map((eventData,idx) =>
           <AgendaItem key={idx} events={eventData} spaces={allSpaces}/>
         )}
       </div>

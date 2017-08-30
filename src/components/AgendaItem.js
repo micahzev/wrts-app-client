@@ -46,7 +46,8 @@ class AgendaItem extends Component {
 
       // check vernissage
     const today = new Date();
-    const vernissage = new Date(inputProps.events.eventStartDate);
+    const splitted = inputProps.events.eventStartDate.split('-');
+    const vernissage = new Date([splitted[2],splitted[1],splitted[0]].join('-'));
     const isVernissage = this.sameDay(today,vernissage);
 
     const hasHappened = this.pastDay(today, vernissage);
@@ -80,10 +81,12 @@ class AgendaItem extends Component {
 
     const styler = this.state.isVernissage ? {color:'red'} : {};
 
+    const hasHappenedClass = this.state.hasHappened ? 'hasHappened' : 'hasNotHappened';
+
     const expos = {fontStyle:'italic'};
 
     return (
-      <div style={styler} className="eventcontainer">
+      <div style={styler} className={hasHappenedClass}>
         <div className="agendaData">
           {this.state.startDate} {this.state.hasHappened && 'to ' + this.state.endDate}
         </div>

@@ -12,3 +12,7 @@
   margin-left: 2%;
   margin-right: 2%;
 }
+
+.hasHappened {
+  background-color: red;
+}

@@ -16,8 +16,6 @@ import { Glyphicon,
 
 import Confirm from 'react-confirm-bootstrap';
 
-import {BootstrapTable, TableHeaderColumn, DeleteButton} from 'react-bootstrap-table';
-
 import update from 'immutability-helper';
 
 import { unboundAddEvent, unboundDeleteEvent, unboundUpdateEvent } from '~/src/actions/events';

@@ -7,8 +7,6 @@ import { Glyphicon, ButtonToolbar, Button, Modal, Form, FormGroup, FormControl, 
 
 import Confirm from 'react-confirm-bootstrap';
 
-import {BootstrapTable, TableHeaderColumn, DeleteButton} from 'react-bootstrap-table';
-
 import update from 'immutability-helper';
 
 import { unboundAddSpace, unboundDeleteSpace, unboundUpdateSpace } from '~/src/actions/spaces';

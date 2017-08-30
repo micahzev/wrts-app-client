@@ -12,6 +12,7 @@ import {BootstrapTable, TableHeaderColumn, DeleteButton} from 'react-bootstrap-t
 import update from 'immutability-helper';
 
 import { unboundAddSpace, unboundDeleteSpace, unboundUpdateSpace } from '~/src/actions/spaces';
+import { unboundDeleteEvent } from '~/src/actions/events';
 
 
 import '../styles/table.css';
@@ -26,6 +27,7 @@ class EditableSpaces extends Component {
       showAddSpaceModal:false,
       alertEmptyField:false,
       toDelete:[],
+      alertInvalidCoord:false,
 
     }
   }
@@ -78,16 +80,30 @@ class EditableSpaces extends Component {
     })
   }
 
+  isInt(x) {
+      return !isNaN(x) && eval(x).toString().length == parseInt(eval(x)).toString().length;
+  }
+
+  isFloat(x) {
+    return !isNaN(x) && !this.isInt(eval(x)) && x.toString().length > 0;
+    }
+
   addNewSpace (event) {
 
     const spaceData = {
       spaceName:this.spaceName.value,
       spaceAddress:this.spaceAddress.value,
-      spaceUrl:this.spaceUrl.value
+      spaceUrl:this.spaceUrl.value,
+      spaceLat:this.spaceLat.value,
+      spaceLong:this.spaceLong.value,
     }
-
-    if (spaceData.spaceName == '' || spaceData.spaceAddress == '' || spaceData.spaceUrl == '') {
+    // add validation of lat long
+    if (spaceData.spaceName == '' || spaceData.spaceAddress == ''
+        || spaceData.spaceUrl == '' || spaceData.spaceLat == '' || spaceData.spaceLong == '' ) {
       this.handlealertEmptyFieldShow()
+      return;
+    } else if ( !this.isFloat(spaceData.spaceLat) || !this.isFloat(spaceData.spaceLong) ) {
+      this.handlealertInvalidCoordShow();
       return;
     } else {
       this.props.boundAddSpace(spaceData);
@@ -101,14 +117,25 @@ class EditableSpaces extends Component {
     this.setState({
       alertEmptyField:false
     })
-
   }
 
   handlealertEmptyFieldShow(){
     this.setState({
       alertEmptyField:true
     })
+  }
 
+  handlealertInvalidCoordShow() {
+    this.setState({
+      alertInvalidCoord:true
+    })
+  }
+
+
+  handlealertInvalidCoordDismiss() {
+    this.setState({
+      alertInvalidCoord:false
+    })
   }
 
 
@@ -117,8 +144,11 @@ class EditableSpaces extends Component {
 
     const toDelete = [];
 
-    const deleteFunction = this.props.boundDeleteSpace;
+    this.deleteSpaceFunction = this.props.boundDeleteSpace;
 
+    this.deleteEventFunction = this.props.boundDeleteEvent;
+
+    const events = this.props.events;
 
     this.state.selectedIndexes.forEach( function(element) {
       const delObj = spaces[element];
@@ -128,8 +158,28 @@ class EditableSpaces extends Component {
     )
 
     toDelete.forEach(function(elem) {
-      deleteFunction(elem);
-    })
+      this.deleteSpaceFunction(elem);
+      const eventsToDelete = events.filter(event => event.spaceId == elem.spaceId);
+
+      if (eventsToDelete.length > 0) {
+          const eventsToDeleteWithIndex = eventsToDelete.map((event) => {
+          event.index = events.indexOf(event);
+          return event;
+        })
+
+        eventsToDeleteWithIndex.forEach(function(eventElem) {
+          this.deleteEventFunction(eventElem);
+        }, this);
+
+      }
+
+    }, this);
+
+    this.setState({
+      selectedIndexes:[],
+    });
+
+
   }
 
 
@@ -138,7 +188,9 @@ class EditableSpaces extends Component {
     const columns = [
       { key: 'spaceName', name: 'Name',editable: true },
       { key: 'spaceAddress', name: 'Address',editable: true },
-      { key: 'spaceUrl', name: 'Site',editable: true }, ];
+      { key: 'spaceUrl', name: 'Site',editable: true },
+      { key: 'spaceLat', name: 'Latitude',editable: true },
+      { key: 'spaceLong', name: 'Longitude',editable: true }, ];
 
     const rows = this.props.spaces ? this.props.spaces : [];
 
@@ -219,13 +271,35 @@ class EditableSpaces extends Component {
                 <Col sm={10}>
                   <FormControl inputRef={(ref) => { this.spaceUrl = ref; }} placeholder="Site" />
                 </Col>
-
               </FormGroup>
+
+              <FormGroup controlId="formHorizontaLat">
+                <Col componentClass={ControlLabel} sm={2}>
+                Latitude
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.spaceLat = ref; }} placeholder="Latitude" />
+                </Col>
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalLong">
+                <Col componentClass={ControlLabel} sm={2}>
+                Longitude
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.spaceLong = ref; }} placeholder="Longitude" />
+                </Col>
+              </FormGroup>
+
               {this.state.alertEmptyField ?
                 <Alert bsStyle="danger" onDismiss={this.handlealertEmptyFieldDismiss.bind(this)}>
                   <p>All fields must be filled out</p>
                 </Alert> : null}
 
+              {this.state.alertInvalidCoord ?
+                <Alert bsStyle="danger" onDismiss={this.handlealertInvalidCoordDismiss.bind(this)}>
+                  <p>Invalid Coordinate</p>
+                  </Alert> : null}
 
             </Form>
           </Modal.Body>
@@ -254,6 +328,7 @@ function mapDispatchToProps(dispatch) {
     boundAddSpace: bindActionCreators(unboundAddSpace, dispatch),
     boundDeleteSpace: bindActionCreators(unboundDeleteSpace, dispatch),
     boundUpdateSpace: bindActionCreators(unboundUpdateSpace, dispatch),
+    boundDeleteEvent: bindActionCreators(unboundDeleteEvent, dispatch),
 
   };
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ListGroup, ListGroupItem, Tooltip, OverlayTrigger, Modal, Col, Button, Form , FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Tooltip, OverlayTrigger, Modal, Col, Button, Form , FormGroup, FormControl, ControlLabel, Alert} from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import '../styles/backend.css';
@@ -15,10 +15,20 @@ class EditSpace extends Component {
 
     this.state = {
       showEditSpaceModal:false,
-      alertEmptyField:false
+      alertEmptyField:false,
+      alertInvalidCoord:false,
     }
 
   }
+
+  isInt(x) {
+      return !isNaN(x) && eval(x).toString().length == parseInt(eval(x)).toString().length;
+  }
+
+  isFloat(x) {
+    return !isNaN(x) && !this.isInt(eval(x)) && x.toString().length > 0;
+    }
+
 
   editSpace(event){
 
@@ -31,11 +41,17 @@ class EditSpace extends Component {
       spaceAddress:this.spaceAddress.value,
       spaceUrl:this.spaceUrl.value,
       spaceId:spaceId,
-      index:spaceIndex
+      index:spaceIndex,
+      spaceLat:this.spaceLat.value,
+      spaceLong:this.spaceLong.value,
     };
 
-    if (spaceData.spaceName == '' || spaceData.spaceAddress == '' || spaceData.spaceUrl == '') {
-      this.handlealertEmptyFieldShow()
+    if (spaceData.spaceName == '' || spaceData.spaceAddress == ''
+        || spaceData.spaceUrl == '' || spaceData.spaceLat == '' || spaceData.spaceLong == '' ) {
+      this.handlealertEmptyFieldShow();
+      return;
+    } else if ( !this.isFloat(spaceData.spaceLat) || !this.isFloat(spaceData.spaceLong) ) {
+      this.handlealertInvalidCoordShow();
       return;
     } else {
 
@@ -54,11 +70,33 @@ class EditSpace extends Component {
   }
 
 
+    handlealertEmptyFieldShow(){
+      this.setState({
+        alertEmptyField:true
+      })
+    }
+
+
   handlealertEmptyFieldDismiss(){
     this.setState({
       alertEmptyField:false
     })
   }
+
+
+    handlealertInvalidCoordShow() {
+      this.setState({
+        alertInvalidCoord:true
+      })
+    }
+
+
+    handlealertInvalidCoordDismiss() {
+      this.setState({
+        alertInvalidCoord:false
+      })
+    }
+
 
   render() {
 
@@ -77,11 +115,16 @@ class EditSpace extends Component {
           <OverlayTrigger placement="bottom" overlay={tooltip} delay={0}>
             <ListGroupItem  onClick={this.editSpaceModal.bind(this)} header={space.spaceName}>
               <span>
-                <div><b>Address:</b> {space.spaceAddress}</div>
-                <div><b>Site:</b>  {space.spaceUrl}</div>
-
+                <br/>
+                <div><b>Address:</b> {space.spaceAddress} </div>
+                <br/>
+                <div><b>Site:</b>  {space.spaceUrl} </div>
+                <br/>
+                <div><b>Latitude:</b> {space.spaceLat} </div>
+                <br/>
+                <div><b>Longitude:</b>  {space.spaceLong} </div>
+                <br/>
               </span>
-
             </ListGroupItem>
           </OverlayTrigger>
         </ListGroup>
@@ -117,12 +160,35 @@ class EditSpace extends Component {
                 <Col sm={10}>
                   <FormControl inputRef={(ref) => { this.spaceUrl = ref; }} placeholder="Site" defaultValue={space.spaceUrl} />
                 </Col>
-
               </FormGroup>
+
+              <FormGroup controlId="formHorizontaLat">
+                <Col componentClass={ControlLabel} sm={2}>
+                Latitude
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.spaceLat = ref; }} defaultValue={space.spaceLat} />
+                </Col>
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalLong">
+                <Col componentClass={ControlLabel} sm={2}>
+                Longitude
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.spaceLong = ref; }} defaultValue={space.spaceLong} />
+                </Col>
+              </FormGroup>
+
+
               {this.state.alertEmptyField ?
                 <Alert bsStyle="danger" onDismiss={this.handlealertEmptyFieldDismiss.bind(this)}>
                   <p>All fields must be filled out</p>
                 </Alert> : null}
+                {this.state.alertInvalidCoord ?
+                  <Alert bsStyle="danger" onDismiss={this.handlealertInvalidCoordDismiss.bind(this)}>
+                    <p>Invalid Coordinate</p>
+                    </Alert> : null}
 
 
             </Form>

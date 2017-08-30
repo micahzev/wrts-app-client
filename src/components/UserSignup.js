@@ -70,7 +70,6 @@ class UserSignup extends Component {
   }
 
   confirm(user, confirmationCode) {
-    debugger;
     return new Promise((resolve, reject) => (
       user.confirmRegistration(confirmationCode, true, function(err, result) {
         if (err) {

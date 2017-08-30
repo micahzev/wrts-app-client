@@ -33,13 +33,15 @@ class AdminBackend extends Component {
 
 
 
+
+
     return (
       <div className="Backend">
         <h1>
         WRTS BACKEND (ADMINISTRATOR ONLY)
         </h1>
         <br/>
-        <EditableSpaces spaces={this.props.spaces} />
+        <EditableSpaces spaces={this.props.spaces} events={this.props.events} />
         <br/>
         <UserSignup spaces={this.props.spaces} />
       </div>

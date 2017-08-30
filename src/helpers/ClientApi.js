@@ -79,7 +79,7 @@ export function deleteSpaceAPI(object) {
           if (err || !res.ok) {
             // console.log('Oh no! error' + JSON.stringify(err));
           } else {
-            // console.log('yay got ' + JSON.stringify(res.body));
+            console.log('yay got ' + JSON.stringify(res.body));
             resolve({
               index: object.index
             });
@@ -153,7 +153,7 @@ export function deleteEventAPI(object) {
           if (err || !res.ok) {
             // console.log('Oh no! error' + JSON.stringify(err));
           } else {
-            // console.log('yay got ' + JSON.stringify(res.body));
+            console.log('yay got ' + JSON.stringify(res.body));
             resolve({
               index: object.index
             });

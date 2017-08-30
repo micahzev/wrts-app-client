@@ -3,7 +3,16 @@ import ReactDataGrid from 'react-data-grid';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { Glyphicon, ButtonToolbar, Button, Modal, Form, FormGroup, FormControl, Col, ControlLabel, Alert } from 'react-bootstrap';
+import { Glyphicon,
+         ButtonToolbar,
+         Button,
+         Modal,
+         Form,
+         FormGroup,
+         FormControl,
+         Col,
+         ControlLabel,
+         Alert } from 'react-bootstrap';
 
 import Confirm from 'react-confirm-bootstrap';
 
@@ -77,30 +86,25 @@ class EditableEvents extends Component {
 
     const dateregexer = /^(0?[1-9]|[12][0-9]|3[01])\-(0?[1-9]|1[012])\-\d{4}$/;
 
-    if (updateObject.eventStartDate == '' ||
-          updateObject.eventEndDate == '' ||
-          updateObject.eventArtist == '' ||
+    if (  updateObject.eventStartDate  == '' ||
+          updateObject.eventEndDate    == '' ||
+          updateObject.eventArtist     == '' ||
           updateObject.eventExposition == '' ||
-               updateObject.eventStartTime == '' ||
-               updateObject.eventEndTime == ''  ) {
+          updateObject.eventStartTime  == '' ||
+          updateObject.eventEndTime    == ''  ) {
       alert('Invalid. The Field Is Empty.');
       return false;
-    } else if  ( !(Date.parse(updateObject.eventEndDate)) ||
-                  !(Date.parse(updateObject.eventStartDate)) ||
-                  !dateregexer.test(updateObject.eventEndDate) ||
-                  !dateregexer.test(updateObject.eventStartDate) ) {
-
+    } else if  ( !dateregexer.test(updateObject.eventEndDate) ||
+                 !dateregexer.test(updateObject.eventStartDate) ) {
       alert('Invalid Date. Format: DD-MM-YYYY');
       return false;
-    } else if (!regexer.test(updateObject.eventStartTime) || ! regexer.test(updateObject.eventEndTime)) {
+    } else if (!regexer.test(updateObject.eventStartTime) ||
+               !regexer.test(updateObject.eventEndTime)) {
       alert('Invalid Time. Format: HH:MM');
       return false;
-
     } else {
       return true;
     }
-
-
   }
 
 
@@ -118,10 +122,15 @@ class EditableEvents extends Component {
 
   addNewEvent(event) {
 
+    const startDateTest = this.eventStartDateYear.value+'-'+this.eventStartDateMonth.value+'-'+this.eventStartDateDay.value;
+    const realStartDate = this.eventStartDateDay.value+'-'+this.eventStartDateMonth.value+'-'+this.eventStartDateYear.value;
+
+    const endDateTest = this.eventEndDateYear.value+'-'+this.eventEndDateMonth.value+'-'+this.eventEndDateDay.value;
+    const realEndDate = this.eventEndDateDay.value+'-'+this.eventEndDateMonth.value+'-'+this.eventEndDateYear.value;
 
     const eventData = {
-      eventStartDate:this.eventStartDateDay.value+'-'+this.eventStartDateMonth.value+'-'+this.eventStartDateYear.value,
-      eventEndDate:this.eventEndDateDay.value+'-'+this.eventEndDateMonth.value+'-'+this.eventEndDateYear.value,
+      eventStartDate:realStartDate,
+      eventEndDate:realEndDate,
       eventArtist:this.eventArtist.value,
       eventExposition:this.eventExposition.value,
       eventStartTime:this.eventStartTimeHour.value+':'+this.eventStartTimeMinute.value,
@@ -129,75 +138,76 @@ class EditableEvents extends Component {
       spaceId:this.props.space.spaceId,
     }
 
-    const regexer =  /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
+    const timeRegex =  /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
-    if (eventData.eventStartDate == '' ||
-          eventData.eventEndDate == '' ||
-          eventData.eventArtist == '' ||
-          eventData.eventExposition == '' ||
-               eventData.eventStartTime == '' ||
-               eventData.eventEndTime == ''  ) {
-      this.handlealertEmptyFieldShow()
-      return;
-    } else if  (! Date.parse(eventData.eventEndDate) || ! Date.parse(eventData.eventStartDate)) {
+    if (eventData.eventStartDate == '' || eventData.eventEndDate    == '' ||
+        eventData.eventArtist    == '' || eventData.eventExposition == '' ||
+        eventData.eventStartTime == '' || eventData.eventEndTime    == ''  ) {
 
-      this.handlealertInvalidDateShow()
+      this.handleAlertEmptyFieldShow();
+
       return;
-    } else if (!regexer.test(eventData.eventStartTime) || ! regexer.test(eventData.eventEndTime)) {
-      this.handlealertInvalidTimeShow()
+
+    } else if  ( isNaN(Date.parse(startDateTest)) || isNaN(Date.parse(endDateTest)) ) {
+
+      this.handleAlertInvalidDateShow();
+
+      return;
+
+    } else if ( !timeRegex.test(eventData.eventStartTime) || ! timeRegex.test(eventData.eventEndTime) ) {
+
+      this.handleAlertInvalidTimeShow();
+
       return;
 
     } else {
+
       this.props.boundAddEvent(eventData);
+
     }
 
     this.closeAddEventModal();
 
   }
 
-  handlealertEmptyFieldDismiss(){
+  handleAlertEmptyFieldDismiss(){
     this.setState({
       alertEmptyField:false
-    })
+    });
 
   }
 
-  handlealertEmptyFieldShow(){
+  handleAlertEmptyFieldShow(){
     this.setState({
       alertEmptyField:true
-    })
+    });
 
   }
 
-  handlealertInvalidDateShow(){
+  handleAlertInvalidDateShow(){
     this.setState({
       alertInvalidDate:true
-    })
+    });
 
   }
 
-  handlealertInvalidDateDismiss(){
+  handleAlertInvalidDateDismiss(){
     this.setState({
       alertInvalidDate:false
-    })
+    });
   }
 
-  handlealertInvalidTimeShow(){
+  handleAlertInvalidTimeShow(){
     this.setState({
       alertInvalidTime:true
-    })
-
+    });
   }
 
-
-  handlealertInvalidTimeDismiss(){
+  handleAlertInvalidTimeDismiss(){
     this.setState({
       alertInvalidTime:false
-    })
-
+    });
   }
-
-
 
   onConfirm() {
     const events = this.props.events;
@@ -205,7 +215,6 @@ class EditableEvents extends Component {
     const toDelete = [];
 
     const deleteFunction = this.props.boundDeleteEvent;
-
 
     this.state.selectedIndexes.forEach( function(element) {
       const delObj = events[element];
@@ -216,6 +225,10 @@ class EditableEvents extends Component {
     toDelete.forEach(function(elem) {
       deleteFunction(elem);
     })
+
+      this.setState({
+        selectedIndexes:[],
+        });
   }
 
 
@@ -228,7 +241,8 @@ class EditableEvents extends Component {
       { key: 'eventArtist', name: 'Artiste',editable: true },
       { key: 'eventExposition', name: 'Exposition',editable: true },
       { key: 'eventStartTime', name: 'Start Time',editable: true },
-      { key: 'eventEndTime', name: 'End Time',editable: true }, ];
+      { key: 'eventEndTime', name: 'End Time',editable: true },
+    ];
 
     const rows = this.props.events ? this.props.events : [];
 
@@ -238,10 +252,9 @@ class EditableEvents extends Component {
 
     const toDeleteObjects = this.props.events.filter(function(elem, idx){
       return selectedIndexes.includes(idx);
-    })
+    });
 
     const toDelete = toDeleteObjects.map(function(elem) {return elem.eventExposition + ' ';});
-
 
     return (
       <div>
@@ -257,9 +270,8 @@ class EditableEvents extends Component {
             title="Are you sure you want to delete?">
             <Button bsStyle="danger" disabled={disableDelete}>Delete Selected</Button>
           </Confirm>
-
-
         </ButtonToolbar>
+
         <ReactDataGrid
           enableCellSelect
           enableDragAndDrop={false}
@@ -363,17 +375,17 @@ class EditableEvents extends Component {
 
 
               {this.state.alertEmptyField ?
-                <Alert bsStyle="danger" onDismiss={this.handlealertEmptyFieldDismiss.bind(this)}>
+                <Alert bsStyle="danger" onDismiss={this.handleAlertEmptyFieldDismiss.bind(this)}>
                   <p>All fields must be filled out</p>
                 </Alert> : null}
 
               {this.state.alertInvalidDate ?
-                <Alert bsStyle="danger" onDismiss={this.handlealertInvalidDateDismiss.bind(this)}>
+                <Alert bsStyle="danger" onDismiss={this.handleAlertInvalidDateDismiss.bind(this)}>
                   <p>Invalid Date</p>
                 </Alert> : null}
 
               {this.state.alertInvalidTime ?
-                <Alert bsStyle="danger" onDismiss={this.handlealertInvalidTimeDismiss.bind(this)}>
+                <Alert bsStyle="danger" onDismiss={this.handleAlertInvalidTimeDismiss.bind(this)}>
                   <p>Invalid Time</p>
                 </Alert> : null}
 

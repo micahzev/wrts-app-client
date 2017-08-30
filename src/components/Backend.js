@@ -20,6 +20,22 @@ class Backend extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      invalidAccount:false,
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+
+    const userSpaceId = decode(nextProps.userToken)['custom:spaceId'];
+
+    const userSpaceObject = nextProps.spaces.length >0 ? nextProps.spaces.find((x) => x.spaceId == userSpaceId) : {spaceName:'Loading...', spaceAddress:'Loading...', spaceUrl:'Loading...'};
+
+    if (!userSpaceObject) {
+      this.setState({
+        invalidAccount:true,
+      });
+    }
 
   }
 
@@ -31,9 +47,15 @@ class Backend extends Component {
 
     const spaceIndex = this.props.spaces.length >0 ? this.props.spaces.findIndex((x) => x.spaceId == userSpaceId) : -1;
 
-    userSpaceObject.index = spaceIndex;
+    if (userSpaceObject) {
+        userSpaceObject.index = spaceIndex;
 
-    return userSpaceObject;
+        return userSpaceObject;
+    } else {
+      return {spaceName:'Invalid Account', spaceAddress:'', spaceUrl:''};
+    }
+
+
 
 
   }
@@ -52,21 +74,29 @@ class Backend extends Component {
 
   render() {
 
-    const thisSpace = (this.findRelevantSpace.bind(this))();
 
-    const relevantEvents = this.props.events.filter((event) => event.spaceId == thisSpace.spaceId);
+    const thisSpace = !this.state.invalidAccount ? (this.findRelevantSpace.bind(this))() : {spaceName:'Invalid Account'};
 
-    const updatedRelevantEvents = (this.attachedIndeces.bind(this))(relevantEvents);
+    const relevantEvents = !this.state.invalidAccount ? this.props.events.filter((event) => event.spaceId == thisSpace.spaceId) : [];
+
+    const updatedRelevantEvents = !this.state.invalidAccount ? (this.attachedIndeces.bind(this))(relevantEvents) : [];
+
+
 
     return (
       <div className="Backend">
         <h1>
           WRTS BACKEND - {thisSpace.spaceName}
         </h1>
-        <br/>
-        <EditSpace space={thisSpace}/>
-        <br/>
-        <EditableEvents space={thisSpace} events={relevantEvents} />
+        {!this.state.invalidAccount ?
+          <div>
+            <br/>
+            <EditSpace space={thisSpace}/>
+            <br/>
+            <EditableEvents space={thisSpace} events={relevantEvents} />
+          </div>
+          : null}
+
 
       </div>
     );

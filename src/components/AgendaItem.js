@@ -39,7 +39,6 @@ class AgendaItem extends Component {
   }
 
   updateComponent(inputProps) {
-
     // find space name
     const space = _.find(inputProps.spaces, function(o) {
       return o.spaceId == inputProps.events.spaceId;

@@ -21,7 +21,6 @@ class Agenda extends Component {
     if (Object.keys(allEvents).length > 0) {
       allEvents = _.sortBy(allEvents, [function(o) { return o.eventStartDate; }]);
     }
-
     return (
       <div className="Space">
         {allEvents.map((eventData,idx) =>

@@ -44,7 +44,7 @@ class Layout extends Component {
           </Row>
           <Row className="Row">
             <Col xs={12} md={4} className="Column" >
-              <Map />
+              <Map spaces={this.props.spaces} />
             </Col>
             <Col xs={12} md={4} className="Column" >
               <Agenda events={this.props.events} spaces={this.props.spaces} />

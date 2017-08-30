@@ -50,7 +50,7 @@ class Layout extends Component {
               <Agenda events={this.props.events} spaces={this.props.spaces} />
             </Col>
             <Col xs={12} md={4} className="Column spacescolumn" >
-              <Spaces spaces={this.props.spaces} />
+              <Spaces spaces={this.props.spaces} events={this.props.events}/>
             </Col>
           </Row>
         </Grid>

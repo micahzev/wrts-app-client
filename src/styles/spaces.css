@@ -52,3 +52,10 @@
   top:0;
   right:0;
 }
+
+.pastEventsButton {
+  color:red;
+  position:absolute;
+  top:2em;
+  right:0;
+}

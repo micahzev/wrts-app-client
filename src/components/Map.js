@@ -7,11 +7,11 @@ import '../styles/map.css';
 
 import mapStyle from '../constants/mapStyle';
 
-import mapMarker from '../assets/favicon.png';
+import mapMarker from '../assets/seb.png';
 
 const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap
-    defaultZoom={12}
+    defaultZoom={13}
     defaultCenter={{ lat: 48.855924, lng: 2.34532 }}
     defaultOptions={{
       styles: mapStyle,

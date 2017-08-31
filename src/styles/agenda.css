@@ -30,3 +30,18 @@
 .hasHappened {
   background-color: '#e01939';
 }
+
+
+.futurLabel {
+  color:#e01939;
+  position:fixed;
+  bottom:2%;
+  right:35%;
+}
+
+.currentLabel {
+  color:white;
+  position:fixed;
+  top:13%;
+  right:35%;
+}

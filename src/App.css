@@ -8,6 +8,16 @@
   overflow:hidden;
 }
 
+
+::selection {
+  background: #e01939; /* WebKit/Blink Browsers */
+
+}
+::-moz-selection {
+  background: #e01939; /* Gecko Browsers */
+
+}
+
 .noPadMe {
   padding:0;
 }

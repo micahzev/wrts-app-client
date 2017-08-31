@@ -63,7 +63,7 @@ class Spaces extends Component {
 
 
     return (
-      <div>
+      <div className="spaceScroll" >
         <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>contact</p>
         <br/>
         <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>

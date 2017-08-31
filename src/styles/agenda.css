@@ -5,6 +5,7 @@
 .AgendaParent {
   display:flex;
   flex-direction:column;
+  overflow:auto;
 }
 
 .AgendaChild {
@@ -15,10 +16,11 @@
 }
 
 .Agendahead {
-  background-color: '#E6323D';
+  background-color: '#e01939';
 }
 
 .agendaData {
+  /*margin-top:35%;*/
   flex-grow: 1;
   padding:1%;
   margin-left: 2%;
@@ -26,5 +28,5 @@
 }
 
 .hasHappened {
-  background-color: '#E6323D';
+  background-color: '#e01939';
 }

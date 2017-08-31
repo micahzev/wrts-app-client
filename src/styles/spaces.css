@@ -1,6 +1,7 @@
 .SpaceParent {
   display:flex;
   flex-direction:column;
+  overflow: auto;
 }
 
 .spaceChild {
@@ -15,6 +16,7 @@
   /*padding:1%;
   margin-left: 2%;
   margin-right: 2%;*/
+  /*padding-top:20%;*/
 }
 
 .spacecontainer {
@@ -41,7 +43,7 @@
     border-top:none;
     border-left:none;
     border-right:none;
-    border-bottom-color: #1E0689;
+    border-bottom-color: #2f3277;
     border-bottom-style: solid;
     border-bottom-width: thin;
 }
@@ -52,7 +54,15 @@
 
 .spaceurl {
   font-style:italic;
-  color:#1E0689;
+  color:#2f3277;
+}
+
+
+.spaceurl:hover  {
+  font-weight:bold;
+  font-style:italic;
+  text-decoration: none;
+  color:#2f3277;
 }
 
 
@@ -61,21 +71,24 @@
 }
 
 .loginButton {
-  color:#E6323D;
+  color:#e01939;
   position:fixed;
   bottom:2%;
   right:2%;
 }
 
+.spaceScroll {
+  overflow: auto;
+}
 
 .loginButton:hover {
   font-weight:bold;
-  color:#E6323D;
+  color:#e01939;
    text-decoration: none;
 }
 
 .contactButton {
-  color:#E6323D;
+  color:#e01939;
   position:fixed;
   top:13%;
   right:2%;
@@ -90,7 +103,7 @@
 }
 
 .pastEventsButton {
-  color:#E6323D;
+  color:#e01939;
   position:fixed;
   top:15.5%;
   right:2%;

@@ -1,5 +1,5 @@
 .contactOverlay {
-    background-color: #E6323D;
+    background-color: #e01939;
     color:white;
     position: fixed;
     height: 100%;
@@ -41,6 +41,7 @@
   flex-direction:row;
   /*flex-basis:0;*/
   flex-grow: 20;
+  font-size:0.9em;
 
 }
 
@@ -53,6 +54,22 @@
     font-size:5em;
 
 
+}
+
+.contactTextBL{
+  margin:2%;
+  display:flex;
+  flex-direction:column;
+}
+
+.contactTextBR{
+  margin:2%;
+  display:flex;
+  flex-direction:column;
+}
+
+.contactBox{
+  margin:2%;
 }
 
 .contactTextUL {

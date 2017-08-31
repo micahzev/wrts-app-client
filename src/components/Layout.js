@@ -45,13 +45,13 @@ class Layout extends Component {
                   <div className="HeaderChildMiddle" >
                       <Agendahead />
                   </div>
-                  <Agenda className="ComponentChild" events={this.props.events} spaces={this.props.spaces} />
+                  <Agenda className="ComponentChildAgenda" events={this.props.events} spaces={this.props.spaces} />
             </div>
             <div className="ColumnChild" >
                   <div className="HeaderChild" >
                       <Spaceshead  />
                   </div>
-                  <Spaces className="ComponentChild" spaces={this.props.spaces} events={this.props.events}/>
+                  <Spaces className="ComponentChildSpaces" spaces={this.props.spaces} events={this.props.events}/>
             </div>
       </div>
     );

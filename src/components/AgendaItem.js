@@ -81,8 +81,8 @@ class AgendaItem extends Component {
 
     const colorToUse = this.props.styler ? 'white' : 'black';
 
-     const styler = this.state.isVernissage ? {color:'#E6323D'}   : this.state.hasHappened ?
-     { backgroundColor:'#E6323D',
+     const styler = this.state.isVernissage ? {color:'#e01939'}   : this.state.hasHappened ?
+     { backgroundColor:'#e01939',
        color:colorToUse,
        borderStyle: 'solid',
        borderTop:'none',

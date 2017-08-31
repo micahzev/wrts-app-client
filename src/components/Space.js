@@ -13,11 +13,11 @@ class Space extends Component {
     const URL = "http://" + this.props.space.spaceUrl;
 
     return (
-      <div className="spacecontainer">
-        <div className="leftspacecontainer spacename">
+      <div className="spacecontainer spaceChild">
+        <div className="leftspacecontainer spacename spaceData">
           {this.props.space.spaceName}
         </div>
-        <div className="rightspacecontainer">
+        <div className="rightspacecontainer spaceData">
           <div className="spaceaddress">
             {this.props.space.spaceAddress}
           </div>

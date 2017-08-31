@@ -34,7 +34,7 @@ class Agenda extends Component {
     const allSpaces = this.props.spaces ? this.props.spaces : undefined;
 
     return (
-      <div className="Space">
+      <div className="AgendaParent">
         {filteredEvents.map((eventData,idx) =>
           <AgendaItem key={idx} events={eventData} spaces={allSpaces}/>
         )}

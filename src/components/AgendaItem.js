@@ -79,19 +79,36 @@ class AgendaItem extends Component {
 
   render() {
 
-    const styler = this.state.isVernissage ? {color:'red'} : {};
+    // const styler = this.state.isVernissage ?  : {};
+    //
+    // const styler = this.state.hasHappened ?
+    //   Object.assign({backgroundColor:'red',color:'black'} ,styler)
+    //  : styler;
 
-    const hasHappenedClass = this.state.hasHappened ? 'hasHappened' : 'hasNotHappened';
+     const styler = this.state.isVernissage ? {color:'#E6323D'}   : this.state.hasHappened ?
+     { backgroundColor:'#E6323D',
+       color:'black',
+       borderStyle: 'solid',
+       borderTop:'none',
+       borderLeft:'none',
+       borderRight:'none',
+       borderBottomColor: 'black',
+       borderBottomStyle: 'solid',
+       borderBottomWidth: 'thin'
+     }
+      :  {};
 
     const expos = {fontStyle:'italic'};
 
+    const spaceStyle = {fontWeight:'bold'};
+
     return (
-      <div style={styler} className={hasHappenedClass}>
+      <div style={styler} className="AgendaChild">
         <div className="agendaData">
           {this.state.startDate} {this.state.hasHappened && 'to ' + this.state.endDate}
         </div>
 
-        <div className="agendaData">
+        <div style={spaceStyle} className="agendaData">
           {this.state.spaceName}
         </div>
 

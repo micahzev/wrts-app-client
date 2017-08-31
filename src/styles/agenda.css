@@ -2,17 +2,29 @@
 
 }
 
+.AgendaParent {
+  display:flex;
+  flex-direction:column;
+}
+
+.AgendaChild {
+  display:flex;
+  flex-direction:row;
+
+  flex-grow: 1;
+}
+
 .Agendahead {
-  background-color: red;
+  background-color: '#E6323D';
 }
 
 .agendaData {
-  display: inline-block;
+  flex-grow: 1;
   padding:1%;
   margin-left: 2%;
   margin-right: 2%;
 }
 
 .hasHappened {
-  background-color: red;
+  background-color: '#E6323D';
 }

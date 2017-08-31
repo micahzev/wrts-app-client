@@ -1,5 +1,20 @@
-.Space {
+.SpaceParent {
+  display:flex;
+  flex-direction:column;
+}
 
+.spaceChild {
+  display:flex;
+  flex-direction:row;
+
+  flex-grow: 1;
+}
+
+.spaceData {
+  /*flex-grow: 1;*/
+  /*padding:1%;
+  margin-left: 2%;
+  margin-right: 2%;*/
 }
 
 .spacecontainer {
@@ -9,12 +24,15 @@
     /*padding: 10px;*/
 }
 .leftspacecontainer {
+  text-align: center;
+  flex-grow: 2;
     width: 20%;
     height: 100%;
     float: left;
 }
 .rightspacecontainer {
-    margin-left: 20%;
+  flex-grow: 9;
+    /*margin-left: 20%;*/
     height: 100%;
     border-style: solid;
     border-top:none;
@@ -40,22 +58,22 @@
 }
 
 .loginButton {
-  color:red;
-  position:absolute;
-  bottom:0;
-  right:0;
+  color:#E6323D;
+  position:fixed;
+  bottom:2%;
+  right:2%;
 }
 
 .contactButton {
-  color:red;
-  position:absolute;
-  top:0;
-  right:0;
+  color:#E6323D;
+  position:fixed;
+  top:15%;
+  right:2%;
 }
 
 .pastEventsButton {
-  color:red;
-  position:absolute;
-  top:2em;
-  right:0;
+  color:#E6323D;
+  position:fixed;
+  top:17.5%;
+  right:2%;
 }

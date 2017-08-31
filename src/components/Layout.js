@@ -30,30 +30,24 @@ class Layout extends Component {
   render() {
     return (
       <div className="App">
-        <Grid className="Grid">
-          <Row>
-            <Col xs={4} md={4} className="Header" >
-              <Maphead />
-            </Col>
-            <Col xs={4} md={4} className="Header" >
-              <Agendahead />
-            </Col>
-            <Col xs={4} md={4} className="Header" >
-              <Spaceshead />
-            </Col>
-          </Row>
-          <Row className="Row">
-            <Col xs={12} md={4} className="Column" >
-              <Map spaces={this.props.spaces} />
-            </Col>
-            <Col xs={12} md={4} className="Column" >
-              <Agenda events={this.props.events} spaces={this.props.spaces} />
-            </Col>
-            <Col xs={12} md={4} className="Column spacescolumn" >
-              <Spaces spaces={this.props.spaces} events={this.props.events}/>
-            </Col>
-          </Row>
-        </Grid>
+            <div  className="ColumnChild" >
+                  <div className="HeaderChild" >
+                      <Maphead />
+                  </div>
+                  <Map className="ComponentChild" spaces={this.props.spaces} />
+            </div>
+            <div className="ColumnChild" >
+                  <div className="HeaderChild" >
+                      <Agendahead />
+                  </div>
+                  <Agenda className="ComponentChild" events={this.props.events} spaces={this.props.spaces} />
+            </div>
+            <div className="ColumnChild" >
+                  <div className="HeaderChild" >
+                      <Spaceshead  />
+                  </div>
+                  <Spaces className="ComponentChild" spaces={this.props.spaces} events={this.props.events}/>
+            </div>
       </div>
     );
   }

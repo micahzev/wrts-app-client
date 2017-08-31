@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../styles/agenda.css';
+import '../styles/heading.css';
 
 class Agendahead extends Component {
   render() {
     return (
-      <h1 className="Agendahead">
-      AGENDA
+      <h1 className="Heading">
+      Agenda
       </h1>
     );
   }

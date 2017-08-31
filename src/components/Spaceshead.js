@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../styles/spaces.css';
+import '../styles/heading.css';
 
 class Spaceshead extends Component {
   render() {
     return (
-      <h1 className="Spaceshead">
-        SPACES
+      <h1 className="Heading">
+        Spaces
       </h1>
     );
   }

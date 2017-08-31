@@ -133,7 +133,7 @@ export default
     'elementType': 'labels',
     'stylers': [
       {
-        'visibility': 'off'
+        'visibility': 'on'
       }
     ]
   },
@@ -142,7 +142,7 @@ export default
     'elementType': 'labels.icon',
     'stylers': [
       {
-        'visibility': 'off'
+        'visibility': 'on'
       }
     ]
   },
@@ -195,7 +195,7 @@ export default
     'featureType': 'road.local',
     'stylers': [
       {
-        'visibility': 'off'
+        'visibility': 'on'
       }
     ]
   },

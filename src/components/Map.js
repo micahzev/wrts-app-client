@@ -7,13 +7,22 @@ import '../styles/map.css';
 
 import mapStyle from '../constants/mapStyle';
 
-import mapMarker from '../assets/circle_pin.png';
+import mapMarker from '../assets/favicon.png';
 
 const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap
     defaultZoom={12}
     defaultCenter={{ lat: 48.855924, lng: 2.34532 }}
-    defaultOptions={{ styles: mapStyle }}
+    defaultOptions={{
+      styles: mapStyle,
+      streetViewControl: false,
+      scaleControl: false,
+      mapTypeControl: false,
+      panControl: false,
+      zoomControl: false,
+      rotateControl: false,
+      fullscreenControl: false
+    }}
     disableDefaultUI>
   {props.markers.map(marker => (
       <Marker

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../styles/map.css';
+import '../styles/heading.css';
 
 class Maphead extends Component {
   render() {
     return (
-      <h1 className="Maphead">
-        MAP
+      <h1 className="Heading">
+        Map
       </h1>
     );
   }

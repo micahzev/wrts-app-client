@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import '../App.css';
 
-import { Grid, Row, Col } from 'react-bootstrap';
-
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {  withRouter } from 'react-router-dom';

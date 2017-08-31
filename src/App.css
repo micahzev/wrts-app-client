@@ -7,6 +7,10 @@
   flex-direction:row;
 }
 
+.noPadMe {
+  padding:0;
+}
+
 .ColumnChild {
   display:flex;
   flex-direction:column;
@@ -32,4 +36,15 @@ flex-basis:0;
   font-weight:400;
 
 
+}
+
+.HeaderChildMiddle {
+  padding: 0;
+  text-align:center;
+  font-weight:300;
+
+  margin:0;
+  flex-basis:0;
+  background-color:#E6323D;
+  color:black;
 }

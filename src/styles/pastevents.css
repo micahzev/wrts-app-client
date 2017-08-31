@@ -1,17 +1,17 @@
 .pastEventsOverlay {
-  background-color: red;
+  background-color: #E6323D;
     color:white;
 
   position: fixed;
-    display: block;
+
 
     height: 100%;
     top: 0;
-    left: 66%;
+    width:34vw;
     right: 0;
     bottom: 0;
-
-    /*z-index: 2;*/
+    display:flex;
+    flex-direction:column;
 }
 
 .closeButton {
@@ -44,10 +44,17 @@
 
 .PastEventsHead {
   padding: 0;
-  text-align:center;
   height:10vh;
   color:white;
   z-index: 5;
+  text-align:center;
+  font-weight:300;
+  font-size:4em;
+}
+
+.pastEvents {
+  margin:1em;
+  padding: 1em;
 }
 
 .Column {

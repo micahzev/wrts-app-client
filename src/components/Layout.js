@@ -28,6 +28,11 @@ class Layout extends Component {
 
 
   render() {
+
+    var agendaSpecialStyle = {
+          padding:0,
+        };
+
     return (
       <div className="App">
             <div  className="ColumnChild" >
@@ -36,8 +41,8 @@ class Layout extends Component {
                   </div>
                   <Map className="ComponentChild" spaces={this.props.spaces} />
             </div>
-            <div className="ColumnChild" >
-                  <div className="HeaderChild" >
+            <div style={agendaSpecialStyle} className="ColumnChild" >
+                  <div className="HeaderChildMiddle" >
                       <Agendahead />
                   </div>
                   <Agenda className="ComponentChild" events={this.props.events} spaces={this.props.spaces} />

@@ -5,7 +5,7 @@ class PastEventsHead extends Component {
   render() {
     return (
       <h1 className="PastEventsHead">
-      PAST EVENTS
+      Past Events
       </h1>
     );
   }

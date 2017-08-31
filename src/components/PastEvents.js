@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/pastevents.css';
-import { Grid, Row, Col } from 'react-bootstrap';
 import PastEventsHead from './PastEventsHead';
 import AgendaItem from './AgendaItem';
 
@@ -21,23 +20,25 @@ class PastEvents extends Component {
     const pastEvents = this.props.events ? this.props.events : [];
     const allSpaces = this.props.spaces ? this.props.spaces : [];
 
+    const pastStyle = {color:"white"};
+
     return (
       <div>
         {show?
           <div className="pastEventsOverlay">
             <div className="closeButton" onClick={this.hideMe.bind(this)}>
             </div>
-            <Grid className="Grid">
-              <Row className="Row Header">
+            <div >
+              <div >
               <PastEventsHead />
 
-              </Row>
-              <Row className="Row Column">
+              </div>
+              <div className="pastEvents">
               {pastEvents.map((eventData,idx) =>
-                <AgendaItem key={idx} events={eventData} spaces={allSpaces}/>
+                <AgendaItem key={idx} styler={pastStyle} events={eventData} spaces={allSpaces}/>
               )}
-              </Row>
-            </Grid>
+              </div>
+            </div>
           </div>
           : null}
 

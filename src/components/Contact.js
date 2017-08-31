@@ -18,21 +18,20 @@ class Contact extends Component {
 
     return (
       <div>
+
         {show?
-          <div className="contactOverlay">
+          <div key={1} className="contactOverlay">
             <div className="closeButton" onClick={this.hideMe.bind(this)}>
             </div>
 
             <div className="parentText">
               <div className="contactTextUL">
-                    WE
-
-                    RUN
+                <div className="innerText">WE</div>
+                <div className="innerText">RUN</div>
               </div>
               <div className="contactTextUR">
-                    THE
-
-                     SPACE
+              <div className="innerText">THE</div>
+              <div className="innerText">SPACE</div>
               </div>
 
             </div>
@@ -48,9 +47,12 @@ class Contact extends Component {
                sent luptatum zzril delenit augue duis dolore te feugait nulla facil
                isi. Nam liber tempor cum soluta nobis eleifend option congue nihil
                 imperdiet doming id quod mazim placerat facer possim assum.
+
+                CONTACT INFORMATION
             </div>
           </div>
           : null}
+
 
       </div>
     );

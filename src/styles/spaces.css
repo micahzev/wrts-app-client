@@ -24,13 +24,16 @@
     /*padding: 10px;*/
 }
 .leftspacecontainer {
-  text-align: center;
-  flex-grow: 2;
+  /*text-align: center;*/
+  flex-basis:0;
+  flex-grow: 3;
     width: 20%;
     height: 100%;
     float: left;
 }
 .rightspacecontainer {
+  /*text-align: right;*/
+  flex-basis:0;
   flex-grow: 9;
     /*margin-left: 20%;*/
     height: 100%;
@@ -64,16 +67,31 @@
   right:2%;
 }
 
+
+.loginButton:hover {
+  font-weight:bold;
+  color:#E6323D;
+   text-decoration: none;
+}
+
 .contactButton {
   color:#E6323D;
   position:fixed;
-  top:15%;
+  top:13%;
   right:2%;
+}
+
+.contactButton:hover {
+  font-weight:bold;
+}
+
+.pastEventsButton:hover {
+  font-weight:bold;
 }
 
 .pastEventsButton {
   color:#E6323D;
   position:fixed;
-  top:17.5%;
+  top:15.5%;
   right:2%;
 }

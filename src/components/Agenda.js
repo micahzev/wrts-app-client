@@ -36,7 +36,7 @@ class Agenda extends Component {
     return (
       <div className="AgendaParent">
         <p className="currentLabel">current</p>
-        <p className="futurLabel" >futur</p>
+        <p className="futurLabel" >upcoming events</p>
         {filteredEvents.map((eventData,idx) =>
           <AgendaItem key={idx} events={eventData} spaces={allSpaces}/>
         )}

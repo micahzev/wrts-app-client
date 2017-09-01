@@ -11,7 +11,7 @@ import mapMarker from '../assets/seb.png';
 
 const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap
-    defaultZoom={13}
+    defaultZoom={12}
     defaultCenter={{ lat: 48.855924, lng: 2.34532 }}
     defaultOptions={{
       styles: mapStyle,

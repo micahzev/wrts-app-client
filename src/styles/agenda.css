@@ -20,12 +20,47 @@
 }
 
 .agendaData {
-  /*margin-top:35%;*/
   flex-grow: 1;
+  flex-basis:0;
   padding:1%;
   margin-left: 2%;
   margin-right: 2%;
 }
+
+.agendaDataDate{
+  flex-grow: 2;
+  flex-basis:0;
+  padding:1%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.agendaDataName{
+  flex-grow: 2;
+  flex-basis:0;
+  padding:1%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.agendaDataInfo{
+  flex-grow: 4;
+  flex-basis:0;
+  padding:1%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.agendaDataTime{
+  flex-grow: 2;
+  flex-basis:0;
+  padding:1%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+
+
 
 .hasHappened {
   background-color: '#e01939';
@@ -37,6 +72,7 @@
   position:fixed;
   bottom:2%;
   right:34.5%;
+  font-size: 0.9em;
 }
 
 .currentLabel {
@@ -44,6 +80,7 @@
   position:fixed;
   top:13%;
   right:34.5%;
+  font-size: 0.9em;
 }
 
 
@@ -54,6 +91,7 @@
     bottom:2%;
     right:34.5%;
     visibility: hidden;
+    font-size: 0.9em;
   }
 
   .currentLabel {
@@ -62,6 +100,7 @@
     top:13%;
     right:34.5%;
       visibility: hidden;
+      font-size: 0.9em;
   }
 
 }

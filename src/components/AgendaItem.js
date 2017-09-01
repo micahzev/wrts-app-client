@@ -79,7 +79,8 @@ class AgendaItem extends Component {
 
   render() {
 
-    const colorToUse = this.props.styler ? 'white' : 'black';
+    const colorToUse = this.props.styler ? 'white' : '#2f3277'
+;
 
      const styler = this.state.isVernissage ? {color:'#e01939'}   : this.state.hasHappened ?
      { backgroundColor:'#e01939',
@@ -100,15 +101,15 @@ class AgendaItem extends Component {
 
     return (
       <div style={styler} className="AgendaChild">
-        <div className="agendaData">
+        <div className="agendaDataDate">
           {this.state.startDate} {this.state.hasHappened && 'to ' + this.state.endDate}
         </div>
 
-        <div style={spaceStyle} className="agendaData">
+        <div style={spaceStyle} className="agendaDataName">
           {this.state.spaceName}
         </div>
 
-        <div className="agendaData">
+        <div className="agendaDataInfo">
 
           <div >
             {this.state.artist}
@@ -121,7 +122,7 @@ class AgendaItem extends Component {
         </div>
         {
           !this.state.hasHappened &&
-                 <div className="agendaData">
+                 <div className="agendaDataTime">
                    {this.state.startTime}-{this.state.endTime}
                  </div>
         }

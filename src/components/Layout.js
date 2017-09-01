@@ -27,30 +27,31 @@ class Layout extends Component {
 
   render() {
 
-    var agendaSpecialStyle = {
-          padding:0,
-        };
 
     return (
       <div className="App">
-            <div  className="ColumnChild" >
-                  <div className="HeaderChild" >
-                      <Maphead />
-                  </div>
-                  <Map className="ComponentChild" spaces={this.props.spaces} />
-            </div>
-            <div style={agendaSpecialStyle} className="ColumnChild" >
-                  <div className="HeaderChildMiddle" >
-                      <Agendahead />
-                  </div>
-                  <Agenda className="ComponentChildAgenda" events={this.props.events} spaces={this.props.spaces} />
-            </div>
-            <div className="ColumnChild" >
-                  <div className="HeaderChild" >
-                      <Spaceshead  />
-                  </div>
-                  <Spaces className="ComponentChildSpaces" spaces={this.props.spaces} events={this.props.events}/>
-            </div>
+        <div className="RowChildHead" >
+          <div className="HeaderChild" >
+              <Maphead />
+          </div>
+          <div className="HeaderChildMiddle" >
+              <Agendahead />
+          </div>
+          <div className="HeaderChild" >
+              <Spaceshead  />
+          </div>
+        </div>
+        <div className="RowChildCol" >
+          <div  className="ColumnChild" >
+                <Map className="ComponentChild" spaces={this.props.spaces} />
+          </div>
+          <div className="ColumnChild" >
+                <Agenda className="ComponentChildAgenda" events={this.props.events} spaces={this.props.spaces} />
+          </div>
+          <div className="ColumnChild" >
+                <Spaces className="ComponentChildSpaces" spaces={this.props.spaces} events={this.props.events}/>
+          </div>
+        </div>
       </div>
     );
   }

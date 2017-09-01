@@ -51,6 +51,11 @@ class Map extends Component {
             }
     }) : [];
 
+    const inlineStyle = {
+      height: '100%',
+      padding:'1em'
+    }
+
     return (
       <SimpleMapExampleGoogleMap
 
@@ -59,7 +64,7 @@ class Map extends Component {
         markers={markers}
 
         containerElement={
-          <div style={{ height: '100%' }} />
+          <div style={inlineStyle} />
         }
         mapElement={
           <div style={{ height: '100%' }} />

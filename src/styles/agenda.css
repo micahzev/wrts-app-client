@@ -36,12 +36,32 @@
   color:#e01939;
   position:fixed;
   bottom:2%;
-  right:35%;
+  right:34.5%;
 }
 
 .currentLabel {
   color:white;
   position:fixed;
   top:13%;
-  right:35%;
+  right:34.5%;
+}
+
+
+@media only screen and (max-device-width: 500px) {
+  .futurLabel {
+    color:#e01939;
+    position:fixed;
+    bottom:2%;
+    right:34.5%;
+    visibility: hidden;
+  }
+
+  .currentLabel {
+    color:white;
+    position:fixed;
+    top:13%;
+    right:34.5%;
+      visibility: hidden;
+  }
+
 }

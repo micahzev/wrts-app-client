@@ -32,6 +32,7 @@
     width: 20%;
     height: 100%;
     float: left;
+    padding-left:1%;
 }
 .rightspacecontainer {
   /*text-align: right;*/
@@ -90,7 +91,7 @@
 .contactButton {
   color:#e01939;
   position:fixed;
-  top:13%;
+  top:11.5%;
   right:2%;
 }
 
@@ -105,6 +106,31 @@
 .pastEventsButton {
   color:#e01939;
   position:fixed;
-  top:15.5%;
+  top:14%;
   right:2%;
+}
+
+
+@media only screen and (max-device-width: 500px) {
+
+  .pastEventsButton {
+    color:#e01939;
+    position:absolute;
+    top:14%;
+    right:2%;
+  }
+  .contactButton {
+    color:#e01939;
+    position:absolute;
+    top:11.5%;
+    right:2%;
+  }
+
+  .loginButton {
+    color:#e01939;
+    position:fixed;
+    bottom:2%;
+    right:2%;
+    visibility: hidden;
+  }
 }

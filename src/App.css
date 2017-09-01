@@ -4,8 +4,27 @@
   margin:0;
   width:100vw;
   display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+.RowChildHead{
+  display:flex;
   flex-direction:row;
   overflow:hidden;
+  flex-basis:0;
+  flex-grow: 1;
+  width:100%;
+}
+
+
+.RowChildCol{
+  display:flex;
+  flex-direction:row;
+  overflow:hidden;
+  flex-basis:0;
+  flex-grow: 9;
+  width:100%;
 }
 
 
@@ -28,7 +47,7 @@
   height:100%;
   margin: 0;
   flex-basis:0;
-  padding: 1em;
+  /*padding: 1em;*/
   flex-grow: 1;
   align-content:center;
   overflow:hidden;
@@ -38,7 +57,7 @@
   padding: 0;
   text-align:center;
   font-weight:300;
-
+  flex-grow: 1;
   margin:0;
   flex-basis:0;
 
@@ -47,8 +66,6 @@
 flex-basis:0;
   padding: 0;
   font-weight:400;
-
-
 }
 
 .ComponentChildAgenda {
@@ -71,10 +88,80 @@ flex-basis:0;
   padding: 0;
   text-align:center;
   font-weight:300;
-
+  flex-grow: 1;
 
   margin:0;
   flex-basis:0;
   background-color:#e01939;
   color:black;
+}
+
+@media only screen and (max-device-width: 500px) {
+
+
+  .App {
+    padding: 0;
+    height:100vh;
+    margin:0;
+    width:100vw;
+    display:flex;
+    flex-direction:column;
+
+  }
+
+  .RowChildHead{
+    display:flex;
+    flex-direction:row;
+    overflow:hidden;
+    flex: 0 0 auto;
+    width:100%;
+
+  }
+
+  .RowChildCol{
+    display:flex;
+    flex-wrap: nowrap;
+    flex-direction:row;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    /*flex-basis:0;
+    flex-grow: 9;*/
+    width:100%;
+  }
+  .ColumnChild {
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    margin: 0;
+    flex: 0 0 auto;
+    align-content:center;
+    overflow:hidden;
+    width:100vw;
+  }
+
+
+.HeaderChildMiddle {
+    padding: 0;
+    text-align:center;
+    font-weight:300;
+    flex-grow: 1;
+
+    margin:0;
+    flex-basis:0;
+    background-color:white;
+    color:#2f3277;
+
+}
+
+  .HeaderChild {
+    padding: 0;
+    text-align:center;
+    font-weight:300;
+    flex-grow: 1;
+    margin:0;
+    flex-basis:0;
+
+  }
+
 }

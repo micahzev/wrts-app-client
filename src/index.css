@@ -1,3 +1,45 @@
+@font-face {
+  font-family: 'NeuzeitS-BookHeavy';
+  src: local('NeuzeitS-BookHeavy'),
+       url(./fonts/NeuzeitS-BookHeavy.eot)  format('embedded-opentype'),
+       url(./fonts/NeuzeitS-BookHeavy.woff2)  format('woff2'),
+       url(./fonts/NeuzeitS-BookHeavy.woff)  format('woff'),
+       url(./fonts/NeuzeitS-BookHeavy.ttf)  format('truetype'),
+       url(./fonts/NeuzeitS-BookHeavy.svg)  format('svg');
+}
+
+@font-face {
+  font-family: 'CheltenhamBT-Roman';
+  src: local('CheltenhamBT-Roman'),
+       url(./fonts/CheltenhamBT-Roman.eot)  format('embedded-opentype'),
+       url(./fonts/CheltenhamBT-Roman.woff2)  format('woff2'),
+       url(./fonts/CheltenhamBT-Roman.woff)  format('woff'),
+       url(./fonts/CheltenhamBT-Roman.ttf)  format('truetype'),
+       url(./fonts/CheltenhamBT-Roman.svg)  format('svg');
+}
+
+@font-face {
+  font-family: 'CheltenhamBT-BoldHeadline';
+  src: local('CheltenhamBT-BoldHeadline'),
+       url(./fonts/CheltenhamBT-BoldHeadline.eot)  format('embedded-opentype'),
+       url(./fonts/CheltenhamBT-BoldHeadline.woff2)  format('woff2'),
+       url(./fonts/CheltenhamBT-BoldHeadline.woff)  format('woff'),
+       url(./fonts/CheltenhamBT-BoldHeadline.ttf)  format('truetype'),
+       url(./fonts/CheltenhamBT-BoldHeadline.svg)  format('svg');
+}
+
+@font-face {
+  font-family: 'NeuzeitS-Book';
+  src: local('NeuzeitS-Book'),
+       url(./fonts/NeuzeitS-Book.eot)  format('embedded-opentype'),
+       url(./fonts/NeuzeitS-Book.woff2)  format('woff2'),
+       url(./fonts/NeuzeitS-Book.woff)  format('woff'),
+       url(./fonts/NeuzeitS-Book.ttf)  format('truetype'),
+       url(./fonts/NeuzeitS-Book.svg)  format('svg');
+}
+
+
+
 body {
   margin: 0;
   padding: 0;

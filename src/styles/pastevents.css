@@ -1,16 +1,15 @@
 .pastEventsOverlay {
-  background-color: #e01939;
+    background-color: #e01939;
     color:white;
-
-  position: fixed;
-
-
+    position: fixed;
     height: 100%;
     top: 0;
     width:34vw;
     right: 0;
     bottom: 0;
+    display: -webkit-flex;
     display:flex;
+    -webkit-flex-direction: column;
     flex-direction:column;
 }
 
@@ -43,6 +42,7 @@
 
 
 .PastEventsHead {
+  font-family: 'NeuzeitS-Book';
   padding: 0;
   height:10vh;
   color:white;

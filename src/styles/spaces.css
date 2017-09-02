@@ -1,13 +1,18 @@
 .SpaceParent {
+  display: -webkit-flex;
   display:flex;
+  -webkit-flex-direction: column;
   flex-direction:column;
   overflow: auto;
 }
 
 .spaceChild {
-  display:flex;
-  flex-direction:row;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
 
+  -webkit-flex-grow:1;
   flex-grow: 1;
 }
 
@@ -27,16 +32,21 @@
 }
 .leftspacecontainer {
   /*text-align: center;*/
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:3;
   flex-grow: 3;
     width: 20%;
     height: 100%;
     float: left;
-    padding-left:1%;
+    padding-left:2%;
+    font-family: 'CheltenhamBT-BoldHeadline';
 }
 .rightspacecontainer {
   /*text-align: right;*/
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:9;
   flex-grow: 9;
     /*margin-left: 20%;*/
     height: 100%;
@@ -47,15 +57,18 @@
     border-bottom-color: #2f3277;
     border-bottom-style: solid;
     border-bottom-width: thin;
+
 }
 
 .spaceaddress {
+  font-family: 'NeuzeitS-Book';
 
 }
 
 .spaceurl {
   font-style:italic;
   color:#2f3277;
+  font-family: 'NeuzeitS-Book';
 }
 
 
@@ -77,6 +90,7 @@
   bottom:2%;
   right:2%;
   font-size: 0.9em;
+  font-family: 'NeuzeitS-Book';
 }
 
 .spaceScroll {
@@ -95,6 +109,7 @@
   top:11.5%;
   right:2%;
   font-size: 0.9em;
+  font-family: 'NeuzeitS-Book';
 }
 
 .contactButton:hover {
@@ -111,6 +126,7 @@
   top:14%;
   right:2%;
   font-size: 0.9em;
+  font-family: 'NeuzeitS-Book';
 }
 
 

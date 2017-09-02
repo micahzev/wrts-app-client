@@ -3,26 +3,36 @@
   height:100vh;
   margin:0;
   width:100vw;
+  display: -webkit-flex;
   display:flex;
+  -webkit-flex-direction: column;
   flex-direction:column;
   overflow:hidden;
 }
 
 .RowChildHead{
-  display:flex;
-  flex-direction:row;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
   overflow:hidden;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:1;
   flex-grow: 1;
   width:100%;
 }
 
 
 .RowChildCol{
-  display:flex;
-  flex-direction:row;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
   overflow:hidden;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:9;
   flex-grow: 9;
   width:100%;
 }
@@ -44,13 +54,17 @@
 }
 
 .ColumnChild {
+  display: -webkit-flex;
   display:flex;
+  -webkit-flex-direction: column;
   flex-direction:column;
   height:100%;
   margin: 0;
+  -webkit-flex-basis:0;
   flex-basis:0;
-  /*padding: 1em;*/
+  -webkit-flex-grow:1;
   flex-grow: 1;
+  -webkit-align-content: center;
   align-content:center;
   overflow:hidden;
 }
@@ -59,18 +73,22 @@
   padding: 0;
   text-align:center;
   font-weight:300;
-  flex-grow: 1;
   margin:0;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
 
 }
 .ComponentChild {
-flex-basis:0;
+  -webkit-flex-basis:0;
+  flex-basis:0;
   padding: 0;
   font-weight:400;
 }
 
 .ComponentChildAgenda {
+  -webkit-flex-basis:0;
   flex-basis:0;
     padding: 0;
     font-weight:400;
@@ -79,6 +97,7 @@ flex-basis:0;
 }
 
 .ComponentChildSpaces {
+  -webkit-flex-basis:0;
   flex-basis:0;
     padding: 0;
     font-weight:400;
@@ -90,10 +109,11 @@ flex-basis:0;
   padding: 0;
   text-align:center;
   font-weight:300;
-  flex-grow: 1;
-
-  margin:0;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  margin:0;
   background-color:#e01939;
   color:#2f3277;
 }
@@ -106,38 +126,49 @@ flex-basis:0;
     height:100vh;
     margin:0;
     width:100vw;
+    display: -webkit-flex;
     display:flex;
+    -webkit-flex-direction: column;
     flex-direction:column;
 
   }
 
   .RowChildHead{
-    display:flex;
-    flex-direction:row;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
     overflow:hidden;
+    -webkit-flex: 0 0 auto;
     flex: 0 0 auto;
     width:100%;
 
   }
 
   .RowChildCol{
-    display:flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    flex-direction:row;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    /*flex-basis:0;
-    flex-grow: 9;*/
+
     width:100%;
     height:100%;
   }
   .ColumnChild {
+    display: -webkit-flex;
     display:flex;
+    -webkit-flex-direction: column;
     flex-direction:column;
     height:100%;
     margin: 0;
+    -webkit-flex: 0 0 auto;
     flex: 0 0 auto;
+    -webkit-align-content: center;
     align-content:center;
     overflow:hidden;
     width:100vw;
@@ -148,10 +179,11 @@ flex-basis:0;
     padding: 0;
     text-align:center;
     font-weight:300;
-    flex-grow: 1;
-
-    margin:0;
+    -webkit-flex-basis:0;
     flex-basis:0;
+    -webkit-flex-grow:1;
+    flex-grow: 1;
+    margin:0;
     background-color:white;
     color:#2f3277;
 
@@ -161,10 +193,10 @@ flex-basis:0;
     padding: 0;
     text-align:center;
     font-weight:300;
+    -webkit-flex-basis:0;
+    flex-basis:0;
+    -webkit-flex-grow:1;
     flex-grow: 1;
     margin:0;
-    flex-basis:0;
-
   }
-
 }

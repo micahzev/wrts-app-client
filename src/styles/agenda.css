@@ -3,15 +3,20 @@
 }
 
 .AgendaParent {
+  display: -webkit-flex;
   display:flex;
+  -webkit-flex-direction: column;
   flex-direction:column;
   overflow:auto;
 }
 
 .AgendaChild {
-  display:flex;
-  flex-direction:row;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
 
+  -webkit-flex-grow:1;
   flex-grow: 1;
 }
 
@@ -20,43 +25,57 @@
 }
 
 .agendaData {
-  flex-grow: 1;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
   padding:1%;
   margin-left: 2%;
   margin-right: 2%;
 }
 
 .agendaDataDate{
-  flex-grow: 2;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:2;
+  flex-grow: 2;
   padding:1%;
   margin-left: 2%;
   margin-right: 2%;
+  font-family: 'NeuzeitS-Book';
 }
 
 .agendaDataName{
-  flex-grow: 2;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:2;
+  flex-grow: 2;
   padding:1%;
   margin-left: 2%;
   margin-right: 2%;
+  font-family: 'CheltenhamBT-BoldHeadline';
 }
 
 .agendaDataInfo{
-  flex-grow: 4;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:4;
+  flex-grow: 4;
   padding:1%;
   margin-left: 2%;
   margin-right: 2%;
+  font-family: 'NeuzeitS-Book';
 }
 
 .agendaDataTime{
-  flex-grow: 2;
+  -webkit-flex-basis:0;
   flex-basis:0;
+  -webkit-flex-grow:2;
+  flex-grow: 2;
   padding:1%;
   margin-left: 2%;
   margin-right: 2%;
+  font-family: 'NeuzeitS-Book';
 }
 
 
@@ -73,6 +92,7 @@
   bottom:2%;
   right:34.5%;
   font-size: 0.9em;
+  font-family: 'NeuzeitS-Book';
 }
 
 .currentLabel {
@@ -81,6 +101,7 @@
   top:13%;
   right:34.5%;
   font-size: 0.9em;
+  font-family: 'NeuzeitS-Book';
 }
 
 

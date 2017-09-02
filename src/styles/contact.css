@@ -8,25 +8,22 @@
     right: 0;
     bottom: 0;
     z-index: 2;
+    display: -webkit-flex;
     display:flex;
+    -webkit-flex-direction: column;
     flex-direction:column;
-
-
 }
 
 
 .closeButton {
-
     top:0;
     right:0;
     cursor:pointer;
     color: #fff;
     position: fixed;
     line-height: 0.5em;
-
     font-size: 3em;
     font-weight: 300;
-
       z-index: 5;
 }
 
@@ -36,34 +33,44 @@
 
 
 .contactText {
-  display:flex;
-  flex-direction:row;
+  font-family: 'NeuzeitS-BookHeavy';
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
   /*flex-basis:0;*/
-  flex-grow: 20;
-  font-size:0.9em;
+  /*flex-grow: 20;*/
+  font-size:0.8em;
 
 }
 
 .parentText {
-  font-family: 'Habibi', serif;
-  display:flex;
-  flex-direction:row;
+  font-family: 'CheltenhamBT-Roman';
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
   /*flex-basis:0;*/
-  flex-grow: 1;
+  /*flex-grow: 1;*/
     font-size:5em;
+
 
 
 }
 
 .contactTextBL{
   margin:2%;
+  display: -webkit-flex;
   display:flex;
+  -webkit-flex-direction: column;
   flex-direction:column;
 }
 
 .contactTextBR{
   margin:2%;
+  display: -webkit-flex;
   display:flex;
+  -webkit-flex-direction: column;
   flex-direction:column;
 }
 
@@ -72,24 +79,34 @@
 }
 
 .contactTextUL {
-  flex: 1 0 0;
+
+  display: -webkit-flex;
   display:flex;
+  -webkit-flex-direction: column;
   flex-direction:column;
   margin:5%;
   text-align: left;
+  -webkit-flex:  1 0 0;
+    flex: 1 0 0;
 }
 
 .contactTextUR {
-  flex: 1 0 0;
+
   margin:5%;
+  display: -webkit-flex;
   display:flex;
+  -webkit-flex-direction: column;
   flex-direction:column;
   text-align: right;
+-webkit-flex:  1 0 0;
+  flex: 1 0 0;
 
 }
 
 .innerText{
+  -webkit-align-content: center;
   align-content: center;
+  -webkit-flex: 1 0 0;
   flex: 1 0 0;
 }
 

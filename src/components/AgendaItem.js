@@ -97,15 +97,13 @@ class AgendaItem extends Component {
 
     const expos = {fontStyle:'italic'};
 
-    const spaceStyle = {fontWeight:'bold'};
-
     return (
       <div style={styler} className="AgendaChild">
         <div className="agendaDataDate">
           {this.state.startDate} {this.state.hasHappened && 'to ' + this.state.endDate}
         </div>
 
-        <div style={spaceStyle} className="agendaDataName">
+        <div className="agendaDataName">
           {this.state.spaceName}
         </div>
 

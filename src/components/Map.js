@@ -7,7 +7,7 @@ import '../styles/map.css';
 
 import mapStyle from '../constants/mapStyle';
 
-import mapMarker from '../assets/seb.png';
+import mapMarker from '../assets/cross.png';
 
 const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap

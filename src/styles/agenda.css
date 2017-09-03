@@ -8,6 +8,7 @@
   -webkit-flex-direction: column;
   flex-direction:column;
   overflow:auto;
+  height:100%;
 }
 
 .AgendaChild {
@@ -15,9 +16,10 @@
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-
   -webkit-flex-grow:1;
   flex-grow: 1;
+  flex-shrink: 0;
+
 }
 
 .Agendahead {

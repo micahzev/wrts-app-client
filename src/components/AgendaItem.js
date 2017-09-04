@@ -79,7 +79,7 @@ class AgendaItem extends Component {
 
   render() {
 
-    const colorToUse = this.props.styler ? 'white' : '#2f3277'
+    const colorToUse = this.props.styler ? 'white' : '#0c0321'
 ;
 
      const styler = this.state.isVernissage ? {color:'#e01939'}   : this.state.hasHappened ?

@@ -4,6 +4,7 @@
   -webkit-flex-direction: column;
   flex-direction:column;
   overflow: auto;
+  padding:2.5em;
 }
 
 .spaceChild {

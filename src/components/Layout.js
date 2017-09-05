@@ -40,10 +40,12 @@ class Layout extends Component {
 
   handleScroll(event) {
 
-    const toMove = Math.abs(event.deltaY);
+    const toMove = 4*Math.abs(event.deltaY);
 
 
     if (event.deltaY < 0) {
+
+
 
        this.refs.leftScrollOverlay.scrollTop += toMove;
        this.refs.rightScrollOverlay.scrollTop -=  toMove;
@@ -56,6 +58,8 @@ class Layout extends Component {
        this.refs.rightScrollOverlay.scrollTop +=  toMove;
 
      }
+
+
 
 
   }
@@ -143,7 +147,7 @@ class Layout extends Component {
         </div>
         <div className='RowChildCol' >
           <div  className='ColumnChild' >
-                <Map className='ComponentChild' spaces={this.props.spaces} />
+                <Map className='ComponentChild' spaces={this.props.spaces} events={this.props.events}/>
           </div>
           <div className='ColumnChild' >
                 <Agenda className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />

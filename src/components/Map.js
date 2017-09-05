@@ -7,7 +7,8 @@ import '../styles/map.css';
 
 import mapStyle from '../constants/mapStyle';
 
-import mapMarker from '../assets/cross.png';
+import mapMarkerCross from '../assets/cross.png';
+import mapMarkerCircle from '../assets/circle.png';
 
 const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap
@@ -38,22 +39,54 @@ class Map extends Component {
     super(props);
   }
 
+  sameDay(d1, d2) {
+    return d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate();
+  }
+
   render() {
 
+    const vernissageIds = this.props.events.filter((event) => {
+      const today = new Date();
+      const splitted = event.eventStartDate.split('-');
+      const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-'));
+      return this.sameDay(today,vernissage);
+    }).map((o) => {
+      return o.spaceId;
+    }
+  );
+
+  console.log(vernissageIds);
+
     const markers = this.props.spaces ? this.props.spaces.map(function(space) {
-      return {
-              position: {
-                lat: parseFloat(space.spaceLat),
-                lng: parseFloat(space.spaceLong),
-              },
-              key: space.spaceName,
-              icon:mapMarker
-            }
+
+      if (_.includes(vernissageIds, space.spaceId)) {
+        return {
+                position: {
+                  lat: parseFloat(space.spaceLat),
+                  lng: parseFloat(space.spaceLong),
+                },
+                key: space.spaceName,
+                icon:mapMarkerCircle
+              }
+      } else {
+        return {
+                position: {
+                  lat: parseFloat(space.spaceLat),
+                  lng: parseFloat(space.spaceLong),
+                },
+                key: space.spaceName,
+                icon:mapMarkerCross
+              }
+      }
+
+
     }) : [];
 
     const inlineStyle = {
       height: '100%',
-      padding:'1em'
+      padding:'2.5em'
     }
 
     return (

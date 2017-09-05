@@ -47,15 +47,15 @@ class Layout extends Component {
 
 
 
-       this.refs.leftScrollOverlay.scrollTop += toMove;
-       this.refs.rightScrollOverlay.scrollTop -=  toMove;
+       this.refs.leftScrollOverlay.scrollTop -= toMove;
+       this.refs.rightScrollOverlay.scrollTop +=  toMove;
 
 
      }
      if (event.deltaY > 0) {
 
-       this.refs.leftScrollOverlay.scrollTop -= toMove;
-       this.refs.rightScrollOverlay.scrollTop +=  toMove;
+       this.refs.leftScrollOverlay.scrollTop += toMove;
+       this.refs.rightScrollOverlay.scrollTop -=  toMove;
 
      }
 

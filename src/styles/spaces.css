@@ -5,6 +5,7 @@
   flex-direction:column;
   overflow: auto;
   padding:2.5em;
+  padding-right:4em;
 }
 
 .spaceChild {
@@ -95,6 +96,8 @@
   right:2%;
   font-size: 0.9em;
   font-family: 'NeuzeitS-Book';
+  -webkit-mask-composite: XOR;
+  mask-composite: XOR;
 }
 
 .spaceScroll {

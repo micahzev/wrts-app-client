@@ -30,44 +30,26 @@ class Layout extends Component {
     findDOMNode(this.refs.appityapp).addEventListener('wheel', this.handleScroll.bind(this), true);
     const middle = window.innerHeight / 2;
     this.refs.leftScrollOverlay.scrollTop +=  window.innerHeight;
-    this.refs.rightScrollOverlay.scrollTop +=  window.innerHeight;
+    // this.refs.rightScrollOverlay.scrollTop +=  window.innerHeight;
   }
 
   componentWillUnmount() {
     findDOMNode(this.refs.appityapp).removeEventListener('wheel', this.handleScroll.bind(this), true);
   }
 
-
   handleScroll(event) {
-
-    const toMove = 4*Math.abs(event.deltaY);
-
-
+    const toMove = 0.4*Math.abs(event.deltaY);
     if (event.deltaY < 0) {
-
-
-
        this.refs.leftScrollOverlay.scrollTop -= toMove;
        this.refs.rightScrollOverlay.scrollTop +=  toMove;
-
-
      }
      if (event.deltaY > 0) {
-
        this.refs.leftScrollOverlay.scrollTop += toMove;
        this.refs.rightScrollOverlay.scrollTop -=  toMove;
-
      }
-
-
-
-
   }
 
-
-
   render() {
-
 
     return (
       <div ref='appityapp' className='App'>

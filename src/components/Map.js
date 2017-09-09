@@ -12,7 +12,7 @@ import mapMarkerCircle from '../assets/circle.png';
 
 const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap
-    defaultZoom={12}
+    defaultZoom={11}
     defaultCenter={{ lat: 48.855924, lng: 2.34532 }}
     defaultOptions={{
       styles: mapStyle,
@@ -20,7 +20,7 @@ const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
       scaleControl: false,
       mapTypeControl: false,
       panControl: false,
-      zoomControl: false,
+      zoomControl: true,
       rotateControl: false,
       fullscreenControl: false
     }}
@@ -56,8 +56,6 @@ class Map extends Component {
       return o.spaceId;
     }
   );
-
-  console.log(vernissageIds);
 
     const markers = this.props.spaces ? this.props.spaces.map(function(space) {
 

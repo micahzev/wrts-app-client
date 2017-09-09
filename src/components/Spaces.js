@@ -69,12 +69,12 @@ class Spaces extends Component {
         <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>
         <Contact show={this.state.showOverLay} undoShow={this.undoShow.bind(this)} />
         <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
-        <div className="SpaceParent">
+        <div ref="spaceparent" className="SpaceParent">
           {allSpaces.map((spaceData,idx) =>
             <Space key={idx} space={spaceData} />
           )}
         </div>
-        <NavLink className="loginButton" to="/login">login</NavLink>
+        <NavLink ref="loginbutton" className="loginButton" to="/login">login</NavLink>
       </div>
     );
   }

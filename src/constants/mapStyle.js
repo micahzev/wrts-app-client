@@ -20,7 +20,7 @@ export default
     'elementType': 'labels.text.fill',
     'stylers': [
       {
-        'color': '#616161'
+        'color': '#2f3277'
       }
     ]
   },
@@ -239,7 +239,7 @@ export default
     'elementType': 'geometry',
     'stylers': [
       {
-        'color': '#c9c9c9'
+        'color': '#afafaf'
       }
     ]
   },

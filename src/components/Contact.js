@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/contact.css';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class Contact extends Component {
   constructor(props) {
@@ -18,7 +19,10 @@ class Contact extends Component {
 
     return (
       <div>
-
+        <CSSTransitionGroup
+          transitionName="contactsTransition"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
         {show?
           <div key={1} className="contactOverlay">
             <div className="closeButton" onClick={this.hideMe.bind(this)}>
@@ -98,7 +102,7 @@ class Contact extends Component {
             </div>
           </div>
           : null}
-
+          </CSSTransitionGroup>
 
       </div>
     );

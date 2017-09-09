@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AgendaItem from './AgendaItem';
+import { findDOMNode } from 'react-dom';
 
 import _ from 'lodash';
 
@@ -11,11 +12,41 @@ class Agenda extends Component {
     super(props);
   }
 
+  componentDidUpdate(){
+
+    console.log(this.props);
+
+    if (this.props.events.length > 0 && this.props.spaces.length > 0 && this.refs.scrolltome){
+
+      console.log(this.refs.scrolltest.scrollTop);
+      console.log(this.refs.scrolltome.getBoundingClientRect().top);
+      console.log(this.refs.scrolltest.scrollTop + this.refs.scrolltome.getBoundingClientRect().top);
+      const offset = 0.2 * window.innerHeight;
+      this.refs.scrolltest.scrollTop += this.refs.scrolltome.getBoundingClientRect().top - offset;
+    }
+  }
+
+
+
   sortAndFilterEvents(events){
     const sortedEvents = _.sortBy(events, [function(o) {
       let splitted = o.eventStartDate.split('-');
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-'));
     }]);
+
+    const scrollToIndex = sortedEvents.findIndex(function(o) {
+      let splitted = o.eventStartDate.split('-');
+      let today = new Date();
+      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) > today;
+    });
+
+    sortedEvents.forEach(function(element) {
+        element.scroller = element.eventArtist;
+    });
+
+    if (scrollToIndex > -1) {
+      sortedEvents[scrollToIndex].scroller = "scrolltome";
+    }
 
     return sortedEvents.filter(function(o) {
       let splitted = o.eventEndDate.split('-');
@@ -29,16 +60,18 @@ class Agenda extends Component {
   render() {
 
     const allEvents = this.props.events ? this.props.events : [];
-    const filteredEvents = this.props.events ? this.sortAndFilterEvents(allEvents) : [];
+    const filteredEvents = (this.props.events.length > 0 && this.props.spaces.length > 0) ? this.sortAndFilterEvents(allEvents) : [];
 
     const allSpaces = this.props.spaces ? this.props.spaces : undefined;
 
     return (
-      <div className="AgendaParent">
+      <div className="AgendaParent" ref="scrolltest" >
         <p className="currentLabel">current</p>
         <p className="futurLabel" >upcoming events</p>
         {filteredEvents.map((eventData,idx) =>
-          <AgendaItem key={idx} events={eventData} spaces={allSpaces}/>
+          <div key={idx} ref={eventData.scroller}>
+            <AgendaItem events={eventData} spaces={allSpaces}/>
+          </div>
         )}
       </div>
     );

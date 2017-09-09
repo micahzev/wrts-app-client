@@ -11,7 +11,24 @@
     display:flex;
     -webkit-flex-direction: column;
     flex-direction:column;
+    overflow: hidden;
+    z-index: 4;
 }
+
+.pastEventsDiv {
+  overflow: auto;
+}
+
+.pastEventsScroll{
+    overflow: auto;
+}
+
+.pastEvents {
+  margin:1em;
+  padding: 1em;
+  overflow:auto;
+}
+
 
 .closeButton {
 
@@ -50,12 +67,9 @@
   text-align:center;
   font-weight:300;
   font-size:4em;
+
 }
 
-.pastEvents {
-  margin:1em;
-  padding: 1em;
-}
 
 .Column {
   padding: 1em;
@@ -65,4 +79,42 @@
 
 .Row {
   margin:1em;
+}
+
+
+
+.pastEventsTransition-enter {
+  opacity: 0.01;
+}
+
+.pastEventsTransition-enter.pastEventsTransition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.pastEventsTransition-leave {
+  opacity: 1;
+}
+
+.pastEventsTransition-leave.pastEventsTransition-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.pastEventsTransition-enter {
+  opacity: 0.01;
+}
+
+.pastEventsTransition-enter.pastEventsTransition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.pastEventsTransition-leave {
+  opacity: 1;
+}
+
+.pastEventsTransition-leave.pastEventsTransition-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }

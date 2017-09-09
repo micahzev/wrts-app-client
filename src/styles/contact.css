@@ -40,7 +40,7 @@
   flex-direction: row;
   /*flex-basis:0;*/
   /*flex-grow: 20;*/
-  font-size:0.8em;
+  font-size:0.7em;
 
 }
 
@@ -110,20 +110,38 @@
   flex: 1 0 0;
 }
 
-.example-enter {
+.contactsTransition-enter {
   opacity: 0.01;
 }
 
-.example-enter.example-enter-active {
+.contactsTransition-enter.contactsTransition-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
 
-.example-leave {
+.contactsTransition-leave {
   opacity: 1;
 }
 
-.example-leave.example-leave-active {
+.contactsTransition-leave.contactsTransition-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.contactsTransition-enter {
+  opacity: 0.01;
+}
+
+.contactsTransition-enter.contactsTransition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.contactsTransition-leave {
+  opacity: 1;
+}
+
+.contactsTransition-leave.contactsTransition-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }

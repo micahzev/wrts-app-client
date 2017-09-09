@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import _ from 'lodash';
 import '../styles/agenda.css';
 
@@ -30,7 +31,11 @@ class AgendaItem extends Component {
         }
       );
     }
+
   }
+
+
+
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.spaces && Object.keys(nextProps.events).length > 0) {
@@ -54,7 +59,7 @@ class AgendaItem extends Component {
 
 
     this.setState({
-      spaceName:space.spaceName,
+      spaceName:space ? space.spaceName : "",
       startDate:inputProps.events.eventStartDate.replace(/-/g,'.'),
       endDate:inputProps.events.eventEndDate.replace(/-/g,'.'),
       artist:inputProps.events.eventArtist,
@@ -79,8 +84,7 @@ class AgendaItem extends Component {
 
   render() {
 
-    const colorToUse = this.props.styler ? 'white' : '#0c0321'
-;
+    const colorToUse = this.props.styler ? 'white' : '#0c0321';
 
      const styler = this.state.isVernissage ? {color:'#e01939'}   : this.state.hasHappened ?
      { backgroundColor:'#e01939',

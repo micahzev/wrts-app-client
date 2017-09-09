@@ -99,7 +99,7 @@ class AgendaItem extends Component {
      }
       :  {};
 
-    const expos = {fontStyle:'italic'};
+    const expos = {fontStyle:'italic',paddingTop:'1.5%'};
 
     return (
       <div style={styler} className="AgendaChild">

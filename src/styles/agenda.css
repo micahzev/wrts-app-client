@@ -18,8 +18,12 @@
   flex-direction: row;
   -webkit-flex-grow:1;
   flex-grow: 1;
-  -webkit-flex-shrink: 0; 
+  -webkit-flex-shrink: 0;
   flex-shrink: 0;
+  padding-top:3%;
+
+
+
 
 }
 
@@ -40,31 +44,31 @@
 .agendaDataDate{
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:2;
-  flex-grow: 2;
-  padding:1%;
-  margin-left: 2%;
-  margin-right: 2%;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  padding-top:0.5%;
+  margin-left: 1%;
   font-family: 'NeuzeitS-Book';
+  text-align:center;
+  font-size:1.4vh;
 }
 
 .agendaDataName{
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:2;
-  flex-grow: 2;
-  padding:1%;
-  margin-left: 2%;
-  margin-right: 2%;
+  -webkit-flex-grow:3;
+  flex-grow: 3;
+  margin-left: 3%;
+
   font-family: 'CheltenhamBT-BoldHeadline';
 }
 
 .agendaDataInfo{
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:4;
-  flex-grow: 4;
-  padding:1%;
+  -webkit-flex-grow:6;
+  flex-grow: 6;
+
   margin-left: 2%;
   margin-right: 2%;
   font-family: 'NeuzeitS-Book';
@@ -73,12 +77,12 @@
 .agendaDataTime{
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:2;
-  flex-grow: 2;
-  padding:1%;
-  margin-left: 2%;
-  margin-right: 2%;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  padding-top:0.5%;
+  margin-right: 1%;
   font-family: 'NeuzeitS-Book';
+  font-size:1.4vh;
 }
 
 

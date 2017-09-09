@@ -74,7 +74,7 @@ class Spaces extends Component {
             <Space key={idx} space={spaceData} />
           )}
         </div>
-        <NavLink ref="loginbutton" className="loginButton" to="/login">login</NavLink>
+        <NavLink className="loginButton" to="/login">login</NavLink>
       </div>
     );
   }

@@ -12,17 +12,21 @@ class Agenda extends Component {
     super(props);
   }
 
+
   componentDidUpdate(){
 
-    console.log(this.props);
+    var _this = this;
 
     if (this.props.events.length > 0 && this.props.spaces.length > 0 && this.refs.scrolltome){
 
-      console.log(this.refs.scrolltest.scrollTop);
-      console.log(this.refs.scrolltome.getBoundingClientRect().top);
-      console.log(this.refs.scrolltest.scrollTop + this.refs.scrolltome.getBoundingClientRect().top);
-      const offset = 0.2 * window.innerHeight;
-      this.refs.scrolltest.scrollTop += this.refs.scrolltome.getBoundingClientRect().top - offset;
+        window.requestAnimationFrame(function() {
+            const offset = 0.1 * window.innerHeight;
+            if ((_this.refs.scrolltome.getBoundingClientRect().top - offset) > (_this.refs.scrolltest.scrollHeight-window.innerHeight)) {
+                _this.refs.scrolltest.scrollTop = _this.refs.scrolltest.scrollHeight-window.innerHeight;
+            } else {
+                _this.refs.scrolltest.scrollTop += _this.refs.scrolltome.getBoundingClientRect().top - offset;
+            }
+        });
     }
   }
 

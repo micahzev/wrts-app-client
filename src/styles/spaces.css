@@ -98,8 +98,6 @@
   right:2%;
   font-size: 0.9em;
   font-family: 'NeuzeitS-Book';
-  -webkit-mask-composite: XOR;
-  mask-composite: XOR;
 }
 
 .spaceScroll {

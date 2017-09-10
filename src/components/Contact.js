@@ -31,10 +31,10 @@ class Contact extends Component {
             <div className="parentText">
               <div className="contactTextUL">
                 <div className="innerText">WE</div>
-                <div className="innerText">RUN</div>
+                <div className="innerText">THE</div>
               </div>
               <div className="contactTextUR">
-              <div className="innerText">THE</div>
+              <div className="innerText">RUN</div>
               <div className="innerText">SPACE</div>
               </div>
 

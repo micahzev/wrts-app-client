@@ -12,7 +12,7 @@ import mapMarkerCircle from '../assets/circle.png';
 
 const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   <GoogleMap
-    defaultZoom={12}
+    defaultZoom={11}
     defaultCenter={{ lat: 48.855924, lng: 2.34532 }}
     defaultOptions={{
       styles: mapStyle,

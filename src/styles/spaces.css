@@ -161,4 +161,26 @@
     right:2%;
     font-size: 0.9em;
   }
+
+  .spaceaddress {
+    font-size:1.6vh;
+  }
+
+  .spaceurl {
+     display:block;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     white-space: nowrap;
+     font-size:1.6vh;
+     width:40vw;
+  }
+
+  .rightspacecontainer {
+    margin-left:5%;
+  }
+
+  .SpaceParent {
+    padding-top:4em;
+    padding-right:2em;
+  }
 }

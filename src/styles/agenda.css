@@ -131,4 +131,13 @@
       font-size: 0.9em;
   }
 
+  .agendaDataDate {
+    font-size:1.7vh;
+  }
+
+
+  .agendaDataTime {
+    font-size:1.7vh;
+  }
+
 }

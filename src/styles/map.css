@@ -8,3 +8,23 @@
 .MapHead {
 
 }
+
+
+.mapElement{
+  height: 100%;
+  padding:2.5em;
+}
+
+
+
+
+@media only screen and (max-device-width: 500px) {
+
+  .mapElement{
+
+
+    padding-right: 1em;
+  }
+
+
+ }

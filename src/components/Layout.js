@@ -26,11 +26,24 @@ class Layout extends Component {
     this.handleScroll = this.handleScroll.bind(this);
   }
 
+  // componentDidUpdate(){
+  //
+  //   var _this = this;
+  //
+  //   if (this.props.events.length > 0 && this.props.spaces.length > 0){
+  //
+  //     // this.refs.scrollcolumns.scrollLeft += window.innerWidth;
+  //       // window.requestAnimationFrame(function() {
+  //       //     _this.refs.scrollcolumns.scrollLeft += window.innerWidth;
+  //       // });
+  //   }
+  // }
+
   componentDidMount() {
     findDOMNode(this.refs.appityapp).addEventListener('wheel', this.handleScroll.bind(this), true);
-    const middle = window.innerHeight / 2;
     this.refs.leftScrollOverlay.scrollTop +=  window.innerHeight;
-    // this.refs.rightScrollOverlay.scrollTop +=  window.innerHeight;
+    //this sets the position on landing of the central column
+    this.refs.scrollcolumns.scrollLeft += this.refs.agendacolumn.getBoundingClientRect().left - (0.05*window.innerWidth);
   }
 
   componentWillUnmount() {
@@ -127,11 +140,11 @@ class Layout extends Component {
               <Spaceshead  />
           </div>
         </div>
-        <div className='RowChildCol' >
+        <div ref="scrollcolumns" className='RowChildCol' >
           <div  className='ColumnChild' >
                 <Map className='ComponentChild' spaces={this.props.spaces} events={this.props.events}/>
           </div>
-          <div className='ColumnChild' >
+          <div ref="agendacolumn" className='ColumnChild' >
                 <Agenda className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
           </div>
           <div className='ColumnChild' >

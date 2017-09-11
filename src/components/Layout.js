@@ -68,6 +68,20 @@ class Layout extends Component {
       <div ref='appityapp' className='App'>
 
         <div ref='leftScrollOverlay' id='leftScrollOverlay' className='leftScrollOverlay'>
+        <div ref='whiteBottom' id='whiteBottom' className='whiteBottom'>
+          <ul>
+            <li className='blueListItem'>we run</li>
+            <li className='blueListItem'>the space</li>
+            <li className='blueListItem'>we run</li>
+            <li className='blueListItem'>the space</li>
+            <li className='blueListItem'>we run</li>
+            <li className='blueListItem'>the space</li>
+            <li className='blueListItem'>we run</li>
+            <li className='blueListItem'>the space</li>
+            <li className='blueListItem'>we run</li>
+            <li className='blueListItem'>the space</li>
+          </ul>
+        </div>
           <div ref='redTop' id='redTop' className='redTop'>
             <ul>
               <li className='redListItem'>we run</li>
@@ -82,20 +96,7 @@ class Layout extends Component {
               <li className='redListItem'>the space</li>
             </ul>
           </div>
-          <div ref='whiteBottom' id='whiteBottom' className='whiteBottom'>
-            <ul>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-            </ul>
-          </div>
+
         </div>
 
         <div ref='rightScrollOverlay' id='rightScrollOverlay' className='rightScrollOverlay'>

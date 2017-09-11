@@ -34,7 +34,7 @@
   flex-direction:column;
   z-index: -1;
   overflow:auto;
-  visibility:hidden;
+  /*visibility:hidden;*/
 
 }
 
@@ -51,7 +51,7 @@
   flex-direction:column;
   z-index: -1;
   overflow:auto;
-  /*visibility:hidden;*/
+  visibility:hidden;
 
 }
 

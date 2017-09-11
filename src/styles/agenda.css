@@ -24,8 +24,10 @@
 
 
 
-
 }
+
+
+
 
 .Agendahead {
   background-color: '#e01939';
@@ -39,6 +41,7 @@
   padding:1%;
   margin-left: 2%;
   margin-right: 2%;
+
 }
 
 .agendaDataDate{
@@ -51,6 +54,7 @@
   font-family: 'NeuzeitS-Book';
   text-align:center;
   font-size:1.4vh;
+
 }
 
 .agendaDataName{
@@ -61,6 +65,11 @@
   margin-left: 3%;
 
   font-family: 'CheltenhamBT-BoldHeadline';
+
+}
+
+.agendaDataName:hover{
+  border-color: white;
 }
 
 .agendaDataInfo{
@@ -72,6 +81,7 @@
   margin-left: 2%;
   margin-right: 2%;
   font-family: 'NeuzeitS-Book';
+
 }
 
 .agendaDataTime{
@@ -83,6 +93,7 @@
   margin-right: 1%;
   font-family: 'NeuzeitS-Book';
   font-size:1.4vh;
+
 }
 
 

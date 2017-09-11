@@ -11,10 +11,11 @@
 @font-face {
   font-family: 'CheltenhamBT-Roman';
   src: local('CheltenhamBT-Roman'),
+        url(./fonts/CheltenhamBT-Roman.ttf)  format('truetype'),
        url(./fonts/CheltenhamBT-Roman.eot)  format('embedded-opentype'),
        url(./fonts/CheltenhamBT-Roman.woff2)  format('woff2'),
        url(./fonts/CheltenhamBT-Roman.woff)  format('woff'),
-       url(./fonts/CheltenhamBT-Roman.ttf)  format('truetype'),
+
        url(./fonts/CheltenhamBT-Roman.svg)  format('svg');
 }
 

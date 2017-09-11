@@ -20,13 +20,14 @@
   flex-grow: 1;
   -webkit-flex-shrink: 0;
   flex-shrink: 0;
-  padding-top:3%;
-
-
+  padding-top:7%;
 
 }
 
-
+/*.AgendaChild:hover  {
+  border-style:solid;
+  border-radius:70%;
+}*/
 
 
 .Agendahead {

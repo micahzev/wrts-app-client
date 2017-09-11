@@ -104,6 +104,7 @@
 
 .spaceScroll {
   overflow: auto;
+  padding-bottom: 30%;
 }
 
 .loginButton:hover {

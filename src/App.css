@@ -171,6 +171,7 @@
   flex-basis:0;
   -webkit-flex-grow:1;
   flex-grow: 1;
+    
 
 }
 .ComponentChild {
@@ -210,6 +211,7 @@
   margin:0;
   background-color:#e01939;
   color:#0c0321;
+
 }
 
 @media only screen and (max-device-width: 500px) {

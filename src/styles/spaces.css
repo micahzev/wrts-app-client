@@ -40,8 +40,8 @@
   /*text-align: center;*/
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:4;
-  flex-grow: 4;
+  -webkit-flex-grow:5;
+  flex-grow: 5;
     width: 20%;
     height: 100%;
     float: left;
@@ -64,11 +64,12 @@
     border-bottom-style: solid;
     border-bottom-width: thin;
 
+
 }
 
 .spaceaddress {
   font-family: 'NeuzeitS-Book';
-  font-size:1.4vh;
+  font-size:1.5vh;
 
 }
 
@@ -76,7 +77,7 @@
   font-style:italic;
   color:#2f3277;
   font-family: 'NeuzeitS-Book';
-  font-size:1.4vh;
+  font-size:1.5vh;
 }
 
 

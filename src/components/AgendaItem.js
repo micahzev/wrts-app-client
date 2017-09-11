@@ -99,12 +99,20 @@ class AgendaItem extends Component {
      }
       :  {};
 
+      const splitted1 = this.state.startDate.split('.');
+      splitted1[2] = splitted1[2].slice(-2);
+      const joined1 = splitted1.join('.');
+
+      const splitted2 = this.state.endDate.split('.');
+      splitted2[2] = splitted2[2].slice(-2);
+      const joined2 = splitted2.join('.');
+
     const expos = {fontStyle:'italic',paddingTop:'1.5%'};
 
     return (
       <div style={styler} className="AgendaChild">
         <div className="agendaDataDate">
-          {this.state.startDate} {this.state.hasHappened && 'to ' + this.state.endDate}
+          {joined1} {this.state.hasHappened && 'to ' + joined2}
         </div>
 
         <div className="agendaDataName">
@@ -125,7 +133,7 @@ class AgendaItem extends Component {
         {
           !this.state.hasHappened &&
                  <div className="agendaDataTime">
-                   {this.state.startTime}-{this.state.endTime}
+                   {this.state.startTime} &ndash;{this.state.endTime}
                  </div>
         }
       </div>

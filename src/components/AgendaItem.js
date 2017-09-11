@@ -99,11 +99,11 @@ class AgendaItem extends Component {
      }
       :  {};
 
-      const splitted1 = this.state.startDate.split('.');
+      const splitted1 = this.state.startDate ? this.state.startDate.split('.') : ["  ","  ","    "];
       splitted1[2] = splitted1[2].slice(-2);
       const joined1 = splitted1.join('.');
 
-      const splitted2 = this.state.endDate.split('.');
+      const splitted2 = this.state.endDate ? this.state.endDate.split('.') : ["  ","  ","    "];
       splitted2[2] = splitted2[2].slice(-2);
       const joined2 = splitted2.join('.');
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _  from 'lodash';
 
-import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 import '../styles/map.css';
 

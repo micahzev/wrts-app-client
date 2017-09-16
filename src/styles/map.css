@@ -15,6 +15,11 @@
   padding:2.5em;
   padding-bottom: 2.5em;
   padding-top:2.5em;
+  font-family: 'NeuzeitS-Book';
+}
+
+.infowindow {
+    font-family: 'CheltenhamBT-BoldHeadline';
 }
 
 

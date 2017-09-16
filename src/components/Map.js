@@ -24,11 +24,22 @@ const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
       rotateControl: false,
       fullscreenControl: false
     }}
+    onClick={() => props.onMapClick()}
     disableDefaultUI>
   {props.markers.map(marker => (
       <Marker
         {...marker}
-      />
+        onClick={() => props.onMarkerClick(marker)}>
+        {marker.showInfo && (
+          <InfoWindow
+          onCloseClick={() => props.onMarkerClose(marker)}
+          defaultOptions={{
+            disableAutoPan:true
+          }}>
+            <div className="infowindow">{marker.infoContent}</div>
+          </InfoWindow>
+        )}
+      </Marker>
     ))}
   </GoogleMap>
 ));
@@ -37,6 +48,60 @@ const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
 class Map extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      markers: [],
+    }
+  }
+
+  componentDidUpdate(previousProps){
+
+    if (previousProps.events !== this.props.events || previousProps.spaces !== this.props.spaces) {
+      const vernissageIds = this.props.events.filter((event) => {
+          const today = new Date();
+          const splitted = event.eventStartDate.split('-');
+          const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-'));
+          return this.sameDay(today,vernissage);
+        }).map((o) => {
+            return o.spaceId;
+          }
+        );
+
+      const markers = this.props.spaces ? this.props.spaces.map(function(space) {
+
+        if (_.includes(vernissageIds, space.spaceId)) {
+          return {
+                  position: {
+                    lat: parseFloat(space.spaceLat),
+                    lng: parseFloat(space.spaceLong),
+                  },
+                  showInfo: false,
+                  key: space.spaceName,
+                  icon:mapMarkerCircle,
+                  infoContent: space.spaceName,
+                }
+        } else {
+          return {
+                  position: {
+                    lat: parseFloat(space.spaceLat),
+                    lng: parseFloat(space.spaceLong),
+                  },
+                  showInfo: false,
+                  key: space.spaceName,
+                  icon:mapMarkerCross,
+                  infoContent: space.spaceName,
+                }
+        }
+
+
+      }) : [];
+
+      this.setState({
+        markers:markers,
+      });
+    }
+
+
+
   }
 
   sameDay(d1, d2) {
@@ -45,49 +110,60 @@ class Map extends Component {
       d1.getDate() === d2.getDate();
   }
 
-  render() {
-
-    const vernissageIds = this.props.events.filter((event) => {
-      const today = new Date();
-      const splitted = event.eventStartDate.split('-');
-      const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-'));
-      return this.sameDay(today,vernissage);
-    }).map((o) => {
-      return o.spaceId;
-    }
-  );
-
-    const markers = this.props.spaces ? this.props.spaces.map(function(space) {
-
-      if (_.includes(vernissageIds, space.spaceId)) {
+  handleMarkerClick(targetMarker) {
+  this.setState({
+    markers: this.state.markers.map(marker => {
+      if (marker === targetMarker) {
         return {
-                position: {
-                  lat: parseFloat(space.spaceLat),
-                  lng: parseFloat(space.spaceLong),
-                },
-                key: space.spaceName,
-                icon:mapMarkerCircle
-              }
-      } else {
-        return {
-                position: {
-                  lat: parseFloat(space.spaceLat),
-                  lng: parseFloat(space.spaceLong),
-                },
-                key: space.spaceName,
-                icon:mapMarkerCross
-              }
+          ...marker,
+          showInfo: true,
+        };
       }
+      return {
+        ...marker,
+        showInfo: false,
+      };
+    }),
+  });
+}
 
+handleMarkerClose(targetMarker) {
+  this.setState({
+    markers: this.state.markers.map(marker => {
+      if (marker === targetMarker) {
+        return {
+          ...marker,
+          showInfo: false,
+        };
+      }
+      return marker;
+    }),
+  });
+}
 
-    }) : [];
+onMapClick(){
+  this.setState({
+    markers: this.state.markers.map(marker => {
+        return {
+          ...marker,
+          showInfo: false,
+        };
+    }),
+  });
+}
 
+  render() {
     return (
       <SimpleMapExampleGoogleMap
 
         className="Map"
 
-        markers={markers}
+        markers={this.state.markers}
+
+        onMapClick={this.onMapClick.bind(this)}
+
+        onMarkerClick={this.handleMarkerClick.bind(this)}
+        onMarkerClose={this.handleMarkerClose.bind(this)}
 
         containerElement={
           <div className="mapElement" />

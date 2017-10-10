@@ -17,7 +17,6 @@ class Space extends Component {
         <div className="leftspacecontainer spacename spaceData">
           {this.props.space.spaceName}
         </div>
-        <br/>
         <div className="rightspacecontainer spaceData">
           <div className="spaceaddress">
             {this.props.space.spaceAddress}

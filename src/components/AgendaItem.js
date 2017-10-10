@@ -52,11 +52,10 @@ class AgendaItem extends Component {
       // check vernissage
     const today = new Date();
     const splitted = inputProps.events.eventStartDate.split('-');
-    const vernissage = new Date([splitted[2],splitted[1],splitted[0]].join('-'));
+    const vernissage = new Date([splitted[2],splitted[1],splitted[0]].join('-')+"T12:00:00-00:00");
     const isVernissage = this.sameDay(today,vernissage);
 
     const hasHappened = this.pastDay(today, vernissage);
-
 
     this.setState({
       spaceName:space ? space.spaceName : "",
@@ -84,20 +83,10 @@ class AgendaItem extends Component {
 
   render() {
 
-    const colorToUse = this.props.styler ? 'white' : '#0c0321';
+    // const colorToUse = this.props.styler ? {color:'white'} : {color:'#0c0321'};
 
-     const styler = this.state.isVernissage ? {color:'#e01939'}   : this.state.hasHappened ?
-     { backgroundColor:'#e01939',
-       color:colorToUse,
-       borderStyle: 'solid',
-       borderTop:'none',
-       borderLeft:'none',
-       borderRight:'none',
-       borderBottomColor: colorToUse,
-       borderBottomStyle: 'solid',
-       borderBottomWidth: 'thin'
-     }
-      :  {};
+    const styler = this.state.isVernissage ? "vernissageItem"   : this.state.hasHappened ?
+    "hasHappenedItem" :  "AgendaChild";
 
       const splitted1 = this.state.startDate ? this.state.startDate.split('.') : ["  ","  ","    "];
       splitted1[2] = splitted1[2].slice(-2);
@@ -110,32 +99,42 @@ class AgendaItem extends Component {
     const expos = {fontStyle:'italic',paddingTop:'1.5%'};
 
     return (
-      <div style={styler} className="AgendaChild">
-        <div className="agendaDataDate">
-          {joined1} {this.state.hasHappened && 'to ' + joined2}
-        </div>
+      <div  className={styler}>
+            <div className="agendaSplitTop">
+                    <div className="agendaDataDate">
+                      {joined1} {this.state.hasHappened && 'to ' + joined2}
+                    </div>
 
-        <div className="agendaDataName">
-          {this.state.spaceName}
-        </div>
+                    <div className="agendaDataName">
+                      {this.state.spaceName}
+                    </div>
 
-        <div className="agendaDataInfo">
+                    {
+                      !this.state.hasHappened &&
+                             <div className="agendaDataTime">
+                                <div className="timeTop">
+                                {this.state.startTime}
+                                </div>
+                                <div className="timeBottom">
+                                  {this.state.endTime}
+                                </div>
 
-          <div >
-            {this.state.artist}
-          </div>
+                             </div>
+                    }
+            </div>
 
-          <div style={expos}>
-            {this.state.exposition}
-          </div>
+                    <div className="agendaDataInfo">
 
-        </div>
-        {
-          !this.state.hasHappened &&
-                 <div className="agendaDataTime">
-                   {this.state.startTime} &ndash;{this.state.endTime}
-                 </div>
-        }
+                      <div >
+                        {this.state.artist}
+                      </div>
+
+                      <div style={expos}>
+                        {this.state.exposition}
+                      </div>
+
+                    </div>
+
       </div>
     );
   }

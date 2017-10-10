@@ -27,8 +27,16 @@
   margin:1em;
   padding: 1em;
   overflow:auto;
+  color:white;
 }
 
+.pastEvents > div {
+  color:white;
+}
+
+.pastEvents > div:after {
+      background: white;
+}
 
 .closeButton {
 

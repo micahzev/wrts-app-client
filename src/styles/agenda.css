@@ -14,23 +14,110 @@
 }
 
 .AgendaChild {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
+
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  padding-top:10%;
+  position: relative;
+}
+
+.AgendaChild .agendaDataInfo{
+    position: relative;
+}
+
+.AgendaChild .agendaDataInfo:after{
+    content:"";
+    background: #2f3277;
+    position: absolute;
+    bottom: -10%;
+    left: 0%;
+    height: 1px;
+    width:100%;
+}
+
+
+.vernissageItem {
+
   -webkit-flex-grow:1;
   flex-grow: 1;
   -webkit-flex-shrink: 0;
   flex-shrink: 0;
   padding-top:7%;
+  color:#e01939;
+}
+
+.vernissageItem .agendaDataInfo{
+    position: relative;
+}
+
+.vernissageItem .agendaDataInfo:after{
+    content:"";
+    background: #e01939;
+    position: absolute;
+    bottom: -10%;
+    left: 0%;
+    height: 1px;
+    width:100%;
+}
+
+.hasHappenedItem {
+
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  padding-top:7%;
+  background-color:#e01939;
+  color:#0c0321;
+
+  position: relative;
+  padding-bottom: 5%;
+}
+
+.hasHappenedItem:after {
+    content:"";
+    background: #0c0321;
+    position: absolute;
+    bottom: 1%;
+    left: 10%;
+    height: 1px;
+    width:80%
 
 }
 
-/*.AgendaChild:hover  {
-  border-style:solid;
-  border-radius:70%;
-}*/
+.hasHappenedItem .agendaSplitTop .agendaDataDate {
+  font-size: 2vh;
+}
 
+
+.agendaSplitTop {
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.agendaSplitBottom {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+
+}
 
 .Agendahead {
   background-color: '#e01939';
@@ -56,16 +143,18 @@
   margin-left: 1%;
   font-family: 'NeuzeitS-Book';
   text-align:center;
-  font-size:1.7vh;
+  font-size:3vh;
 
 }
 
 .agendaDataName{
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:3;
-  flex-grow: 3;
-  margin-left: 3%;
+  -webkit-flex-grow:2;
+  flex-grow: 2;
+  margin-left: 2%;
+  margin-top: 1%;
+  font-size:2.2vh;
 
   font-family: 'CheltenhamBT-BoldHeadline';
 
@@ -81,25 +170,46 @@
   -webkit-flex-grow:6;
   flex-grow: 6;
 
-  margin-left: 2%;
+  margin-left: 25%;
   margin-right: 2%;
   font-family: 'NeuzeitS-Book';
-
+  position: relative;
+  font-size:2.2vh;
 }
 
+
+
 .agendaDataTime{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   -webkit-flex-basis:0;
   flex-basis:0;
   -webkit-flex-grow:1;
   flex-grow: 1;
-  padding-top:0.5%;
+  margin-top:1%;
   margin-right: 1%;
   font-family: 'NeuzeitS-Book';
-  font-size:1.7vh;
-
+  font-size:3vh;
+  line-height: 1;
 }
 
+.timeTop{
+  text-align: left;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+}
 
+.timeBottom{
+  text-align: right;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+}
 
 
 .hasHappened {
@@ -113,6 +223,17 @@
   color: white;
   text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media only screen and (max-device-width: 500px) {

@@ -1,0 +1,27 @@
+.LandingWhite {
+  width:100vw;
+  height:55%;
+
+  background-color: white;
+  z-index:205;
+  line-height: 20vh;
+
+}
+
+.LandingRed {
+  width:100vw;
+  height:45%;
+  background-color: #e01939;
+  z-index:205;
+  line-height: 75vh;
+}
+
+.Landing {
+text-align: center;
+height:100vh;
+z-index:200;
+font-family: 'CheltenhamBT-Roman';
+color:#2f3277;
+font-size: 10rem;
+
+}

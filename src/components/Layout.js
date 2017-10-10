@@ -5,7 +5,7 @@ import '../App.css';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {  withRouter } from 'react-router-dom';
+import {  withRouter, NavLink } from 'react-router-dom';
 
 import Map from './Map';
 import Agenda from './Agenda';
@@ -15,15 +15,27 @@ import Maphead from './Maphead';
 import Agendahead from './Agendahead';
 import Spaceshead from './Spaceshead';
 import fetch from './fetch';
+import Landing from './Landing';
+
+import Contact from './Contact';
+import PastEvents from './PastEvents';
 
 import { fetchSpaces } from '~/src/actions/spaces';
 import { fetchEvents } from '~/src/actions/events';
 
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class Layout extends Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      showLanding: true,
+      showOverLay: false,
+      showPastEventsOverlay: false,
+    }
+    this.contactsOverlay.bind(this);
   }
 
   // componentDidUpdate(){
@@ -41,94 +53,94 @@ class Layout extends Component {
 
   componentDidMount() {
     findDOMNode(this.refs.appityapp).addEventListener('wheel', this.handleScroll.bind(this), true);
-    this.refs.leftScrollOverlay.scrollTop +=  window.innerHeight;
+    findDOMNode(this.refs.appityapp).addEventListener('click', this.handleClick.bind(this), true);
+    // this.refs.leftScrollOverlay.scrollTop +=  window.innerHeight;
     //this sets the position on landing of the central column
     this.refs.scrollcolumns.scrollLeft += this.refs.agendacolumn.getBoundingClientRect().left - (0.05*window.innerWidth);
   }
 
   componentWillUnmount() {
     findDOMNode(this.refs.appityapp).removeEventListener('wheel', this.handleScroll.bind(this), true);
+    findDOMNode(this.refs.appityapp).addEventListener('click', this.handleClick.bind(this), true);
   }
 
   handleScroll(event) {
-    const toMove = 0.4*Math.abs(event.deltaY);
-    if (event.deltaY < 0) {
-       this.refs.leftScrollOverlay.scrollTop -= toMove;
-       this.refs.rightScrollOverlay.scrollTop +=  toMove;
-     }
-     if (event.deltaY > 0) {
-       this.refs.leftScrollOverlay.scrollTop += toMove;
-       this.refs.rightScrollOverlay.scrollTop -=  toMove;
-     }
+    if (this.state.showLanding) {
+      this.setState({
+        showLanding:false
+      })
+    }
+    // const toMove = 0.4*Math.abs(event.deltaY);
+    // if (event.deltaY < 0) {
+    //    this.refs.leftScrollOverlay.scrollTop -= toMove;
+    //    this.refs.rightScrollOverlay.scrollTop +=  toMove;
+    //  }
+    //  if (event.deltaY > 0) {
+    //    this.refs.leftScrollOverlay.scrollTop += toMove;
+    //    this.refs.rightScrollOverlay.scrollTop -=  toMove;
+    //  }
+  }
+
+  handleClick(event){
+    if (this.state.showLanding) {
+      this.setState({
+        showLanding:false
+      })
+    }
+
+  }
+
+  contactsOverlay() {
+    this.setState({
+      showOverLay:true,
+    })
+  }
+
+  undoShow(){
+    this.setState({
+      showOverLay:false,
+      showPastEventsOverlay: false,
+    })
+  }
+
+  pastEventsOverlay() {
+    this.setState({
+      showPastEventsOverlay:true,
+    })
+  }
+
+  sortAndFilterEvents(events){
+    const sortedEvents = _.sortBy(events, [function(o) {
+      let splitted = o.eventStartDate.split('-');
+      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-'));
+    }]);
+
+    return sortedEvents.filter(function(o) {
+      let splitted = o.eventEndDate.split('-');
+      let today = new Date();
+      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) < today;
+    });
+
+
   }
 
   render() {
 
+    const allEvents = this.props.events ? this.props.events : [];
+    const filteredEvents = this.props.events ? this.sortAndFilterEvents(allEvents) : [];
+
+    const allSpaces = this.props.spaces ? this.props.spaces : [];
+
     return (
       <div ref='appityapp' className='App'>
 
-        <div ref='leftScrollOverlay' id='leftScrollOverlay' className='leftScrollOverlay'>
-        <div ref='whiteBottom' id='whiteBottom' className='whiteBottom'>
-          <ul>
-            <li className='blueListItem'>we run</li>
-            <li className='blueListItem'>the space</li>
-            <li className='blueListItem'>we run</li>
-            <li className='blueListItem'>the space</li>
-            <li className='blueListItem'>we run</li>
-            <li className='blueListItem'>the space</li>
-            <li className='blueListItem'>we run</li>
-            <li className='blueListItem'>the space</li>
-            <li className='blueListItem'>we run</li>
-            <li className='blueListItem'>the space</li>
-          </ul>
-        </div>
-          <div ref='redTop' id='redTop' className='redTop'>
-            <ul>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-            </ul>
-          </div>
+      <CSSTransitionGroup
+        transitionName="landingTransition"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={1300}>
+      {this.state.showLanding ?  <Landing className="Landme" /> : null}
+    </CSSTransitionGroup>
 
-        </div>
-
-        <div ref='rightScrollOverlay' id='rightScrollOverlay' className='rightScrollOverlay'>
-          <div ref='whiteTop' id='whiteTop' className='whiteTop'>
-            <ul>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-              <li className='blueListItem'>we run</li>
-              <li className='blueListItem'>the space</li>
-            </ul>
-          </div>
-          <div ref='redBottom' id='redBottom' className='redBottom'>
-            <ul>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-              <li className='redListItem'>we run</li>
-              <li className='redListItem'>the space</li>
-            </ul>
-          </div>
-        </div>
 
         <div className='RowChildHead' >
           <div className='HeaderChild' >
@@ -146,10 +158,18 @@ class Layout extends Component {
                 <Map className='ComponentChild' spaces={this.props.spaces} events={this.props.events}/>
           </div>
           <div ref="agendacolumn" className='ColumnChild' >
+                <p className="currentLabel">current</p>
+                <p className="futurLabel" >upcoming events</p>
                 <Agenda className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
           </div>
           <div className='ColumnChild' >
+                <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>
+                <br/>
+                <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>
+                <Contact show={this.state.showOverLay} undoShow={this.undoShow.bind(this)} />
+                <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                 <Spaces className='ComponentChildSpaces' spaces={this.props.spaces} events={this.props.events}/>
+                <NavLink className="loginButton" to="/login">members</NavLink>
           </div>
         </div>
       </div>

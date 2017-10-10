@@ -70,13 +70,14 @@ class Agenda extends Component {
 
     return (
       <div className="AgendaParent" ref="scrolltest" >
-        <p className="currentLabel">current</p>
-        <p className="futurLabel" >upcoming events</p>
         {filteredEvents.map((eventData,idx) =>
           <div key={idx} ref={eventData.scroller}>
             <AgendaItem events={eventData} spaces={allSpaces}/>
           </div>
         )}
+        <div className="whitespace">
+        .
+        </div>
       </div>
     );
   }

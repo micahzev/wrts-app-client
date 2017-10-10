@@ -47,6 +47,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.75vh;
   color: #2f3277;
+  overflow:hidden;
 
 }
 

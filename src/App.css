@@ -9,6 +9,17 @@
   flex-direction:column;
   overflow:hidden;
   position: fixed;
+  background-color: white;
+  top:0;
+  left:0;
+}
+
+.Landme{
+  z-index:199;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:8;
+  flex-grow: 8;
 }
 
 .redListItem {
@@ -108,6 +119,7 @@
   -webkit-flex-grow:1;
   flex-grow: 1;
   width:100%;
+  background-color: white;
 }
 
 
@@ -123,6 +135,7 @@
   flex-grow: 8;
   width:100%;
     height:100%;
+    background-color: white;
 }
 
 
@@ -160,6 +173,7 @@
   -webkit-align-content: center;
   align-content:center;
   overflow:hidden;
+  position: relative;
 }
 
 .HeaderChild {
@@ -213,6 +227,101 @@
   color:#0c0321;
 
 }
+
+
+
+
+.landingTransition-enter {
+  opacity: 0.01;
+}
+
+.landingTransition-enter.landingTransition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.landingTransition-leave {
+
+  height:100vh;
+
+}
+
+
+.landingTransition-leave.landingTransition-leave-active {
+
+  height:0vh;
+
+  transition: height 1300ms ease-out;
+
+}
+
+
+.contactButton {
+  color:#e01939;
+  position:absolute;
+  top:2.5%;
+  right:5%;
+  font-size:  0.8em;
+  font-family: 'NeuzeitS-Book';
+    z-index: 10;
+}
+
+.contactButton:hover {
+  font-weight:bold;
+}
+
+.pastEventsButton:hover {
+  font-weight:bold;
+}
+
+.pastEventsButton {
+  color:#e01939;
+  position:absolute;
+  top:5%;
+  right:5%;
+  font-size:  0.8em;
+  font-family: 'NeuzeitS-Book';
+    z-index: 10;
+}
+
+.loginButton {
+  color:#e01939;
+  position:absolute;
+  bottom:3%;
+  right:5%;
+  font-size:  0.8em;
+  font-family: 'NeuzeitS-Book';
+    z-index: 10;
+}
+
+.loginButton:hover {
+  font-weight:bold;
+  color:#e01939;
+   text-decoration: none;
+}
+
+.futurLabel {
+  color:#e01939;
+  position:absolute;
+  bottom:3%;
+  right:5%;
+  font-size: 0.8em;
+  font-family: 'NeuzeitS-Book';
+    z-index: 10;
+}
+
+.currentLabel {
+  color:white;
+  position:absolute;
+  top:2.5%;
+  right:5%;
+  font-size: 0.8em;
+  font-family: 'NeuzeitS-Book';
+  z-index: 10;
+}
+
+
+
 
 @media only screen and (max-device-width: 500px) {
 

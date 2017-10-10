@@ -93,51 +93,15 @@
   /*font-weight: bold;*/
 }
 
-.loginButton {
-  color:#e01939;
-  position:fixed;
-  bottom:2%;
-  right:2%;
-  font-size: 0.7em;
-  font-family: 'NeuzeitS-Book';
-}
 
 .spaceScroll {
   overflow: auto;
   padding-bottom: 30%;
+  position: relative;
 }
 
-.loginButton:hover {
-  font-weight:bold;
-  color:#e01939;
-   text-decoration: none;
-}
 
-.contactButton {
-  color:#e01939;
-  position:fixed;
-  top:11.5%;
-  right:2%;
-  font-size: 0.7em;
-  font-family: 'NeuzeitS-Book';
-}
 
-.contactButton:hover {
-  font-weight:bold;
-}
-
-.pastEventsButton:hover {
-  font-weight:bold;
-}
-
-.pastEventsButton {
-  color:#e01939;
-  position:fixed;
-  top:14%;
-  right:2%;
-  font-size: 0.7em;
-  font-family: 'NeuzeitS-Book';
-}
 
 
 @media only screen and (max-device-width: 500px) {

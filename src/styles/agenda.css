@@ -9,6 +9,8 @@
   flex-direction:column;
   overflow:auto;
   height:100%;
+  position: relative;
+
 }
 
 .AgendaChild {
@@ -104,30 +106,19 @@
   background-color: '#e01939';
 }
 
-
-.futurLabel {
-  color:#e01939;
-  position:fixed;
-  bottom:2%;
-  right:34.5%;
-  font-size: 0.7em;
-  font-family: 'NeuzeitS-Book';
-}
-
-.currentLabel {
-  color:white;
-  position:fixed;
-  top:13%;
-  right:34.5%;
-  font-size: 0.7em;
-  font-family: 'NeuzeitS-Book';
+.whitespace {
+  height:10vh;
+  background-color: white;
+  font-size: 10em;
+  color: white;
+  text-align: center;
 }
 
 
 @media only screen and (max-device-width: 500px) {
   .futurLabel {
     color:#e01939;
-    position:fixed;
+    position:absolute;
     bottom:2%;
     right:34.5%;
     visibility: hidden;
@@ -136,7 +127,7 @@
 
   .currentLabel {
     color:white;
-    position:fixed;
+    position:absolute;
     top:13%;
     right:34.5%;
       visibility: hidden;

@@ -20,7 +20,7 @@ class Agenda extends Component {
     if (this.props.events.length > 0 && this.props.spaces.length > 0 && this.refs.scrolltome){
 
         window.requestAnimationFrame(function() {
-            const offset = 0.3 * window.innerHeight;
+            const offset = 1.3*window.innerHeight;
             if ((_this.refs.scrolltome.getBoundingClientRect().top - offset) > (_this.refs.scrolltest.scrollHeight-window.innerHeight)) {
                 _this.refs.scrolltest.scrollTop = _this.refs.scrolltest.scrollHeight-window.innerHeight;
             } else {

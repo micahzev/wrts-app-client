@@ -49,6 +49,14 @@ class Spaces extends Component {
 
 
   }
+  
+  sortSpaces(spaces){
+    const sortedSpaces = _.sortBy(spaces, [function(o) {
+      return o.spaceName.toLowerCase();
+    }]);
+
+    return sortedSpaces;
+  }
 
 
   render() {
@@ -57,8 +65,7 @@ class Spaces extends Component {
     const allEvents = this.props.events ? this.props.events : [];
     const filteredEvents = this.props.events ? this.sortAndFilterEvents(allEvents) : [];
 
-    const allSpaces = this.props.spaces ? this.props.spaces : [];
-
+    const allSpaces = this.props.spaces ? this.sortSpaces(this.props.spaces) : [];
 
     return (
       <div className="spaceScroll" >

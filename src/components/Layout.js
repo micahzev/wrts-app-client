@@ -42,14 +42,16 @@ class Layout extends Component {
     this.contactsOverlay.bind(this);
   }
 
+
+
   componentDidUpdate(){
 
 
     if (this.props.events.length > 0 && this.props.spaces.length > 0 && this.state.loading){
 
-      this.setState({
-        loading:false,
-      });
+      setTimeout(this.loaded.bind(this), 250);
+
+
 
         // this.refs.scrollcolumns.scrollLeft += window.innerWidth;
         // window.requestAnimationFrame(function() {
@@ -68,7 +70,7 @@ class Layout extends Component {
 
   componentWillUnmount() {
     findDOMNode(this.refs.appityapp).removeEventListener('wheel', this.handleScroll.bind(this), true);
-    findDOMNode(this.refs.appityapp).addEventListener('click', this.handleClick.bind(this), true);
+    findDOMNode(this.refs.appityapp).removeEventListener('click', this.handleClick.bind(this), true);
   }
 
   handleScroll(event) {
@@ -76,6 +78,8 @@ class Layout extends Component {
       this.setState({
         showLanding:false
       })
+      findDOMNode(this.refs.appityapp).removeEventListener('wheel', this.handleScroll.bind(this), true);
+      findDOMNode(this.refs.appityapp).removeEventListener('click', this.handleClick.bind(this), true);
     }
     // const toMove = 0.4*Math.abs(event.deltaY);
     // if (event.deltaY < 0) {
@@ -93,8 +97,17 @@ class Layout extends Component {
       this.setState({
         showLanding:false
       })
+      findDOMNode(this.refs.appityapp).removeEventListener('wheel', this.handleScroll.bind(this), true);
+      findDOMNode(this.refs.appityapp).removeEventListener('click', this.handleClick.bind(this), true);
     }
 
+  }
+
+
+  loaded(){
+    this.setState({
+      loading:false,
+    });
   }
 
   contactsOverlay() {
@@ -134,7 +147,7 @@ class Layout extends Component {
   render() {
 
     const allEvents = this.props.events ? this.props.events : [];
-    
+
     const filteredEvents = this.props.events ? this.sortAndFilterEvents(allEvents) : [];
 
     const allSpaces = this.props.spaces ? this.props.spaces : [];

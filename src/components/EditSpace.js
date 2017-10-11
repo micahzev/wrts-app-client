@@ -107,7 +107,7 @@ class EditSpace extends Component {
     );
 
     return (
-      <div className="Backend">
+      <div >
         <h2>
         Space Data:
         </h2>

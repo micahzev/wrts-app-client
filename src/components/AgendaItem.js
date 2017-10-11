@@ -136,7 +136,7 @@ class AgendaItem extends Component {
                       <div style={expos}>
                         {this.state.exposition}
                       </div>
-                        &#8595;
+                        
                     </div>
 
       </div>

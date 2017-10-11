@@ -179,15 +179,15 @@ class Layout extends Component {
             </div>
           </div>
           <div ref="scrollcolumns" className='RowChildCol' >
-            <div  className='ColumnChild' >
+            <div  className='ColumnChildLeft' >
                   <Map className='ComponentChild' spaces={this.props.spaces} events={this.props.events}/>
             </div>
-            <div ref="agendacolumn" className='ColumnChild' >
+            <div ref="agendacolumn" className='ColumnChildMiddle' >
                   <p className="currentLabel">current</p>
                   <p className="futurLabel" >upcoming events</p>
                   <Agenda className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
             </div>
-            <div className='ColumnChild' >
+            <div className='ColumnChildRight' >
                   <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>
                   <br/>
                   <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>

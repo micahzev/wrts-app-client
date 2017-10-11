@@ -21,6 +21,7 @@
   flex-shrink: 0;
   padding-top:10%;
   position: relative;
+  padding-left: 1%;
 }
 
 .AgendaChild .agendaDataInfo{
@@ -46,6 +47,7 @@
   flex-shrink: 0;
   padding-top:7%;
   color:#e01939;
+  padding-left: 1%;
 }
 
 .vernissageItem .agendaDataInfo{
@@ -71,7 +73,7 @@
   padding-top:7%;
   background-color:#e01939;
   color:#0c0321;
-
+  padding-left: 1%;
   position: relative;
   padding-bottom: 5%;
 }
@@ -81,9 +83,9 @@
     background: #0c0321;
     position: absolute;
     bottom: 5%;
-    left: 10%;
+    left: 5%;
     height: 1px;
-    width:80%
+    width:90%
 
 }
 
@@ -173,8 +175,8 @@ margin-left: 29%;
   -webkit-flex-grow:2;
   flex-grow: 2;
   margin-left: 2%;
-  margin-top: 1%;
-  font-size:2.2vh;
+  /*margin-top: 1%;*/
+  font-size:3vh;
 
   font-family: 'CheltenhamBT-BoldHeadline';
 
@@ -190,11 +192,12 @@ margin-left: 29%;
   -webkit-flex-grow:6;
   flex-grow: 6;
 
-  margin-left: 25%;
+  margin-left: 27%;
   margin-right: 2%;
   font-family: 'NeuzeitS-Book';
   position: relative;
   font-size:2.2vh;
+  line-height: 1.1;
 }
 
 

@@ -80,7 +80,7 @@
     content:"";
     background: #0c0321;
     position: absolute;
-    bottom: 7%;
+    bottom: 5%;
     left: 10%;
     height: 1px;
     width:80%
@@ -88,9 +88,26 @@
 }
 
 .hasHappenedItem .agendaSplitTop .agendaDataDate {
-  font-size: 2vh;
+  font-size: 2.2vh;
+  line-height: 1;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  padding-left: 1.5%;
 }
 
+.hasHappenedItem .agendaSplitTop .agendaDataName {
+  text-align: left;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:3;
+  flex-grow: 3;
+}
+
+.hasHappenedItem .agendaDataInfo {
+margin-left: 29%;
+}
 
 .agendaSplitTop {
   -webkit-flex-basis:0;
@@ -144,7 +161,10 @@
   font-family: 'NeuzeitS-Book';
   text-align:center;
   font-size:3vh;
-
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
 }
 
 .agendaDataName{
@@ -205,6 +225,23 @@
 
 .timeBottom{
   text-align: right;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+}
+
+
+.dateTop{
+  text-align: left;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+}
+
+.dateBottom{
+  text-align: left;
   -webkit-flex-basis:0;
   flex-basis:0;
   -webkit-flex-grow:1;

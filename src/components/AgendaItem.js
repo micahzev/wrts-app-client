@@ -35,8 +35,6 @@ class AgendaItem extends Component {
   }
 
 
-
-
   componentWillReceiveProps(nextProps) {
     if(nextProps.spaces && Object.keys(nextProps.events).length > 0) {
       this.updateComponent(nextProps);
@@ -102,7 +100,13 @@ class AgendaItem extends Component {
       <div  className={styler}>
             <div className="agendaSplitTop">
                     <div className="agendaDataDate">
-                      {joined1} {this.state.hasHappened && 'to ' + joined2}
+                    <div className="dateTop">
+                    {joined1}
+                    </div>
+                    <div className="dateBottom">
+                      {this.state.hasHappened && ' to ' + joined2}
+                    </div>
+
                     </div>
 
                     <div className="agendaDataName">

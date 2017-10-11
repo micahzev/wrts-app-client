@@ -53,13 +53,13 @@ class Map extends Component {
     }
   }
 
-  componentDidUpdate(previousProps){
+  componentDidMount(){
 
-    if (previousProps.events !== this.props.events || previousProps.spaces !== this.props.spaces) {
+  
       const vernissageIds = this.props.events.filter((event) => {
           const today = new Date();
           const splitted = event.eventStartDate.split('-');
-          const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-'));
+          const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-')+"T12:00:00-00:00");
           return this.sameDay(today,vernissage);
         }).map((o) => {
             return o.spaceId;
@@ -98,7 +98,7 @@ class Map extends Component {
       this.setState({
         markers:markers,
       });
-    }
+
 
 
 

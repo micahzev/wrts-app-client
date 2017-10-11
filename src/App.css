@@ -322,6 +322,14 @@
 
 
 
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+}
+
+
 
 @media only screen and (max-device-width: 500px) {
 

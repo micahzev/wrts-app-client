@@ -91,9 +91,9 @@
 
 
 .spaceurl:hover  {
-  font-weight:bold;
+  /*font-weight:bold;*/
   font-style:italic;
-  text-decoration: none;
+  text-decoration: underline;
   color:#2f3277;
 }
 

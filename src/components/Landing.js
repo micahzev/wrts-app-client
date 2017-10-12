@@ -11,10 +11,10 @@ class Landing extends Component {
       <div className="Landing" >
 
         <div className="LandingRed" >
-         <span>WE RUN</span>
+          <span className="we">WE </span>  <span className="run"> RUN</span>
         </div>
         <div className="LandingWhite">
-        THE SPACE
+          <span className="the">THE </span>  <span className="space"> SPACE</span>
       </div>
 
       </div>

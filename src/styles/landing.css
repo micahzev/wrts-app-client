@@ -1,11 +1,16 @@
 .LandingWhite {
   width:100vw;
   height:55%;
-
   background-color: white;
   z-index:205;
-  line-height: 20vh;
-
+  line-height: 21vh;
+  color:#2f3277;
+  display: -webkit-flex;
+  display:flex;
+  -webkit-flex-direction: row;
+  flex-direction:row;
+  padding-left:15%;
+  padding-right:15%;
 }
 
 .LandingRed {
@@ -14,6 +19,13 @@
   background-color: #e01939;
   z-index:205;
   line-height: 75vh;
+  color: #0c0321;
+  display: -webkit-flex;
+  display:flex;
+  -webkit-flex-direction: row;
+  flex-direction:row;
+  padding-left:15%;
+  padding-right:15%;
 }
 
 .Landing {
@@ -21,7 +33,37 @@ text-align: center;
 height:100vh;
 z-index:200;
 font-family: 'CheltenhamBT-Roman';
-color:#2f3277;
-font-size: 10rem;
+font-size: 20vh;
+}
 
+.we {
+  text-align: left;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:8;
+  flex-grow: 8;
+}
+
+.run {
+  text-align: right;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:8;
+  flex-grow: 8;
+}
+
+.the {
+  text-align: left;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:8;
+  flex-grow: 8;
+}
+
+.space {
+  text-align: right;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:8;
+  flex-grow: 8;
 }

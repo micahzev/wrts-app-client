@@ -185,8 +185,8 @@
   margin: 0;
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:3;
-  flex-grow: 3;
+  -webkit-flex-grow:4;
+  flex-grow: 4;
   -webkit-align-content: center;
   align-content:center;
   overflow:hidden;
@@ -217,8 +217,8 @@
   margin:0;
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:1;
-  flex-grow: 1;
+  -webkit-flex-grow:3;
+  flex-grow: 3;
   background-color:white;
 
 }
@@ -254,8 +254,8 @@
   font-weight:300;
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:1;
-  flex-grow: 1;
+  -webkit-flex-grow:4;
+  flex-grow: 4;
   margin:0;
   background-color:#e01939;
   color:#0c0321;
@@ -342,6 +342,7 @@
   font-size:  2.5vh;
   font-family: 'NeuzeitS-Book';
     z-index: 10;
+    margin:0;
 }
 
 .currentLabel {

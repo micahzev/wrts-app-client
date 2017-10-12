@@ -38,7 +38,7 @@ class Contact extends Component {
 
             <div className="contactText">
             <div className="customAboutText">
-              
+              {this.props.text}
             </div>
             <div className="rightColumnContact">
 
@@ -49,7 +49,7 @@ class Contact extends Component {
             </div>
 
             <div className="rejoindreBox">
-              Donner  <br/>
+              Donner  à<br/>
               We Run <br/>
               The Space <br/>
             </div>

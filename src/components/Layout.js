@@ -23,6 +23,7 @@ import PastEvents from './PastEvents';
 
 import { fetchSpaces } from '~/src/actions/spaces';
 import { fetchEvents } from '~/src/actions/events';
+import { fetchText } from '~/src/actions/text';
 
 import { CSSTransitionGroup } from 'react-transition-group';
 
@@ -190,7 +191,7 @@ class Layout extends Component {
             <div className='ColumnChildRight' >
                   <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>
                   <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>
-                  <Contact show={this.state.showOverLay} undoShow={this.undoShow.bind(this)} />
+                  <Contact show={this.state.showOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
                   <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                   <Spaces className='ComponentChildSpaces' spaces={this.props.spaces} events={this.props.events}/>
                   <NavLink className="loginButton" to="/login">members</NavLink>
@@ -204,24 +205,28 @@ class Layout extends Component {
 }
 
 const FetchedData = fetch(Layout, {
-  actions: [fetchSpaces, fetchEvents]
+  actions: [fetchSpaces, fetchEvents, fetchText]
 });
 
 
 function mapStateToProps(state) {
   const spaces = state.spaces;
   const events = state.events;
+  const text = state.text;
   return {
     spaces,
-    events
+    events,
+    text
   };
 }
+
 
 
 function mapDispatchToProps(dispatch) {
   return {
     fetchSpaces: bindActionCreators(fetchSpaces, dispatch),
     fetchEvents: bindActionCreators(fetchEvents, dispatch),
+    fetchText: bindActionCreators(fetchText, dispatch),
   };
 }
 

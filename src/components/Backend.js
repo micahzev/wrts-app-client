@@ -89,11 +89,12 @@ class Backend extends Component {
           WRTS BACKEND - {thisSpace.spaceName}
         </h1>
         {!this.state.invalidAccount ?
-          <div>
+          <div className="spaceBackend">
             <br/>
             <EditSpace space={thisSpace}/>
             <br/>
             <EditableEvents space={thisSpace} events={relevantEvents} />
+            <br/>
           </div>
           : null}
 

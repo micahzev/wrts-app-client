@@ -89,7 +89,10 @@ class EditableEvents extends Component {
           updateObject.eventArtist     == '' ||
           updateObject.eventExposition == '' ||
           updateObject.eventStartTime  == '' ||
-          updateObject.eventEndTime    == ''  ) {
+          updateObject.eventEndTime    == ''  ||
+          updateObject.eventExtraInfo == '' ||
+          updateObject.eventContact  == '' ||
+          updateObject.eventFacebook    == '') {
       alert('Invalid. The Field Is Empty.');
       return false;
     } else if  ( !dateregexer.test(updateObject.eventEndDate) ||
@@ -134,13 +137,18 @@ class EditableEvents extends Component {
       eventStartTime:this.eventStartTimeHour.value+':'+this.eventStartTimeMinute.value,
       eventEndTime:this.eventEndTimeHour.value+':'+this.eventEndTimeMinute.value,
       spaceId:this.props.space.spaceId,
+      eventExtraInfo:this.eventExtraInfo.value,
+      eventContact:this.eventContact.value,
+      eventFacebook:this.eventFacebook.value
     }
 
     const timeRegex =  /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
     if (eventData.eventStartDate == '' || eventData.eventEndDate    == '' ||
         eventData.eventArtist    == '' || eventData.eventExposition == '' ||
-        eventData.eventStartTime == '' || eventData.eventEndTime    == ''  ) {
+        eventData.eventStartTime == '' || eventData.eventEndTime    == '' ||
+        eventData.eventExtraInfo == '' || eventData.eventContact    == '' ||
+        eventData.eventFacebook  == '') {
 
       this.handleAlertEmptyFieldShow();
 
@@ -240,6 +248,9 @@ class EditableEvents extends Component {
       { key: 'eventExposition', name: 'Exposition',editable: true },
       { key: 'eventStartTime', name: 'Start Time',editable: true },
       { key: 'eventEndTime', name: 'End Time',editable: true },
+      { key: 'eventExtraInfo', name: 'Extra Text',editable: true },
+      { key: 'eventContact', name: 'Contact',editable: true },
+      { key: 'eventFacebook', name: 'Facebook Event Link',editable: true },
     ];
 
     const rows = this.props.events ? this.props.events : [];
@@ -370,6 +381,34 @@ class EditableEvents extends Component {
                   <FormControl inputRef={(ref) => { this.eventEndTimeMinute = ref; }} type="text" placeholder="MM" />
                 </Col>
               </FormGroup>
+
+              <FormGroup controlId="formHorizontalExtraInfo">
+                <Col componentClass={ControlLabel} sm={2}>
+                Extra Text
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.eventExtraInfo = ref; }} type="text" placeholder="Extra Text" />
+                </Col>
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalContact">
+                <Col componentClass={ControlLabel} sm={2}>
+                Contact
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.eventContact = ref; }} type="text" placeholder="Contact" />
+                </Col>
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalFacebook">
+                <Col componentClass={ControlLabel} sm={2}>
+                Facebook Event Link
+                </Col>
+                <Col sm={10}>
+                  <FormControl inputRef={(ref) => { this.eventFacebook = ref; }} type="text" placeholder="Facebook Link" />
+                </Col>
+              </FormGroup>
+
 
 
               {this.state.alertEmptyField ?

@@ -7,7 +7,7 @@
     width:33.5vw;
     right: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 20;
     display: -webkit-flex;
     display:flex;
     -webkit-flex-direction: column;
@@ -22,13 +22,14 @@
     cursor:pointer;
     color: #fff;
     position: fixed;
-    line-height: 0.5em;
+    line-height: 0.7em;
     font-size: 3em;
     font-weight: 300;
       z-index: 5;
 }
 
 .closeButton:before {
+  font-family:Garamond,'Apple Garamond','Lucida Sans Unicode';
     content: "×";
 }
 

@@ -189,7 +189,6 @@ class Layout extends Component {
             </div>
             <div className='ColumnChildRight' >
                   <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>
-                  <br/>
                   <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>
                   <Contact show={this.state.showOverLay} undoShow={this.undoShow.bind(this)} />
                   <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />

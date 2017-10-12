@@ -4,7 +4,7 @@
     position: fixed;
     height: 100%;
     top: 0;
-    width:33.5vw;
+    width:30vw;
     right: 0;
     bottom: 0;
     display: -webkit-flex;
@@ -16,11 +16,14 @@
 }
 
 .pastEventsDiv {
-  overflow: auto;
+
 }
 
 .pastEventsScroll{
     overflow: auto;
+    height:85vh;
+    position: relative;
+
 }
 
 .pastEvents {
@@ -69,18 +72,18 @@
 
 .PastEventsHead {
   font-family: 'NeuzeitS-Book';
-  padding: 0;
-  height:10vh;
+
+
   color:white;
   z-index: 5;
   text-align:center;
-  font-weight:300;
-  font-size:3em;
 
 
-
-    margin-top:0.6em;
-    margin-bottom:0.4em;
+    font-family: 'NeuzeitS-Book';
+      font-weight:300;
+      font-size:3em;
+      margin-top:0.6em;
+      margin-bottom:0.4em;
 
 }
 

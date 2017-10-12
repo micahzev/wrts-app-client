@@ -34,10 +34,10 @@ class PastEvents extends Component {
             <div className="closeButton" onClick={this.hideMe.bind(this)}>
             </div>
             <div className="pastEventsDiv">
-              <div >
+              
               <PastEventsHead />
 
-              </div>
+
               <div className="pastEventsScroll">
                 <div className="pastEvents">
                 {pastEvents.map((eventData,idx) =>

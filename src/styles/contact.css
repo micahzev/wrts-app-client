@@ -5,7 +5,7 @@
     /*height: 100%;*/
     top: 0;
     width:30vw;
-    right: 0;
+    /*right: 0;*/
     bottom: 0;
     z-index: 20;
     display: -webkit-flex;
@@ -157,7 +157,13 @@
   padding-right:3%;
 }
 
+.Mailer {
+  color:white;
+}
 
+.Mailer:hover {
+  color:white;
+}
 
 
 .logoText {

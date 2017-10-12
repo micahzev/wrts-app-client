@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import '../styles/contact.css';
 import { CSSTransitionGroup } from 'react-transition-group';
 
+import Mailto from 'react-mailto';
+
 class Contact extends Component {
   constructor(props) {
     super(props);
     this.hideMe.bind(this);
   }
-
 
   hideMe() {
     this.props.undoShow();
@@ -43,15 +44,19 @@ class Contact extends Component {
             <div className="rightColumnContact">
 
             <div className="rejoindreBox">
-              Rejoindre <br/>
-               We Run <br/>
-                The Space <br/>
+              <Mailto email="info@werunthespace.fr" className="Mailer">
+                Rejoindre <br/>
+                 We Run <br/>
+                  The Space <br/>
+              </Mailto>
             </div>
 
             <div className="rejoindreBox">
-              Donner  à<br/>
-              We Run <br/>
-              The Space <br/>
+             <Mailto email="info@werunthespace.fr" className="Mailer">
+                Donner  à<br/>
+                We Run <br/>
+                The Space <br/>
+              </Mailto>
             </div>
 
             <div className="contactEmailBox">

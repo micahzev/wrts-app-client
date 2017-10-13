@@ -266,14 +266,54 @@ margin-left: 29%;
 
 
 
+.downarrow {
+  font-family: monospace;
+  text-align: right;
+  position:absolute;
+  right:2%;
+  bottom:-6%;
+  font-size: 3vh;
+  opacity:0.2;
+
+}
 
 
 
 
+.expansionBox{
+  padding-top: 5%;
+}
+
+.extraInfo {
+  font-size: 1.7vh;
+  padding-bottom:7.5%;
+}
 
 
+.expansionLinks{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.expansionContact{
+  text-align: left;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+}
 
 
+.expansionFacebook{
+  text-align: right;
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:1;
+  flex-grow: 1;
+  padding-right:5%;
+}
 
 @media only screen and (max-device-width: 500px) {
   .futurLabel {

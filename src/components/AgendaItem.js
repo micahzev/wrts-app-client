@@ -17,8 +17,12 @@ class AgendaItem extends Component {
       exposition:'',
       startTime:'',
       endTime:'',
+      extraInfo:'',
+      contact:'',
+      facebook:'',
       isVernissage:false,
-      hasHappened:false
+      hasHappened:false,
+      showExpansion:false,
     }
   }
 
@@ -63,7 +67,10 @@ class AgendaItem extends Component {
       exposition:inputProps.events.eventExposition,
       startTime:inputProps.events.eventStartTime,
       endTime:inputProps.events.eventEndTime,
-      isVernissage:isVernissage,
+      extraInfo:inputProps.events.eventExtraInfo ? inputProps.events.eventExtraInfo : "",
+      contact:inputProps.events.eventContact ? inputProps.events.eventContact : "",
+      facebook:inputProps.events.eventFacebook ? inputProps.events.eventFacebook : "",
+      isVernissage:inputProps.events.isVernissage,
       hasHappened:hasHappened
     });
   }
@@ -77,6 +84,12 @@ class AgendaItem extends Component {
 
   pastDay(today, otherDay) {
     return otherDay.setHours(0,0,0,0) < today.setHours(0,0,0,0);
+  }
+
+  expand(){
+    this.setState({
+      showExpansion:!this.state.showExpansion,
+    })
   }
 
   render() {
@@ -96,8 +109,10 @@ class AgendaItem extends Component {
 
     const expos = {fontStyle:'italic',paddingTop:'1.5%'};
 
+
+
     return (
-      <div  className={styler}>
+      <div  className={styler} onClick={this.expand.bind(this)}>
             <div className="agendaSplitTop">
                     <div className="agendaDataDate">
                     <div className="dateTop">
@@ -136,8 +151,41 @@ class AgendaItem extends Component {
                       <div style={expos}>
                         {this.state.exposition}
                       </div>
-                        
+
+
+                        {this.state.showExpansion ?
+
+                          <div className="expansionBox">
+                               <div className="extraInfo">
+                                {this.state.extraInfo}
+                               </div>
+
+                               <div className="expansionLinks">
+
+                                  <div className="expansionContact">
+
+                                      Contact
+
+                                  </div>
+
+
+                                  <div className="expansionFacebook">
+
+                                    Event Facebook
+
+                                  </div>
+
+                               </div>
+                           </div>
+
+
+                           : null}
+
                     </div>
+
+
+
+                    <div className="downarrow"> &#8595;</div>
 
       </div>
     );

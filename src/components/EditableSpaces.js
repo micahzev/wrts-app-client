@@ -306,8 +306,6 @@ class EditableSpaces extends Component {
             <Button bsStyle="primary" onClick={this.addNewSpace.bind(this)}>Save changes</Button>
           </Modal.Footer>
         </Modal>
-
-
       </div>
     );
   }

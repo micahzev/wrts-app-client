@@ -116,13 +116,13 @@ class EditSpace extends Component {
             <ListGroupItem  onClick={this.editSpaceModal.bind(this)} header={space.spaceName}>
               <span>
                 <br/>
-                <div><b>Address:</b> {space.spaceAddress} </div>
+                <span><b>Address:</b> {space.spaceAddress} </span>
                 <br/>
-                <div><b>Site:</b>  {space.spaceUrl} </div>
+                <span><b>Site:</b>  {space.spaceUrl} </span>
                 <br/>
-                <div><b>Latitude:</b> {space.spaceLat} </div>
+                <span><b>Latitude:</b> {space.spaceLat} </span>
                 <br/>
-                <div><b>Longitude:</b>  {space.spaceLong} </div>
+                <span><b>Longitude:</b>  {space.spaceLong} </span>
                 <br/>
               </span>
             </ListGroupItem>

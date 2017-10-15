@@ -311,11 +311,21 @@ margin-left: 29%;
   text-align: right;
   -webkit-flex-basis:0;
   flex-basis:0;
-  -webkit-flex-grow:1;
-  flex-grow: 1;
+  -webkit-flex-grow:2;
+  flex-grow:2;
   padding-right:5%;
   color:#2f3277;
 }
+
+.hasHappenedItem .agendaDataInfo .expansionBox .expansionLinks .expansionContact {
+  color:#0c0321;
+}
+
+.hasHappenedItem .agendaDataInfo .expansionBox .expansionLinks .expansionFacebook {
+  color:#0c0321;
+}
+
+
 
 @media only screen and (max-device-width: 500px) {
   .futurLabel {

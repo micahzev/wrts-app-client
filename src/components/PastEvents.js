@@ -34,7 +34,7 @@ class PastEvents extends Component {
             <div className="closeButton" onClick={this.hideMe.bind(this)}>
             </div>
             <div className="pastEventsDiv">
-              
+
               <PastEventsHead />
 
 

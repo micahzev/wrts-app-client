@@ -9,8 +9,8 @@
   display:flex;
   -webkit-flex-direction: row;
   flex-direction:row;
-  padding-left:15%;
-  padding-right:15%;
+  padding-left:15vw;
+  padding-right:15vw;
 }
 
 .LandingRed {
@@ -24,8 +24,8 @@
   display:flex;
   -webkit-flex-direction: row;
   flex-direction:row;
-  padding-left:15%;
-  padding-right:15%;
+  padding-left:15vw;
+  padding-right:15vw;
 }
 
 .Landing {

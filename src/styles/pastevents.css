@@ -99,6 +99,13 @@
 }
 
 
+.pastEvents .hasHappenedItem .agendaDataInfo .expansionBox .expansionLinks .expansionContact {
+  color:white;
+}
+
+.pastEvents .hasHappenedItem .agendaDataInfo .expansionBox .expansionLinks .expansionFacebook {
+  color:white;
+}
 
 .pastEventsTransition-enter {
   opacity: 0.01;

@@ -187,12 +187,12 @@ class Layout extends Component {
                   <p className="currentLabel">current</p>
                   <p className="futurLabel" >upcoming events</p>
                   <Agenda className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
+                  <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
             </div>
             <div className='ColumnChildRight' >
                   <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>
                   <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>
                   <Contact show={this.state.showOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
-                  <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                   <Spaces className='ComponentChildSpaces' spaces={this.props.spaces} events={this.props.events}/>
                   <NavLink className="loginButton" to="/login">members</NavLink>
             </div>

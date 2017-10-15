@@ -285,6 +285,7 @@ margin-left: 29%;
 
 .expansionBox{
   padding-top: 5%;
+  height:100%;
 }
 
 .extraInfo {
@@ -370,9 +371,7 @@ margin-left: 29%;
   top:12.5vh;
   font-size: 4vh;
   opacity:0
-
 }
-
 
 .vernissageItem.uparrow {
   font-family: monospace;
@@ -426,6 +425,25 @@ margin-left: 29%;
 
 .hasHappenedItem:hover .uparrow {
   opacity: 1;
+}
+
+
+.expandAgendaContent-enter {
+  opacity:0;
+}
+
+.expandAgendaContent-enter.expandAgendaContent-enter-active {
+  opacity:1;
+  transition: opacity 500ms ease;
+}
+
+.expandAgendaContent-leave {
+  opacity: 1;
+}
+
+.expandAgendaContent-leave.expandAgendaContent-leave-active {
+  opacity:0;
+  transition: opacity 300ms ease;
 }
 
 

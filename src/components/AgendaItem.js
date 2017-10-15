@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import _ from 'lodash';
 import '../styles/agenda.css';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import Mailto from 'react-mailto';
 
@@ -159,6 +160,10 @@ class AgendaItem extends Component {
                         {this.state.exposition}
                       </div>
 
+                      <CSSTransitionGroup
+                        transitionName="expandAgendaContent"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={300}>
 
                         {this.state.showExpansion ?
 
@@ -191,6 +196,7 @@ class AgendaItem extends Component {
 
 
                            : null}
+                           </CSSTransitionGroup>
 
                     </div>
 

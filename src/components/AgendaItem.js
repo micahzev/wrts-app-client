@@ -94,6 +94,11 @@ class AgendaItem extends Component {
     })
   }
 
+  handleClick(e) {
+     e.stopPropagation();
+     console.log('child');
+   }
+
   render() {
 
     // const colorToUse = this.props.styler ? {color:'white'} : {color:'#0c0321'};
@@ -165,7 +170,7 @@ class AgendaItem extends Component {
                                <div className="expansionLinks">
 
 
-                                  <Mailto email={this.state.contact} className="expansionContact">
+                                  <Mailto email={this.state.contact} onClick={this.handleClick.bind(this)} className="expansionContact">
                                     Contact
 
                                   </Mailto>
@@ -174,7 +179,7 @@ class AgendaItem extends Component {
 
 
 
-                                  <a href={this.state.facebook} className="expansionFacebook">
+                                  <a href={this.state.facebook} onClick={this.handleClick.bind(this)} className="expansionFacebook">
                                       Event Facebook
                                   </a>
 
@@ -190,8 +195,10 @@ class AgendaItem extends Component {
                     </div>
 
 
+                    {!this.state.showExpansion ?
+                      <div className="downarrow"> &#8595;</div> :
+                    <div className="uparrow"> &#8595;</div> }
 
-                    <div className="downarrow"> &#8595;</div>
 
       </div>
     );

@@ -44,21 +44,24 @@ class Agenda extends Component {
   sortAndFilterEvents(events){
     const sortedEvents = _.sortBy(events, [function(o) {
       let splitted = o.eventStartDate.split('-');
-      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-'));
+      return Date.parse(splitted.reverse().join('-')+"T12:00:00-00:00");
     }]);
 
     const scrollToIndex = sortedEvents.findIndex(function(o) {
       let splitted = o.eventStartDate.split('-');
       let today = new Date();
-      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) > today;
+      console.log(today);
+      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')+"T12:00:00-00:00") > today;
     });
 
     sortedEvents.forEach(function(element) {
         element.scroller = element.eventArtist;
+        element.lastHashappened = element.eventStartTime;
     });
 
     if (scrollToIndex > -1) {
-      sortedEvents[scrollToIndex].scroller = "scrolltome";
+      sortedEvents[scrollToIndex-1].scroller = "scrolltome";
+      sortedEvents[scrollToIndex-2].lastHashappened = "specialClass"
     }
 
     return sortedEvents.filter(function(o) {
@@ -80,7 +83,7 @@ class Agenda extends Component {
     return (
       <div className="AgendaParent" ref="scrolltest" >
         {filteredEvents.map((eventData,idx) =>
-          <div key={idx} ref={eventData.scroller}>
+          <div key={idx} className={eventData.lastHashappened} ref={eventData.scroller}>
             <AgendaItem events={eventData} spaces={allSpaces}/>
           </div>
         )}

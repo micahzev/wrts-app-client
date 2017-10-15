@@ -32,11 +32,14 @@
     content:"";
     background: #2f3277;
     position: absolute;
-    bottom: -10%;
+    bottom: -9%;
     left: 0%;
     height: 1px;
     width:100%;
 }
+
+
+
 
 
 .vernissageItem {
@@ -58,7 +61,7 @@
     content:"";
     background: #e01939;
     position: absolute;
-    bottom: -10%;
+    bottom: -9%;
     left: 0%;
     height: 1px;
     width:100%;
@@ -82,12 +85,23 @@
     content:"";
     background: #0c0321;
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     left: 5%;
     height: 1px;
     width:90%
 
 }
+
+.AgendaParent div:nth-last-child(2) .AgendaChild .agendaDataInfo:after {
+  visibility: hidden;
+}
+
+.AgendaParent .specialClass .hasHappenedItem:after {
+  visibility: hidden;
+}
+
+
+
 
 .hasHappenedItem .agendaSplitTop .agendaDataDate {
   font-size: 2.2vh;
@@ -266,17 +280,6 @@ margin-left: 29%;
 
 
 
-.downarrow {
-  font-family: monospace;
-  text-align: right;
-  position:absolute;
-  right:2%;
-  bottom:-6%;
-  font-size: 3vh;
-  opacity:0.2;
-
-}
-
 
 
 
@@ -324,6 +327,108 @@ margin-left: 29%;
 .hasHappenedItem .agendaDataInfo .expansionBox .expansionLinks .expansionFacebook {
   color:#0c0321;
 }
+
+
+.downarrow {
+  font-family: monospace;
+  text-align: right;
+  position:absolute;
+  left:10%;
+  top:12.5vh;
+  font-size: 4vh;
+  opacity:0
+
+}
+
+.uparrow {
+  font-family: monospace;
+  text-align: right;
+  position:absolute;
+  left:10%;
+  top:12.5vh;
+  font-size: 4vh;
+  opacity:0;
+
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+
+}
+
+.AgendaChild:hover .downarrow {
+  opacity: 1;
+}
+
+.AgendaChild:hover .uparrow {
+  opacity: 1;
+}
+
+.vernissageItem.downarrow {
+  font-family: monospace;
+  text-align: right;
+  position:absolute;
+  left:10%;
+  top:12.5vh;
+  font-size: 4vh;
+  opacity:0
+
+}
+
+
+.vernissageItem.uparrow {
+  font-family: monospace;
+  text-align: right;
+  position:absolute;
+  left:10%;
+  top:12.5vh;
+  font-size: 4vh;
+  opacity:0;
+
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+
+}
+
+
+.vernissageItem:hover .downarrow {
+  opacity: 1;
+}
+
+.vernissageItem:hover .uparrow {
+  opacity: 1;
+}
+
+
+.hasHappenedItem .downarrow {
+  font-family: monospace;
+  text-align: right;
+  position:absolute;
+  left:10%;
+  top:10vh;
+  font-size: 3vh;
+  opacity:0
+}
+
+.hasHappenedItem .uparrow {
+  font-family: monospace;
+  text-align: right;
+  position:absolute;
+  left:10%;
+  top:10vh;
+  font-size: 3vh;
+  opacity:0;
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+}
+
+.hasHappenedItem:hover .downarrow {
+  opacity: 1;
+}
+
+.hasHappenedItem:hover .uparrow {
+  opacity: 1;
+}
+
+
 
 
 

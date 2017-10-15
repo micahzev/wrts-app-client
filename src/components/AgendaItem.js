@@ -3,6 +3,8 @@ import { findDOMNode } from 'react-dom';
 import _ from 'lodash';
 import '../styles/agenda.css';
 
+import Mailto from 'react-mailto';
+
 class AgendaItem extends Component {
   constructor(props) {
     super(props);
@@ -162,18 +164,22 @@ class AgendaItem extends Component {
 
                                <div className="expansionLinks">
 
-                                  <div className="expansionContact">
 
-                                      Contact
+                                  <Mailto email={this.state.contact} className="expansionContact">
+                                    Contact
 
-                                  </div>
+                                  </Mailto>
 
 
-                                  <div className="expansionFacebook">
 
-                                    Event Facebook
 
-                                  </div>
+
+                                  <a href={this.state.facebook} className="expansionFacebook">
+                                      Event Facebook
+                                  </a>
+
+
+
 
                                </div>
                            </div>

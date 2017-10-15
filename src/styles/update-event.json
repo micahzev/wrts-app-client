@@ -1,0 +1,11 @@
+{
+  "body": "{\"spaceName\":\"New Test\"}",
+  "pathParameters": {
+    "id": "12056450-87f5-11e7-86c5-37d18f9ea976"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

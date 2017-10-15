@@ -18,9 +18,13 @@ import Confirm from 'react-confirm-bootstrap';
 
 import update from 'immutability-helper';
 
+import { Loader } from 'react-loaders';
+
 import { unboundAddEvent, unboundDeleteEvent, unboundUpdateEvent } from '~/src/actions/events';
 
+import '../styles/backend.css';
 import '../styles/table.css';
+import '../styles/loaderbackend.scss';
 
 
 class EditableEvents extends Component {
@@ -34,6 +38,7 @@ class EditableEvents extends Component {
       alertInvalidDate:false,
       alertInvalidTime:false,
       toDelete:[],
+      loading:false,
     }
   }
 
@@ -56,7 +61,7 @@ class EditableEvents extends Component {
 
   }
 
-  handleGridRowsUpdated({ fromRow, toRow, updated }) {
+  async handleGridRowsUpdated({ fromRow, toRow, updated }) {
     let rows = this.props.events.slice();
 
     const updaterFunction = this.props.boundUpdateEvent;
@@ -67,7 +72,13 @@ class EditableEvents extends Component {
       rows[i] = updatedRow;
 
       if (this.isValidateUpdateObject(updatedRow)) {
-        updaterFunction(updatedRow);
+        this.setState({
+          loading:true,
+        });
+        await updaterFunction(updatedRow);
+        this.setState({
+          loading:false,
+        });
       } else {
         return;
       }
@@ -79,8 +90,6 @@ class EditableEvents extends Component {
   }
 
   isValidateUpdateObject(updateObject){
-
-    console.log(updateObject);
 
     const regexer =  /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
@@ -217,7 +226,7 @@ class EditableEvents extends Component {
     });
   }
 
-  onConfirm() {
+  async onConfirm() {
     const events = this.props.events;
 
     const toDelete = [];
@@ -230,12 +239,16 @@ class EditableEvents extends Component {
     }
     )
 
-    toDelete.forEach(function(elem) {
-      deleteFunction(elem);
+    this.setState({
+      loading:true,
+    });
+    await toDelete.forEach(function(elem) {
+       deleteFunction(elem);
     })
 
       this.setState({
         selectedIndexes:[],
+        loading:false,
         });
   }
 
@@ -283,6 +296,12 @@ class EditableEvents extends Component {
           </Confirm>
         </ButtonToolbar>
 
+
+        {this.state.loading?
+          <div className="loader-case">
+                <Loader className="loader" type="semi-circle-spin" active />
+          </div>
+          :
         <ReactDataGrid
           enableCellSelect
           enableDragAndDrop={false}
@@ -298,7 +317,7 @@ class EditableEvents extends Component {
             selectBy: {
               indexes: this.state.selectedIndexes
             }
-          }}  />
+          }}  />  }
 
 
         <Modal show={this.state.showAddEventModal} onHide={this.closeAddEventModal.bind(this)} backdrop="static">
@@ -410,9 +429,6 @@ class EditableEvents extends Component {
                   <FormControl inputRef={(ref) => { this.eventFacebook = ref; }} type="text" placeholder="Facebook Link" />
                 </Col>
               </FormGroup>
-
-
-
               {this.state.alertEmptyField ?
                 <Alert bsStyle="danger" onDismiss={this.handleAlertEmptyFieldDismiss.bind(this)}>
                   <p>All fields must be filled out</p>
@@ -427,8 +443,6 @@ class EditableEvents extends Component {
                 <Alert bsStyle="danger" onDismiss={this.handleAlertInvalidTimeDismiss.bind(this)}>
                   <p>Invalid Time</p>
                 </Alert> : null}
-
-
             </Form>
           </Modal.Body>
           <Modal.Footer>
@@ -436,8 +450,6 @@ class EditableEvents extends Component {
             <Button bsStyle="primary" onClick={this.addNewEvent.bind(this)}>Save changes</Button>
           </Modal.Footer>
         </Modal>
-
-
       </div>
     );
   }

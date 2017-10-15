@@ -9,11 +9,14 @@ import Confirm from 'react-confirm-bootstrap';
 
 import update from 'immutability-helper';
 
+import { Loader } from 'react-loaders';
+
 import { unboundAddSpace, unboundDeleteSpace, unboundUpdateSpace } from '~/src/actions/spaces';
 import { unboundDeleteEvent } from '~/src/actions/events';
 
-
+import '../styles/backend.css';
 import '../styles/table.css';
+import '../styles/loaderbackend.scss';
 
 
 class EditableSpaces extends Component {
@@ -26,7 +29,7 @@ class EditableSpaces extends Component {
       alertEmptyField:false,
       toDelete:[],
       alertInvalidCoord:false,
-
+      loading:false,
     }
   }
 
@@ -49,7 +52,7 @@ class EditableSpaces extends Component {
 
   }
 
-  handleGridRowsUpdated({ fromRow, toRow, updated }) {
+  async handleGridRowsUpdated({ fromRow, toRow, updated }) {
     let rows = this.props.spaces.slice();
 
     const updaterFunction = this.props.boundUpdateSpace;
@@ -59,7 +62,13 @@ class EditableSpaces extends Component {
       let updatedRow = update(rowToUpdate, {$merge: updated});
       rows[i] = updatedRow;
       updatedRow.index = i;
-      updaterFunction(updatedRow);
+      this.setState({
+        loading:true,
+      });
+      await updaterFunction(updatedRow);
+      this.setState({
+        loading:false,
+      });
     }
 
 
@@ -217,9 +226,14 @@ class EditableSpaces extends Component {
             title="Are you sure you want to delete?">
             <Button bsStyle="danger" disabled={disableDelete}>Delete Selected</Button>
           </Confirm>
-
-
         </ButtonToolbar>
+
+        {this.state.loading?
+          <div className="loader-case">
+                <Loader className="loader" type="semi-circle-spin" active />
+          </div>
+          :
+
         <ReactDataGrid
           enableCellSelect
           enableDragAndDrop={false}
@@ -235,7 +249,7 @@ class EditableSpaces extends Component {
             selectBy: {
               indexes: this.state.selectedIndexes
             }
-          }}  />
+          }}  />  }
 
 
         <Modal show={this.state.showAddSpaceModal} onHide={this.closeAddSpaceModal.bind(this)} backdrop="static">

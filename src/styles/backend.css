@@ -41,3 +41,30 @@ textarea.form-control {
 .spaceBackend {
   padding:5%;
 }
+
+.updateSpaceLoader{
+  width:100vw;
+  height:300vh;
+  /*background-color: #e01939;*/
+  opacity:0.5;
+  text-align: center;
+  margin: 0 auto;
+  position:absolute;
+  top:0;
+  left:0;
+  /*z-index: 10;*/
+  font-size: 20vw;
+
+}
+
+.updateSpaceLoader h1 {
+  margin: 0 auto;
+  font-size: 20vw;
+}
+
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+}

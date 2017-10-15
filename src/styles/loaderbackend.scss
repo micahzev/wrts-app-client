@@ -1,0 +1,25 @@
+$primary-color: #e01939;
+// How you import this will depend heavily on your build setup
+// If using webpack though, `~` refers to node_modules
+// @import '~loaders.css/src/animations/line-scale.scss'
+@import '~loaders.css/src/animations/semi-circle-spin.scss';
+
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+}
+
+.loader{
+  // position: absolute;
+  // left: 50%;
+  // top: 50%;
+  // -webkit-transform: translate(-50%, -50%);
+  // transform: translate(-50%, -50%);
+
+}
+
+.loader-case {
+  background-color: #e01939;
+}

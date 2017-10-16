@@ -365,8 +365,82 @@
 }
 
 
+.contactButtonMobile{
+  display: none;
+}
 
-@media only screen and (max-device-width: 500px) {
+
+.pastEventsButtonMobile{
+  display: none;
+}
+
+@media (max-width: 500px) {
+
+.past{
+  display: block;
+
+}
+
+.events{
+  display: block;
+}
+
+.currentLabel{
+  visibility: hidden;
+}
+
+.futurLabel{
+visibility: hidden;
+}
+
+
+.contactButtonMobile{
+  display: inherit;
+  color: #0c0321;
+  position:absolute;
+  top:1%;
+  right:1%;
+  font-size:  3vh;
+  font-family: 'NeuzeitS-Book';
+    z-index: 10;
+
+    overflow: visible;
+    white-space: nowrap;
+    height:inherit;
+    text-align: left;
+    line-height: 1;
+}
+
+.contactButtonMobile:hover{
+  font-weight:bold;
+}
+
+
+.pastEventsButtonMobile{
+
+  color: #0c0321;
+  position:absolute;
+  top:1%;
+  left:1%;
+  font-size:  3vh;
+  font-family: 'NeuzeitS-Book';
+    z-index: 10;
+
+    display: -webkit-flex;
+    display:flex;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+
+    height:inherit;
+
+    text-align: left;
+    line-height: 1;
+
+}
+
+.pastEventsButtonMobile:hover{
+  font-weight:bold;
+}
 
 
   .App {
@@ -431,6 +505,31 @@
   }
 
 
+  .ColumnChildLeft {
+    display:none;
+  }
+
+  .ColumnChildMiddle {
+    display: -webkit-flex;
+    display:flex;
+    -webkit-flex-direction: column;
+    flex-direction:column;
+    height:89vh;
+    margin: 0;
+    -webkit-flex-basis:0;
+    flex-basis:0;
+    -webkit-flex-grow:4;
+    flex-grow: 4;
+    -webkit-align-content: center;
+    align-content:center;
+    overflow:hidden;
+    position: relative;
+  }
+
+  .ColumnChildRight {
+    display:none;
+  }
+
 .HeaderChildMiddle {
     padding: 0;
     text-align:center;
@@ -440,19 +539,13 @@
     -webkit-flex-grow:1;
     flex-grow: 1;
     margin:0;
-    background-color:white;
-    color:#2f3277;
+    /*background-color: #D51836;*/
+
+
 
 }
 
   .HeaderChild {
-    padding: 0;
-    text-align:center;
-    font-weight:300;
-    -webkit-flex-basis:0;
-    flex-basis:0;
-    -webkit-flex-grow:1;
-    flex-grow: 1;
-    margin:0;
+    display:none;
   }
 }

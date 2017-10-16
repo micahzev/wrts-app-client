@@ -208,3 +208,13 @@
   -webkit-flex-grow:8;
   flex-grow: 8;
 }
+
+
+@media (max-width: 500px) {
+  .contactOverlay {
+
+      width:100vw;
+
+  }
+
+}

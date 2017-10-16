@@ -38,7 +38,9 @@ class Layout extends Component {
       showLanding: true,
       showOverLay: false,
       showPastEventsOverlay: false,
-      loading:true
+      loading:true,
+      showMobileOverLay:false,
+      showPastEventsMobileOverLay:false,
     }
     this.contactsOverlay.bind(this);
   }
@@ -121,8 +123,11 @@ class Layout extends Component {
     this.setState({
       showOverLay:false,
       showPastEventsOverlay: false,
+      showMobileOverLay:false,
+      showPastEventsMobileOverLay:false,
     })
   }
+
 
   pastEventsOverlay() {
     this.setState({
@@ -144,6 +149,14 @@ class Layout extends Component {
 
 
   }
+
+  contactsMobileOverlay(){
+    this.setState({
+      showMobileOverLay:true,
+    })
+  }
+
+
 
   render() {
 
@@ -174,6 +187,8 @@ class Layout extends Component {
             </div>
             <div className='HeaderChildMiddle' >
                 <Agendahead />
+                <p className="contactButtonMobile" onClick={this.contactsMobileOverlay.bind(this)}>about</p>
+                <p className="pastEventsButtonMobile" onClick={this.pastEventsOverlay.bind(this)}> <span className="past">past</span><span className="events">events</span></p>
             </div>
             <div className='HeaderChild' >
                 <Spaceshead  />
@@ -188,6 +203,9 @@ class Layout extends Component {
                   <p className="futurLabel" >upcoming events</p>
                   <Agenda className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
                   <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
+                  <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
+
+
             </div>
             <div className='ColumnChildRight' >
                   <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>

@@ -138,3 +138,14 @@
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+
+
+@media (max-width: 500px) {
+  .pastEventsOverlay {
+
+      width:100vw;
+
+  }
+
+}

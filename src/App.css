@@ -259,6 +259,7 @@
   margin:0;
   background-color:#e01939;
   color:#0c0321;
+  position: relative;
 
 }
 
@@ -395,16 +396,16 @@ visibility: hidden;
 
 
 .contactButtonMobile{
-  display: inherit;
+  display: block;
   color: #0c0321;
   position:absolute;
-  top:1%;
+  top:8%;
   right:1%;
   font-size:  3vh;
   font-family: 'NeuzeitS-Book';
-    z-index: 10;
+    z-index: 1;
 
-    overflow: visible;
+
     white-space: nowrap;
     height:inherit;
     text-align: left;
@@ -420,11 +421,11 @@ visibility: hidden;
 
   color: #0c0321;
   position:absolute;
-  top:1%;
+  top:8%;
   left:1%;
   font-size:  3vh;
   font-family: 'NeuzeitS-Book';
-    z-index: 10;
+    z-index: 2;
 
     display: -webkit-flex;
     display:flex;
@@ -539,6 +540,7 @@ visibility: hidden;
     -webkit-flex-grow:1;
     flex-grow: 1;
     margin:0;
+    overflow:hidden;
     /*background-color: #D51836;*/
 
 

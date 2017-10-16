@@ -67,3 +67,24 @@ font-size: 20vh;
   -webkit-flex-grow:8;
   flex-grow: 8;
 }
+
+
+@media (max-width: 500px) {
+  .Landing {
+    font-size: 16vw;
+  }
+
+.LandingWhite {
+  padding-left:5vw;
+  padding-right:5vw;
+  line-height: 10vh;
+}
+
+
+.LandingRed {
+  padding-left:5vw;
+  padding-right:5vw;
+  line-height: 82.5vh;
+}
+
+}

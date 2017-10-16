@@ -209,6 +209,14 @@
   flex-grow: 8;
 }
 
+a {
+  color:white;
+}
+
+a:hover {
+  color:white;
+}
+
 
 @media (max-width: 500px) {
   .contactOverlay {

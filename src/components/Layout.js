@@ -52,7 +52,7 @@ class Layout extends Component {
 
     if (this.props.events.length > 0 && this.props.spaces.length > 0 && this.state.loading){
 
-      setTimeout(this.loaded.bind(this), 250);
+      setTimeout(this.loaded.bind(this), 0);
 
 
 

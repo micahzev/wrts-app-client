@@ -44,14 +44,16 @@ class Agenda extends Component {
   sortAndFilterEvents(events){
     const sortedEvents = _.sortBy(events, [function(o) {
       let splitted = o.eventStartDate.split('-');
-      return Date.parse(splitted.reverse().join('-')+"T12:00:00-00:00");
+      // return Date.parse(splitted.reverse().join('-')+"T12:00:00-00:00");
+      return Date.parse(splitted.reverse().join('-'));
     }]);
 
     const scrollToIndex = sortedEvents.findIndex(function(o) {
       let splitted = o.eventStartDate.split('-');
       let today = new Date();
       // console.log(today);
-      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')+"T12:00:00-00:00") > today;
+      // return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')+"T12:00:00-00:00") > today;
+      return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) > today;
     });
 
     sortedEvents.forEach(function(element) {

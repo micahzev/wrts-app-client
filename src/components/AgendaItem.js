@@ -57,7 +57,8 @@ class AgendaItem extends Component {
       // check vernissage
     const today = new Date();
     const splitted = inputProps.events.eventStartDate.split('-');
-    const vernissage = new Date([splitted[2],splitted[1],splitted[0]].join('-')+"T12:00:00-00:00");
+    // const vernissage = new Date([splitted[2],splitted[1],splitted[0]].join('-')+"T12:00:00-00:00");
+    const vernissage = new Date([splitted[2],splitted[1],splitted[0]].join('-'));
     const isVernissage = this.sameDay(today,vernissage);
 
     const hasHappened = this.pastDay(today, vernissage);
@@ -73,7 +74,7 @@ class AgendaItem extends Component {
       extraInfo:inputProps.events.eventExtraInfo ? inputProps.events.eventExtraInfo : "",
       contact:inputProps.events.eventContact ? inputProps.events.eventContact : "",
       facebook:inputProps.events.eventFacebook ? inputProps.events.eventFacebook : "",
-      isVernissage:inputProps.events.isVernissage,
+      isVernissage:isVernissage,
       hasHappened:hasHappened
     });
   }

@@ -55,11 +55,12 @@ class Map extends Component {
 
   componentDidMount(){
 
-  
+
       const vernissageIds = this.props.events.filter((event) => {
           const today = new Date();
           const splitted = event.eventStartDate.split('-');
-          const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-')+"T12:00:00-00:00");
+          // const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-')+"T12:00:00-00:00");
+          const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-'));
           return this.sameDay(today,vernissage);
         }).map((o) => {
             return o.spaceId;

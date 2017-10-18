@@ -69,7 +69,7 @@ font-size: 20vh;
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   .Landing {
     font-size: 16vw;
   }

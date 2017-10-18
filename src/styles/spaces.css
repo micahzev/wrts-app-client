@@ -60,7 +60,7 @@
   flex-basis:0;
   -webkit-flex-grow:2;
   flex-grow: 2;
-
+  line-height: 1.1;
     /*margin-left: 20%;*/
     /*height: 100%;*/
     /*border-style: solid;
@@ -71,7 +71,7 @@
     border-bottom-style: solid;
     border-bottom-width: thin;*/
     font-size:2.2vh;
-    margin-left: 20%;
+    margin-left: 12%;
 
 
 }
@@ -113,7 +113,7 @@
 
 
 
-@media only screen and (max-device-width: 500px) {
+@media (max-width: 800px) {
 
   .pastEventsButton {
     color:#e01939;

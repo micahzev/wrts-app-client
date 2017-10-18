@@ -116,7 +116,7 @@ class AgendaItem extends Component {
       splitted2[2] = splitted2[2].slice(-2);
       const joined2 = splitted2.join('.');
 
-    const expos = {fontStyle:'italic',paddingTop:'1.5%'};
+    const expos = {fontStyle:'italic',paddingTop:'0.5%'};
 
 
 
@@ -188,8 +188,8 @@ class AgendaItem extends Component {
 
 
                     {!this.state.showExpansion ?
-                      <div className="downarrow"> &#8595;</div> :
-                    <div className="uparrow"> &#8595;</div> }
+                      <div className="downarrow"> &#866; </div> :
+                    <div className="uparrow"> &#866; </div> }
 
 
       </div>

@@ -63,7 +63,7 @@ input[type=file] {
 
 
 
-@media only screen and (max-device-width: 500px) {
+@media (max-width: 800px) {
 
   html {
     width:100%;

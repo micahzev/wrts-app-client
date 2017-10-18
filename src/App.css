@@ -286,7 +286,7 @@
 
   height:0vh;
 
-  transition: height 1300ms ease-out;
+  transition: height 1200ms ease-in;
 
 }
 
@@ -302,17 +302,17 @@
 }
 
 .contactButton:hover {
-  font-weight:bold;
+  text-decoration: underline;
 }
 
 .pastEventsButton:hover {
-  font-weight:bold;
+    text-decoration: underline;
 }
 
 .pastEventsButton {
   color:#e01939;
   position:absolute;
-  top:7.5%;
+  top:6%;
   right:5%;
   font-size:  2.5vh;
   font-family: 'NeuzeitS-Book';
@@ -330,9 +330,9 @@
 }
 
 .loginButton:hover {
-  font-weight:bold;
+
   color:#e01939;
-   text-decoration: none;
+     text-decoration: underline;
 }
 
 .futurLabel {
@@ -376,8 +376,6 @@
 }
 
 
-
-
 .labelTransition-enter {
   opacity: 0.01;
 }
@@ -397,7 +395,7 @@
   transition: opacity 300ms ease-out;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
 
 .past{
   display: block;
@@ -564,9 +562,6 @@ visibility: hidden;
     margin:0;
     overflow:hidden;
     /*background-color: #D51836;*/
-
-
-
 }
 
   .HeaderChild {

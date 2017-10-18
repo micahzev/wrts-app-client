@@ -106,12 +106,12 @@ class Layout extends Component {
       this.setState({
         showCurrent:true
       });
-      setTimeout(this.unshowCurrent.bind(this), 3000);
+      setTimeout(this.unshowCurrent.bind(this), 1000);
     } else {
       this.setState({
         showFuture:true
       });
-      setTimeout(this.unshowFuture.bind(this), 3000);
+      setTimeout(this.unshowFuture.bind(this), 1000);
     }
   }
 
@@ -209,7 +209,7 @@ class Layout extends Component {
           <CSSTransitionGroup
             transitionName="landingTransition"
             transitionEnterTimeout={500}
-            transitionLeaveTimeout={1300}>
+            transitionLeaveTimeout={1200}>
                 {this.state.showLanding ?  <Landing className="Landme" /> : null}
           </CSSTransitionGroup>
 

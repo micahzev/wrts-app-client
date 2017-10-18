@@ -106,12 +106,12 @@ class Layout extends Component {
       this.setState({
         showCurrent:true
       });
-      setTimeout(this.unshowCurrent.bind(this), 5000);
+      setTimeout(this.unshowCurrent.bind(this), 3000);
     } else {
       this.setState({
         showFuture:true
       });
-      setTimeout(this.unshowFuture.bind(this), 5000);
+      setTimeout(this.unshowFuture.bind(this), 3000);
     }
   }
 

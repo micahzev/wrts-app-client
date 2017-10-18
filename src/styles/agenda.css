@@ -51,6 +51,7 @@
   padding-top:7%;
   color:#e01939;
   padding-left: 1%;
+  position: relative;
 }
 
 .vernissageItem .agendaDataInfo{
@@ -330,6 +331,15 @@ margin-left: 29%;
 }
 
 
+.vernissageItem .agendaDataInfo .expansionBox .expansionLinks .expansionContact {
+  color:#e01939;
+}
+
+.vernissageItem .agendaDataInfo .expansionBox .expansionLinks .expansionFacebook {
+  color:#e01939;
+}
+
+
 .downarrow {
   font-family: monospace;
   text-align: right;
@@ -363,7 +373,10 @@ margin-left: 29%;
   opacity: 1;
 }
 
-.vernissageItem.downarrow {
+
+
+
+.vernissageItem .downarrow {
   font-family: monospace;
   text-align: right;
   position:absolute;
@@ -373,7 +386,7 @@ margin-left: 29%;
   opacity:0
 }
 
-.vernissageItem.uparrow {
+.vernissageItem .uparrow {
   font-family: monospace;
   text-align: right;
   position:absolute;

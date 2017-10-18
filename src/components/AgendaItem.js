@@ -172,30 +172,15 @@ class AgendaItem extends Component {
                                <div className="extraInfo">
                                 {this.state.extraInfo}
                                </div>
-
                                <div className="expansionLinks">
-
-
                                   <Mailto email={this.state.contact} onClick={this.handleClick.bind(this)} className="expansionContact">
                                     Contact
-
                                   </Mailto>
-
-
-
-
-
                                   <a href={this.state.facebook} onClick={this.handleClick.bind(this)} className="expansionFacebook">
                                       Event Facebook
                                   </a>
-
-
-
-
                                </div>
                            </div>
-
-
                            : null}
                            </CSSTransitionGroup>
 

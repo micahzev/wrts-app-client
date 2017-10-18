@@ -41,6 +41,8 @@ class Layout extends Component {
       loading:true,
       showMobileOverLay:false,
       showPastEventsMobileOverLay:false,
+      showCurrent:false,
+      showFuture:false,
     }
     this.contactsOverlay.bind(this);
   }
@@ -74,6 +76,7 @@ class Layout extends Component {
   componentWillUnmount() {
     findDOMNode(this.refs.appityapp).removeEventListener('wheel', this.handleScroll.bind(this), true);
     findDOMNode(this.refs.appityapp).removeEventListener('click', this.handleClick.bind(this), true);
+    findDOMNode(this.refs.agendaRef).removeEventListener('wheel', this.handleAgendaScroll.bind(this), true);
   }
 
   handleScroll(event) {
@@ -83,6 +86,7 @@ class Layout extends Component {
       })
       findDOMNode(this.refs.appityapp).removeEventListener('wheel', this.handleScroll.bind(this), true);
       findDOMNode(this.refs.appityapp).removeEventListener('click', this.handleClick.bind(this), true);
+      findDOMNode(this.refs.agendaRef).addEventListener('wheel', this.handleAgendaScroll.bind(this), true);
     }
     // const toMove = 0.4*Math.abs(event.deltaY);
     // if (event.deltaY < 0) {
@@ -95,6 +99,34 @@ class Layout extends Component {
     //  }
   }
 
+  handleAgendaScroll(event){
+
+    // up negative down positive
+    if (event.deltaY < 0) {
+      this.setState({
+        showCurrent:true
+      });
+      setTimeout(this.unshowCurrent.bind(this), 5000);
+    } else {
+      this.setState({
+        showFuture:true
+      });
+      setTimeout(this.unshowFuture.bind(this), 5000);
+    }
+  }
+
+  unshowCurrent(){
+    this.setState({
+      showCurrent:false
+    });
+  }
+
+  unshowFuture(){
+    this.setState({
+      showFuture:false
+    });
+  }
+
   handleClick(event){
     if (this.state.showLanding) {
       this.setState({
@@ -102,6 +134,7 @@ class Layout extends Component {
       })
       findDOMNode(this.refs.appityapp).removeEventListener('wheel', this.handleScroll.bind(this), true);
       findDOMNode(this.refs.appityapp).removeEventListener('click', this.handleClick.bind(this), true);
+      findDOMNode(this.refs.agendaRef).addEventListener('wheel', this.handleAgendaScroll.bind(this), true);
     }
 
   }
@@ -199,9 +232,19 @@ class Layout extends Component {
                   <Map className='ComponentChild' spaces={this.props.spaces} events={this.props.events}/>
             </div>
             <div ref="agendacolumn" className='ColumnChildMiddle' >
-                  <p className="currentLabel">current</p>
-                  <p className="futurLabel" >upcoming events</p>
-                  <Agenda className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
+                  <CSSTransitionGroup
+                    transitionName="labelTransition"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}>
+                  {this.state.showCurrent ? <p className="currentLabel">current</p> : null}
+                  </CSSTransitionGroup>
+                  <CSSTransitionGroup
+                    transitionName="labelTransition"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}>
+                  {this.state.showFuture ? <p className="futurLabel" >upcoming events</p> : null}
+                  </CSSTransitionGroup>
+                  <Agenda ref="agendaRef" className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
                   <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                   <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
 

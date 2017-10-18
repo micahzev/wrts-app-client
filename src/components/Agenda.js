@@ -50,7 +50,7 @@ class Agenda extends Component {
     const scrollToIndex = sortedEvents.findIndex(function(o) {
       let splitted = o.eventStartDate.split('-');
       let today = new Date();
-      console.log(today);
+      // console.log(today);
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')+"T12:00:00-00:00") > today;
     });
 

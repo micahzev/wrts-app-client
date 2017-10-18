@@ -209,11 +209,11 @@
   flex-grow: 8;
 }
 
-a {
+.socialLink {
   color:white;
 }
 
-a:hover {
+.socialLink:hover {
   color:white;
 }
 

@@ -89,7 +89,7 @@ class Contact extends Component {
             <div className="contactEmail">
             Retrouvez nous sur :
             <br/>
-            <a href="https://www.facebook.com/werunthespace/">Facebook</a> - <a href="https://www.instagram.com/werunthespace/">Instragram</a>
+            <a className="socialLink" href="https://www.facebook.com/werunthespace/">Facebook</a> - <a className="socialLink" href="https://www.instagram.com/werunthespace/">Instragram</a>
             </div>
 
 

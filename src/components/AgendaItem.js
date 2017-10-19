@@ -124,12 +124,12 @@ class AgendaItem extends Component {
       <div  className={styler} onClick={this.expand.bind(this)}>
             <div className="agendaSplitTop">
                     <div className="agendaDataDate">
-                    <div className="dateTop">
-                    {joined1}
-                    </div>
-                    <div className="dateBottom">
-                      {this.state.hasHappened && ' to ' + joined2}
-                    </div>
+                        <div className="dateTop">
+                        {joined1}
+                        </div>
+                        <div className="dateBottom">
+                          {this.state.hasHappened && ' to ' + joined2}
+                        </div>
 
                     </div>
 
@@ -183,14 +183,11 @@ class AgendaItem extends Component {
                            </div>
                            : null}
                            </CSSTransitionGroup>
-
                     </div>
 
-
-                    {!this.state.showExpansion ?
-                      <div className="downarrow"> &#866; </div> :
-                    <div className="uparrow"> &#866; </div> }
-
+                    { !this.state.showExpansion ?
+                      <div className="downarrow">&#8601; </div> :
+                      <div className="uparrow"> &#8601; </div> }
 
       </div>
     );

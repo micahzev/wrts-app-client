@@ -485,6 +485,85 @@ margin-left: 29%;
       font-size: 0.9em;
   }
 
+  .agendaDataInfo{
+    font-size:2.4vw;
+  }
+
+
+  .agendaDataDate {
+    font-size:3.5vw;
+  }
+
+  .agendaDataTime {
+    font-size:3.5vw;
+  }
+
+  .agendaDataName{
+    font-size:4vw;
+  }
+
+  .hasHappenedItem .agendaSplitTop .agendaDataDate {
+    font-size: 2.5vw;
+
+  }
+
+  .hasHappenedItem .agendaSplitTop .agendaDataName {
+      font-size:4vw;
+  }
+
+  .uparrow {
+    opacity: 0.5;
+  }
+
+    .downarrow{
+      opacity: 0.5;
+    }
+
+    .AgendaChild:hover .downarrow {
+      opacity: .5;
+    }
+
+    .AgendaChild:hover .uparrow {
+      opacity: .5;
+    }
+    .vernissageItem .downarrow {
+      opacity: .5;
+    }
+    .vernissageItem .uparrow {
+      opacity: .5;
+    }
+
+    .vernissageItem:hover .downarrow {
+      opacity: .5;
+    }
+    .vernissageItem:hover .uparrow {
+      opacity: .5;
+    }
+    .hasHappenedItem .downarrow {
+      opacity: .5;
+    }
+
+    .hasHappenedItem .uparrow {
+      opacity: .5;
+
+    }
+
+    .hasHappenedItem:hover .downarrow {
+      opacity: .5;
+    }
+
+    .hasHappenedItem:hover .uparrow {
+      opacity: .5;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+.agendaDataInfo{
+font-size:2.4vh;
+}
+
   .agendaDataDate {
     font-size:3.5vh;
   }
@@ -521,28 +600,19 @@ margin-left: 29%;
     .AgendaChild:hover .uparrow {
       opacity: .5;
     }
-
-
     .vernissageItem .downarrow {
-
       opacity: .5;
-
     }
-
     .vernissageItem .uparrow {
       opacity: .5;
     }
 
-
     .vernissageItem:hover .downarrow {
       opacity: .5;
     }
-
     .vernissageItem:hover .uparrow {
       opacity: .5;
     }
-
-
     .hasHappenedItem .downarrow {
       opacity: .5;
     }
@@ -552,8 +622,6 @@ margin-left: 29%;
 
     }
 
-
-
     .hasHappenedItem:hover .downarrow {
       opacity: .5;
     }
@@ -561,6 +629,4 @@ margin-left: 29%;
     .hasHappenedItem:hover .uparrow {
       opacity: .5;
     }
-
-
 }

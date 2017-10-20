@@ -59,8 +59,8 @@
   height:100%;
   overflow-x:auto;
   padding-bottom: 50%;
-    font-family: 'NeuzeitS-BookHeavy';
-    line-height: 1.2;
+  font-family: 'NeuzeitS-BookHeavy';
+  line-height: 1.2;
 }
 
 .rightColumnContact {
@@ -69,6 +69,8 @@
   -webkit-flex-grow:8;
   flex-grow: 8;
   text-align: center;
+  height:100%;
+  overflow-x:auto;
 }
 
 
@@ -222,7 +224,7 @@
 
 @media (max-width: 800px) {
   .contactOverlay {
-
+      z-index:300;
       width:100vw;
 
   }

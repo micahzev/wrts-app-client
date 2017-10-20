@@ -388,8 +388,6 @@ margin-left: 29%;
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   transform: rotate(135deg);
-
-
 }
 
 
@@ -488,12 +486,81 @@ margin-left: 29%;
   }
 
   .agendaDataDate {
-    font-size:1.7vh;
+    font-size:3.5vh;
   }
-
 
   .agendaDataTime {
-    font-size:1.7vh;
+    font-size:3.5vh;
   }
+
+  .agendaDataName{
+    font-size:4vh;
+  }
+
+  .hasHappenedItem .agendaSplitTop .agendaDataDate {
+    font-size: 2.5vh;
+
+  }
+
+  .hasHappenedItem .agendaSplitTop .agendaDataName {
+      font-size:4vh;
+  }
+
+  .uparrow {
+    opacity: 0.5;
+  }
+
+    .downarrow{
+      opacity: 0.5;
+    }
+
+    .AgendaChild:hover .downarrow {
+      opacity: .5;
+    }
+
+    .AgendaChild:hover .uparrow {
+      opacity: .5;
+    }
+
+
+    .vernissageItem .downarrow {
+
+      opacity: .5;
+
+    }
+
+    .vernissageItem .uparrow {
+      opacity: .5;
+    }
+
+
+    .vernissageItem:hover .downarrow {
+      opacity: .5;
+    }
+
+    .vernissageItem:hover .uparrow {
+      opacity: .5;
+    }
+
+
+    .hasHappenedItem .downarrow {
+      opacity: .5;
+    }
+
+    .hasHappenedItem .uparrow {
+      opacity: .5;
+
+    }
+
+
+
+    .hasHappenedItem:hover .downarrow {
+      opacity: .5;
+    }
+
+    .hasHappenedItem:hover .uparrow {
+      opacity: .5;
+    }
+
 
 }

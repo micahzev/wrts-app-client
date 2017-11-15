@@ -43,6 +43,7 @@ class Layout extends Component {
       showPastEventsMobileOverLay:false,
       showCurrent:false,
       showFuture:false,
+      itemToShow:undefined
     }
     this.contactsOverlay.bind(this);
   }
@@ -190,6 +191,18 @@ class Layout extends Component {
   }
 
 
+  spaceToShow(event){
+    let clicked = event.target.getAttribute('value');
+    this.setState({
+      itemToShow:clicked
+    });
+  }
+
+  spaceToShowFromAgenda(spaceName){
+    this.setState({
+      itemToShow:spaceName
+    });
+  }
 
   render() {
 
@@ -229,7 +242,7 @@ class Layout extends Component {
           </div>
           <div ref="scrollcolumns" className='RowChildCol' >
             <div  className='ColumnChildLeft' >
-                  <Map className='ComponentChild' spaces={this.props.spaces} events={this.props.events}/>
+                  <Map className='ComponentChild' show={this.state.itemToShow} spaces={this.props.spaces} events={this.props.events}/>
             </div>
             <div ref="agendacolumn" className='ColumnChildMiddle' >
                   <CSSTransitionGroup
@@ -244,7 +257,7 @@ class Layout extends Component {
                     transitionLeaveTimeout={300}>
                   {this.state.showFuture ? <p className="futurLabel" >upcoming events</p> : null}
                   </CSSTransitionGroup>
-                  <Agenda ref="agendaRef" className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
+                  <Agenda spaceToShow={this.spaceToShowFromAgenda.bind(this)} ref="agendaRef" className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
                   <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                   <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
 
@@ -254,7 +267,7 @@ class Layout extends Component {
                   <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>
                   <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>
                   <Contact show={this.state.showOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
-                  <Spaces className='ComponentChildSpaces' spaces={this.props.spaces} events={this.props.events}/>
+                  <Spaces spaceToShow={this.spaceToShow.bind(this)} className='ComponentChildSpaces' spaces={this.props.spaces} events={this.props.events}/>
                   <NavLink className="loginButton" to="/login">members</NavLink>
             </div>
           </div>

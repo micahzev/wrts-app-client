@@ -49,7 +49,7 @@ class Spaces extends Component {
 
 
   }
-  
+
   sortSpaces(spaces){
     const sortedSpaces = _.sortBy(spaces, [function(o) {
       return o.spaceName.toLowerCase();
@@ -71,7 +71,7 @@ class Spaces extends Component {
       <div className="spaceScroll" >
         <div ref="spaceparent" className="SpaceParent">
           {allSpaces.map((spaceData,idx) =>
-            <Space key={idx} space={spaceData} />
+            <Space spaceToShow={this.props.spaceToShow.bind(this)} key={idx} space={spaceData} />
           )}
         </div>
       </div>

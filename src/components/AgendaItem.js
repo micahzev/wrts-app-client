@@ -91,6 +91,12 @@ class AgendaItem extends Component {
   }
 
   expand(){
+    if (!this.state.showExpansion) {
+      this.props.spaceToShow(this.state.spaceName);
+    } else {
+      this.props.spaceToShow(undefined);
+    }
+
     this.setState({
       showExpansion:!this.state.showExpansion,
     })

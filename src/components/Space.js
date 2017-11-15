@@ -14,7 +14,7 @@ class Space extends Component {
 
     return (
       <div className="spacecontainer spaceChild">
-        <div className="leftspacecontainer spacename spaceData">
+        <div className="leftspacecontainer spacename spaceData" value={this.props.space.spaceName} onClick={this.props.spaceToShow.bind(this)}>
           {this.props.space.spaceName}
         </div>
         <div className="rightspacecontainer spaceData">

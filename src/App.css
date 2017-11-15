@@ -421,11 +421,9 @@ visibility: hidden;
   position:absolute;
   top:8%;
   right:1%;
-  font-size:  3vh;
+  font-size:  3vw;
   font-family: 'NeuzeitS-Book';
     z-index: 1;
-
-
     white-space: nowrap;
     height:inherit;
     text-align: left;
@@ -433,34 +431,29 @@ visibility: hidden;
 }
 
 .contactButtonMobile:hover{
-  font-weight:bold;
+  text-decoration: underline;
 }
 
 
 .pastEventsButtonMobile{
-
   color: #0c0321;
   position:absolute;
   top:8%;
   left:1%;
-  font-size:  3vh;
+  font-size:  3vw;
   font-family: 'NeuzeitS-Book';
     z-index: 2;
-
     display: -webkit-flex;
     display:flex;
     -webkit-flex-direction:column;
     flex-direction:column;
-
     height:inherit;
-
     text-align: left;
     line-height: 1;
-
 }
 
 .pastEventsButtonMobile:hover{
-  font-weight:bold;
+  text-decoration: underline;
 }
 
 
@@ -566,4 +559,49 @@ visibility: hidden;
   .HeaderChild {
     display:none;
   }
+}
+
+
+@media (max-width: 400px) {
+  .contactButtonMobile{
+    display: block;
+    color: #0c0321;
+    position:absolute;
+    top:8%;
+    right:1%;
+    font-size:  3vh;
+    font-family: 'NeuzeitS-Book';
+      z-index: 1;
+      white-space: nowrap;
+      height:inherit;
+      text-align: left;
+      line-height: 1;
+  }
+
+  .contactButtonMobile:hover{
+    text-decoration: underline;
+  }
+
+
+  .pastEventsButtonMobile{
+    color: #0c0321;
+    position:absolute;
+    top:8%;
+    left:1%;
+    font-size:  3vh;
+    font-family: 'NeuzeitS-Book';
+      z-index: 2;
+      display: -webkit-flex;
+      display:flex;
+      -webkit-flex-direction:column;
+      flex-direction:column;
+      height:inherit;
+      text-align: left;
+      line-height: 1;
+  }
+
+  .pastEventsButtonMobile:hover{
+    text-decoration: underline;
+  }
+
 }

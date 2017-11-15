@@ -44,7 +44,6 @@ const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
   </GoogleMap>
 ));
 
-
 class Map extends Component {
   constructor(props){
     super(props);
@@ -104,6 +103,33 @@ class Map extends Component {
 
 
   }
+
+
+  componentDidUpdate(prevProps) {
+  if (prevProps.show !== this.props.show) {
+
+      const targetMarker = _.find(this.state.markers, { 'key': this.props.show});
+
+
+        this.setState({
+          markers: this.state.markers.map(marker => {
+            if (marker === targetMarker) {
+              return {
+                ...marker,
+                showInfo: true,
+              };
+            }
+            return {
+              ...marker,
+              showInfo: false,
+            };
+          }),
+        });
+
+
+
+  }
+}
 
   sameDay(d1, d2) {
     return d1.getFullYear() === d2.getFullYear() &&

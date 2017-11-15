@@ -86,7 +86,7 @@ class Agenda extends Component {
       <div className="AgendaParent" ref="scrolltest" >
         {filteredEvents.map((eventData,idx) =>
           <div key={idx} className={eventData.lastHashappened} ref={eventData.scroller}>
-            <AgendaItem events={eventData} spaces={allSpaces}/>
+            <AgendaItem spaceToShow={this.props.spaceToShow.bind(this)} events={eventData} spaces={allSpaces}/>
           </div>
         )}
         <div className="whitespace">

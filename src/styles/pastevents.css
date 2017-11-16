@@ -42,17 +42,14 @@
 }
 
 .closeButton {
-
     top:0;
     right:0;
     cursor:pointer;
     color: #fff;
     position: fixed;
     line-height: 0.7em;
-
     font-size: 3em;
     font-weight: 100;
-
       z-index: 5;
 }
 
@@ -145,6 +142,12 @@
   .pastEventsOverlay {
   z-index:300;
       width:100vw;
+
+  }
+
+  .PastEventsHead {
+
+    font-size:2em;
 
   }
 

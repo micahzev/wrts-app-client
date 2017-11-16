@@ -204,6 +204,10 @@ class Layout extends Component {
     });
   }
 
+  spaceToShowFromAgendaDummy(spaceName){
+    return;
+  }
+
   render() {
 
     const allEvents = this.props.events ? this.props.events : [];
@@ -258,7 +262,7 @@ class Layout extends Component {
                   {this.state.showFuture ? <p className="futurLabel" >upcoming events</p> : null}
                   </CSSTransitionGroup>
                   <Agenda spaceToShow={this.spaceToShowFromAgenda.bind(this)} ref="agendaRef" className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
-                  <PastEvents show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
+                  <PastEvents  spaceToShow={this.spaceToShowFromAgendaDummy.bind(this)}  show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                   <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
 
 

@@ -41,7 +41,7 @@ class PastEvents extends Component {
               <div className="pastEventsScroll">
                 <div className="pastEvents">
                 {pastEvents.map((eventData,idx) =>
-                  <AgendaItem key={idx} styler={pastStyle} events={eventData} spaces={allSpaces}/>
+                  <AgendaItem spaceToShow={this.props.spaceToShow.bind(this)} key={idx} styler={pastStyle} events={eventData} spaces={allSpaces}/>
                 )}
                 </div>
               </div>

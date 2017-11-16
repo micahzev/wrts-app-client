@@ -27,10 +27,94 @@
 
 @media (max-width: 800px) {
 
+.Map{
+      z-index:300;
+      width:100%;
+      height: 100%;
+}
+
   .mapElement{
+    width:100vw;
+
+    top: 0;
+    height:89vh;
+    right: 0;
+    bottom: 0;
+    z-index:300;
+  }
 
 
-    padding-right: 1em;
+  .HeaderChildMapMobile {
+      padding: 0;
+      text-align:center;
+      font-weight:300;
+      margin:0;
+      /*overflow:hidden;*/
+      -webkit-flex-basis:0;
+      flex-basis:0;
+      -webkit-flex-grow:4;
+      flex-grow: 4;
+      background-color: white;
+  }
+
+.ComponentChildMapMobile{
+  -webkit-flex-basis:0;
+  flex-basis:0;
+  -webkit-flex-grow:4;
+  flex-grow: 4;
+}
+
+  .MobileMapContainer{
+    display: -webkit-flex;
+    display:flex;
+    -webkit-flex-direction: column;
+    flex-direction:column;
+    z-index:300;
+
+    height: 100%;
+    width:100vw;
+
+    overflow:hidden;
+    position: fixed;
+
+    top:0;
+    left:0;
+
+  }
+
+  .MobileSpacesContainer{
+    display: -webkit-flex;
+    display:flex;
+    -webkit-flex-direction: column;
+    flex-direction:column;
+    z-index:300;
+
+    height: 100%;
+    width:100vw;
+
+    overflow:hidden;
+    position: fixed;
+
+    top:0;
+    left:0;
+    background-color: white;
+  }
+
+  .mapCloseButton {
+      top:0;
+      right:0;
+      cursor:pointer;
+      color: #2f3277;
+      position: fixed;
+      line-height: 0.7em;
+      font-size: 3em;
+      font-weight: 100;
+        z-index: 5;
+  }
+
+  .mapCloseButton:before {
+    font-family:Garamond,'Apple Garamond','Lucida Sans Unicode';
+      content: "×";
   }
 
 

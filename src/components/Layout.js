@@ -12,6 +12,9 @@ import Map from './Map';
 import Agenda from './Agenda';
 import Spaces from './Spaces';
 
+import MobileMap from './MobileMap';
+import MobileSpaces from './MobileSpaces';
+
 import Maphead from './Maphead';
 import Agendahead from './Agendahead';
 import Spaceshead from './Spaceshead';
@@ -29,7 +32,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 
 import { Loader } from 'react-loaders';
 
-import { Swipeable, defineSwipe } from 'react-touch';
+import Swipeable from 'react-swipeable';
 
 class Layout extends Component {
   constructor(props) {
@@ -40,6 +43,8 @@ class Layout extends Component {
       showLanding: true,
       showOverLay: false,
       showPastEventsOverlay: false,
+      showMapOverlay: false,
+      showSpacesOverlay: false,
       loading:true,
       showMobileOverLay:false,
       showPastEventsMobileOverLay:false,
@@ -116,6 +121,7 @@ class Layout extends Component {
       });
       setTimeout(this.unshowFuture.bind(this), 1000);
     }
+
   }
 
   unshowCurrent(){
@@ -161,6 +167,8 @@ class Layout extends Component {
       showPastEventsOverlay: false,
       showMobileOverLay:false,
       showPastEventsMobileOverLay:false,
+      showMapOverlay: false,
+      showSpacesOverlay: false
     })
   }
 
@@ -168,6 +176,18 @@ class Layout extends Component {
   pastEventsOverlay() {
     this.setState({
       showPastEventsOverlay:true,
+    })
+  }
+
+  mapOverlay() {
+    this.setState({
+      showMapOverlay:true,
+    })
+  }
+
+  spacesOverlay() {
+    this.setState({
+      showSpacesOverlay:true,
     })
   }
 
@@ -210,11 +230,17 @@ class Layout extends Component {
     return;
   }
 
-  swipeRightAgenda(){
-    debugger;
-    console.log("swaaped");
-    alert("hello");
+  swipingRight(e, absX){
+    this.mapOverlay();
+
   }
+
+  swipingLeft(e, absX){
+    this.spacesOverlay();
+
+  }
+
+
 
   render() {
 
@@ -223,8 +249,6 @@ class Layout extends Component {
     const filteredEvents = this.props.events ? this.sortAndFilterEvents(allEvents) : [];
 
     const allSpaces = this.props.spaces ? this.props.spaces : [];
-
-    const swipe = defineSwipe({swipeDistance: 30});
 
     return (
       <div ref='appityapp' >
@@ -256,7 +280,7 @@ class Layout extends Component {
           </div>
           <div ref="scrollcolumns" className='RowChildCol' >
             <div  className='ColumnChildLeft' >
-                  <Map className='ComponentChild' show={this.state.itemToShow} spaces={this.props.spaces} events={this.props.events}/>
+                  <Map className='ComponentChild' markerToShow={this.state.itemToShow} spaces={this.props.spaces} events={this.props.events}/>
             </div>
             <div ref="agendacolumn" className='ColumnChildMiddle' >
                   <CSSTransitionGroup
@@ -272,9 +296,15 @@ class Layout extends Component {
                   {this.state.showFuture ? <p className="futurLabel" >upcoming events</p> : null}
                   </CSSTransitionGroup>
 
-                  <Swipeable config={swipe} onSwipeRight={() => this.swipeRightAgenda()}>
+                  <Swipeable
+                        className='agendaSwipe'
+                        onSwipingRight={this.swipingRight.bind(this)}
+                        onSwipingLeft={this.swipingLeft.bind(this)}>
                     <Agenda spaceToShow={this.spaceToShowFromAgenda.bind(this)} ref="agendaRef" className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
                   </Swipeable>
+
+                  {this.state.showMapOverlay? <MobileMap  show={this.state.showMapOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
+                  {this.state.showSpacesOverlay? <MobileSpaces  show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
 
 
 

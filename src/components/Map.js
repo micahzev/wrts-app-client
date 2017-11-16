@@ -106,9 +106,9 @@ class Map extends Component {
 
 
   componentDidUpdate(prevProps) {
-  if (prevProps.show !== this.props.show) {
+  if (prevProps.markerToShow !== this.props.markerToShow) {
 
-      const targetMarker = _.find(this.state.markers, { 'key': this.props.show});
+      const targetMarker = _.find(this.state.markers, { 'key': this.props.markerToShow});
 
 
         this.setState({

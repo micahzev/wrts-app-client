@@ -29,6 +29,8 @@ import { CSSTransitionGroup } from 'react-transition-group';
 
 import { Loader } from 'react-loaders';
 
+import { Swipeable, defineSwipe } from 'react-touch';
+
 class Layout extends Component {
   constructor(props) {
     super(props);
@@ -208,6 +210,12 @@ class Layout extends Component {
     return;
   }
 
+  swipeRightAgenda(){
+    debugger;
+    console.log("swaaped");
+    alert("hello");
+  }
+
   render() {
 
     const allEvents = this.props.events ? this.props.events : [];
@@ -215,6 +223,8 @@ class Layout extends Component {
     const filteredEvents = this.props.events ? this.sortAndFilterEvents(allEvents) : [];
 
     const allSpaces = this.props.spaces ? this.props.spaces : [];
+
+    const swipe = defineSwipe({swipeDistance: 30});
 
     return (
       <div ref='appityapp' >
@@ -261,7 +271,13 @@ class Layout extends Component {
                     transitionLeaveTimeout={300}>
                   {this.state.showFuture ? <p className="futurLabel" >upcoming events</p> : null}
                   </CSSTransitionGroup>
-                  <Agenda spaceToShow={this.spaceToShowFromAgenda.bind(this)} ref="agendaRef" className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
+
+                  <Swipeable config={swipe} onSwipeRight={() => this.swipeRightAgenda()}>
+                    <Agenda spaceToShow={this.spaceToShowFromAgenda.bind(this)} ref="agendaRef" className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
+                  </Swipeable>
+
+
+
                   <PastEvents  spaceToShow={this.spaceToShowFromAgendaDummy.bind(this)}  show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                   <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
 

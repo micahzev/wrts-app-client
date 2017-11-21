@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {  withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -20,39 +21,30 @@ import { fetchText } from '~/src/actions/text';
 
 import '../styles/backend.css';
 
+const AdminBackend = (props) => (
+  <div className="Backend">
+    <h1>{'WRTS BACKEND (ADMINISTRATOR ONLY)'}</h1>
+    <br/>
+    <EditableSpaces
+      events={props.events}
+      spaces={props.spaces}
+    />
+    <br/>
+    <EditableText text={props.text} />
+    <br/>
+    <UserSignup spaces={props.spaces} />
+  </div>
+)
 
-class AdminBackend extends Component {
-
-  constructor(props) {
-    super(props);
-
-  }
-
-
-
-  render() {
-    return (
-      <div className="Backend">
-        <h1>
-        WRTS BACKEND (ADMINISTRATOR ONLY)
-        </h1>
-        <br/>
-        <EditableSpaces spaces={this.props.spaces} events={this.props.events} />
-        <br/>
-        <EditableText text={this.props.text} />
-        <br/>
-        <UserSignup spaces={this.props.spaces} />
-      </div>
-    );
-  }
-
+AdminBackend.propTypes = {
+  events: PropTypes.arrayOf(PropTypes.object).isRequired,
+  spaces: PropTypes.arrayOf(PropTypes.objecy).isRequired,
+  text:PropTypes.string.isRequired
 }
-
 
 const FetchedAdminBackend = fetch(AdminBackend, {
   actions: [fetchSpaces, fetchEvents, fetchText]
 });
-
 
 function mapStateToProps(state) {
   const spaces = state.spaces;
@@ -64,7 +56,6 @@ function mapStateToProps(state) {
     text
   };
 }
-
 
 function mapDispatchToProps(dispatch) {
   return {

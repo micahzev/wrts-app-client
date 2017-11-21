@@ -10,7 +10,6 @@ class PastEvents extends Component {
     this.hideMe.bind(this);
   }
 
-
   hideMe() {
     this.props.undoShow();
   }
@@ -36,7 +35,6 @@ class PastEvents extends Component {
               <div className="pastEventsDiv">
 
                 <PastEventsHead />
-
 
                 <div className="pastEventsScroll">
                   <div className="pastEvents">

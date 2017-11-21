@@ -2,7 +2,6 @@ import request from 'superagent';
 import { apiURL } from '~/src/config';
 const UrlAPI = apiURL;
 
-
 //// GET ALL SPACES
 
 export function fetchSpacesAPI() {
@@ -23,9 +22,7 @@ export function fetchSpacesAPI() {
 }
 ;
 
-
 ///// CREATE NEW SPACE
-
 
 export function addSpaceAPI(data) {
   return new Promise((resolve, reject) => {
@@ -64,11 +61,7 @@ export function fetchEventsAPI() {
 }
 ;
 
-
-
 /////// DELETE A SPACE
-
-
 
 export function deleteSpaceAPI(object) {
   return new Promise((resolve, reject) => {
@@ -90,10 +83,7 @@ export function deleteSpaceAPI(object) {
 }
 ;
 
-
-
 ////////////////////////////////////// UPDATE A SPACE
-
 
 export function updateSpaceAPI(data) {
   const id = data.spaceId;
@@ -112,11 +102,7 @@ export function updateSpaceAPI(data) {
   });
 }
 
-
-
-
 ///// CREATE NEW EVENT
-
 
 export function addEventAPI(data) {
   return new Promise((resolve, reject) => {
@@ -135,13 +121,7 @@ export function addEventAPI(data) {
 }
 ;
 
-
-
-
-
 /////// DELETE EVENT
-
-
 
 export function deleteEventAPI(object) {
   return new Promise((resolve, reject) => {
@@ -164,10 +144,7 @@ export function deleteEventAPI(object) {
 }
 ;
 
-
-
 ////////////////////////////////////// UPDATE A SPACE
-
 
 export function updateEventAPI(data) {
   const id = data.eventId;
@@ -185,8 +162,6 @@ export function updateEventAPI(data) {
       })
   });
 }
-
-
 
 ////////////////////////////////////// UPDATE TEXT
 
@@ -206,10 +181,7 @@ export function updateTextAPI(data) {
   });
 }
 
-
-
 ////////////////////////////////////// GET TEXT
-
 
 export function fetchTextAPI() {
   return new Promise((resolve, reject) => {

@@ -1,9 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-
 import decode from 'jwt-decode';
-
 
 export function requireAuthenticationAdmin(Component) {
 
@@ -42,7 +40,6 @@ export function requireAuthenticationAdmin(Component) {
       }
     }
 
-
     isLoggedIn(decodedAuthToken) {
 
       return !this.isTokenExpired(decodedAuthToken);
@@ -61,7 +58,6 @@ export function requireAuthenticationAdmin(Component) {
       const expirationDate = this.getTokenExpirationDate(decodedAuthToken);
       return expirationDate < new Date();
     }
-
 
     render () {
       return (

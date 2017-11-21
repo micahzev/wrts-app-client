@@ -55,16 +55,11 @@ class Layout extends Component {
     this.contactsOverlay.bind(this);
   }
 
-
-
   componentDidUpdate(){
-
 
     if (this.props.events.length > 0 && this.props.spaces.length > 0 && this.state.loading){
 
       setTimeout(this.loaded.bind(this), 0);
-
-
 
       // this.refs.scrollcolumns.scrollLeft += window.innerWidth;
       // window.requestAnimationFrame(function() {
@@ -148,7 +143,6 @@ class Layout extends Component {
 
   }
 
-
   loaded(){
     this.setState({
       loading:false,
@@ -171,7 +165,6 @@ class Layout extends Component {
       showSpacesOverlay: false
     })
   }
-
 
   pastEventsOverlay() {
     this.setState({
@@ -203,7 +196,6 @@ class Layout extends Component {
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) < today;
     });
 
-
   }
 
   contactsMobileOverlay(){
@@ -211,7 +203,6 @@ class Layout extends Component {
       showMobileOverLay:true,
     })
   }
-
 
   spaceToShow(event){
     let clicked = event.target.getAttribute('value');
@@ -240,8 +231,6 @@ class Layout extends Component {
 
   }
 
-
-
   render() {
 
     const allEvents = this.props.events ? this.props.events : [];
@@ -263,7 +252,6 @@ class Layout extends Component {
               transitionLeaveTimeout={1200}>
               {this.state.showLanding ?  <Landing className="Landme" /> : null}
             </CSSTransitionGroup>
-
 
             <div className="RowChildHead" >
               <div className="HeaderChild" >
@@ -306,11 +294,8 @@ class Layout extends Component {
                 {this.state.showMapOverlay? <MobileMap  show={this.state.showMapOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
                 {this.state.showSpacesOverlay? <MobileSpaces  show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
 
-
-
                 <PastEvents  spaceToShow={this.spaceToShowFromAgendaDummy.bind(this)}  show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                 <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
-
 
               </div>
               <div className="ColumnChildRight" >
@@ -332,7 +317,6 @@ const FetchedData = fetch(Layout, {
   actions: [fetchSpaces, fetchEvents, fetchText]
 });
 
-
 function mapStateToProps(state) {
   const spaces = state.spaces;
   const events = state.events;
@@ -343,8 +327,6 @@ function mapStateToProps(state) {
     text
   };
 }
-
-
 
 function mapDispatchToProps(dispatch) {
   return {

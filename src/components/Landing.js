@@ -4,7 +4,6 @@ import '../styles/landing.css';
 
 class Landing extends Component {
 
-
   render() {
 
     return (

@@ -47,7 +47,6 @@ class Spaces extends Component {
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) < today;
     });
 
-
   }
 
   sortSpaces(spaces){
@@ -58,9 +57,7 @@ class Spaces extends Component {
     return sortedSpaces;
   }
 
-
   render() {
-
 
     const allEvents = this.props.events ? this.props.events : [];
     const filteredEvents = this.props.events ? this.sortAndFilterEvents(allEvents) : [];

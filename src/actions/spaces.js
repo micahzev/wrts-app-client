@@ -10,7 +10,6 @@ export function fetchSpaces(options) {
   }
 };
 
-
 export function unboundAddSpace(data) {
   return {
     type: types.ADD_SPACE,
@@ -20,7 +19,6 @@ export function unboundAddSpace(data) {
   }
 };
 
-
 export function unboundDeleteSpace(data) {
   return {
     type: types.DELETE_SPACE,
@@ -29,7 +27,6 @@ export function unboundDeleteSpace(data) {
     }
   }
 };
-
 
 export function unboundUpdateSpace(data) {
   return {

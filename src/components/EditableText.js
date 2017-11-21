@@ -13,8 +13,6 @@ import { unboundUpdateText } from '~/src/actions/text';
 
 import '../styles/backend.css';
 
-
-
 class EditableText extends Component {
 
   constructor(props) {
@@ -23,8 +21,6 @@ class EditableText extends Component {
       text: this.props.text,
     }
   }
-
-
 
   componentDidUpdate(prevProps){
     if (prevProps.text.length < 1) {
@@ -37,7 +33,6 @@ class EditableText extends Component {
   handleChange(e) {
     this.setState({ text: e.target.value });
   }
-
 
   onConfirm(){
     console.log(this.state.text);

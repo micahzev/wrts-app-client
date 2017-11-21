@@ -54,7 +54,6 @@ class Map extends Component {
 
   componentDidMount(){
 
-
     const vernissageIds = this.props.events.filter((event) => {
       const today = new Date();
       const splitted = event.eventStartDate.split('-');
@@ -92,24 +91,18 @@ class Map extends Component {
         }
       }
 
-
     }) : [];
 
     this.setState({
       markers:markers,
     });
 
-
-
-
   }
-
 
   componentDidUpdate(prevProps) {
     if (prevProps.markerToShow !== this.props.markerToShow) {
 
       const targetMarker = _.find(this.state.markers, { 'key': this.props.markerToShow});
-
 
       this.setState({
         markers: this.state.markers.map((marker) => {
@@ -125,8 +118,6 @@ class Map extends Component {
           };
         }),
       });
-
-
 
     }
   }

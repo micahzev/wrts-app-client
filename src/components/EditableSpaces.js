@@ -18,7 +18,6 @@ import '../styles/backend.css';
 import '../styles/table.css';
 import '../styles/loaderbackend.scss';
 
-
 class EditableSpaces extends Component {
 
   constructor(props) {
@@ -32,7 +31,6 @@ class EditableSpaces extends Component {
       loading:false,
     }
   }
-
 
   rowGetter(i) {
 
@@ -71,9 +69,7 @@ class EditableSpaces extends Component {
       });
     }
 
-
   }
-
 
   showModal() {
     this.setState({
@@ -138,13 +134,11 @@ class EditableSpaces extends Component {
     })
   }
 
-
   handlealertInvalidCoordDismiss() {
     this.setState({
       alertInvalidCoord:false
     })
   }
-
 
   onConfirm() {
     const spaces = this.props.spaces;
@@ -186,9 +180,7 @@ class EditableSpaces extends Component {
       selectedIndexes:[],
     });
 
-
   }
-
 
   render() {
 
@@ -210,7 +202,6 @@ class EditableSpaces extends Component {
     })
 
     const toDelete = toDeleteObjects.map(function(elem) {return elem.spaceName + ' ';});
-
 
     return (
       <div>
@@ -250,7 +241,6 @@ class EditableSpaces extends Component {
                 indexes: this.state.selectedIndexes
               }
             }}  />}
-
 
         <Modal show={this.state.showAddSpaceModal} onHide={this.closeAddSpaceModal.bind(this)} backdrop="static">
           <Modal.Header closeButton>
@@ -330,8 +320,6 @@ function mapStateToProps(state) {
   return {};
 }
 ;
-
-
 
 function mapDispatchToProps(dispatch) {
   return {

@@ -92,7 +92,6 @@ class Contact extends Component {
                     <a className="socialLink" href="https://www.facebook.com/werunthespace/">Facebook</a> - <a className="socialLink" href="https://www.instagram.com/werunthespace/">Instragram</a>
                   </div>
 
-
                 </div>
               </div>
             </div>

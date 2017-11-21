@@ -10,7 +10,6 @@ export function fetchEvents(options) {
   }
 };
 
-
 export function unboundAddEvent(data) {
   return {
     type: types.ADD_EVENT,
@@ -20,7 +19,6 @@ export function unboundAddEvent(data) {
   }
 };
 
-
 export function unboundDeleteEvent(data) {
   return {
     type: types.DELETE_EVENT,
@@ -29,7 +27,6 @@ export function unboundDeleteEvent(data) {
     }
   }
 };
-
 
 export function unboundUpdateEvent(data) {
   return {

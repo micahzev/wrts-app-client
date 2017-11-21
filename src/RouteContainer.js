@@ -16,8 +16,6 @@ import AppliedRoute from './components/AppliedRoute';
 import {requireAuthentication} from './components/AuthenticatedComponentBackend';
 import {requireAuthenticationAdmin} from './components/AuthenticatedComponentAdmin';
 
-
-
 class RouteContainer extends Component {
 
   constructor(props) {
@@ -27,15 +25,11 @@ class RouteContainer extends Component {
     }
   }
 
-
-
   updateUserToken(userToken) {
     this.setState({
       userToken: userToken
     });
   }
-
-
 
   render() {
     const childProps = {
@@ -55,6 +49,5 @@ class RouteContainer extends Component {
     );
   }
 }
-
 
 export default RouteContainer;

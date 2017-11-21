@@ -26,7 +26,6 @@ import '../styles/backend.css';
 import '../styles/table.css';
 import '../styles/loaderbackend.scss';
 
-
 class EditableEvents extends Component {
 
   constructor(props) {
@@ -41,7 +40,6 @@ class EditableEvents extends Component {
       loading:false,
     }
   }
-
 
   rowGetter(i) {
 
@@ -83,9 +81,7 @@ class EditableEvents extends Component {
         return;
       }
 
-
     }
-
 
   }
 
@@ -118,7 +114,6 @@ class EditableEvents extends Component {
       return true;
     }
   }
-
 
   showModal() {
     this.setState({
@@ -252,8 +247,6 @@ class EditableEvents extends Component {
     });
   }
 
-
-
   render() {
 
     const columns = [
@@ -296,7 +289,6 @@ class EditableEvents extends Component {
           </Confirm>
         </ButtonToolbar>
 
-
         {this.state.loading?
           <div className="loader-case">
             <Loader className="loader" type="semi-circle-spin" active />
@@ -318,7 +310,6 @@ class EditableEvents extends Component {
                 indexes: this.state.selectedIndexes
               }
             }}  />}
-
 
         <Modal show={this.state.showAddEventModal} onHide={this.closeAddEventModal.bind(this)} backdrop="static">
           <Modal.Header closeButton>
@@ -460,8 +451,6 @@ function mapStateToProps(state) {
   return {};
 }
 ;
-
-
 
 function mapDispatchToProps(dispatch) {
   return {

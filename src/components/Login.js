@@ -18,7 +18,6 @@ import decode from 'jwt-decode';
 
 import '../styles/login.css';
 
-
 class Login extends Component {
 
   constructor(props) {
@@ -82,7 +81,6 @@ class Login extends Component {
       })
     ));
   }
-
 
   render() {
     return (

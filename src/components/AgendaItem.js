@@ -41,7 +41,6 @@ class AgendaItem extends Component {
 
   }
 
-
   componentWillReceiveProps(nextProps) {
     if(nextProps.spaces && Object.keys(nextProps.events).length > 0) {
       this.updateComponent(nextProps);
@@ -78,7 +77,6 @@ class AgendaItem extends Component {
       hasHappened:hasHappened
     });
   }
-
 
   sameDay(d1, d2) {
     return d1.getFullYear() === d2.getFullYear() &&
@@ -123,8 +121,6 @@ class AgendaItem extends Component {
     const joined2 = splitted2.join('.');
 
     const expos = {fontStyle:'italic',paddingTop:'0.5%'};
-
-
 
     return (
       <div  className={styler} onClick={this.expand.bind(this)}>

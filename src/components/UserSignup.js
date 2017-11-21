@@ -13,7 +13,6 @@ import config from '../config.js';
 
 import '../styles/backend.css';
 
-
 class UserSignup extends Component {
 
   constructor(props) {
@@ -62,7 +61,6 @@ class UserSignup extends Component {
       this.handleSubmit(event);
     }
 
-
   };
 
   resetToNormal(){
@@ -75,7 +73,6 @@ class UserSignup extends Component {
 
     });
   }
-
 
   async handleSubmit(event) {
     event.preventDefault();
@@ -97,7 +94,6 @@ class UserSignup extends Component {
       alert(e);
     }
 
-
     this.setState({ isLoading: false });
   }
 
@@ -112,7 +108,6 @@ class UserSignup extends Component {
       })
     ));
   }
-
 
   signup(username, password, spaceId) {
     const userPool = new CognitoUserPool({
@@ -139,9 +134,6 @@ class UserSignup extends Component {
 
     this.setState({ isLoading: true });
   }
-
-
-
 
   render() {
 

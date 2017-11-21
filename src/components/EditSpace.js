@@ -7,7 +7,6 @@ import '../styles/backend.css';
 
 import {  unboundUpdateSpace } from '~/src/actions/spaces';
 
-
 class EditSpace extends Component {
 
   constructor(props) {
@@ -28,7 +27,6 @@ class EditSpace extends Component {
   isFloat(x) {
     return !isNaN(x) && !this.isInt(eval(x)) && x.toString().length > 0;
   }
-
 
   editSpace(event){
 
@@ -69,13 +67,11 @@ class EditSpace extends Component {
     this.setState({showEditSpaceModal:false});
   }
 
-
   handlealertEmptyFieldShow(){
     this.setState({
       alertEmptyField:true
     })
   }
-
 
   handlealertEmptyFieldDismiss(){
     this.setState({
@@ -83,20 +79,17 @@ class EditSpace extends Component {
     })
   }
 
-
   handlealertInvalidCoordShow() {
     this.setState({
       alertInvalidCoord:true
     })
   }
 
-
   handlealertInvalidCoordDismiss() {
     this.setState({
       alertInvalidCoord:false
     })
   }
-
 
   render() {
 
@@ -180,7 +173,6 @@ class EditSpace extends Component {
                 </Col>
               </FormGroup>
 
-
               {this.state.alertEmptyField ?
                 <Alert bsStyle="danger" onDismiss={this.handlealertEmptyFieldDismiss.bind(this)}>
                   <p>All fields must be filled out</p>
@@ -189,7 +181,6 @@ class EditSpace extends Component {
                 <Alert bsStyle="danger" onDismiss={this.handlealertInvalidCoordDismiss.bind(this)}>
                   <p>Invalid Coordinate</p>
                 </Alert> : null}
-
 
             </Form>
           </Modal.Body>
@@ -205,11 +196,9 @@ class EditSpace extends Component {
 
 }
 
-
 function mapStateToProps(state) {
   return {};
 }
-
 
 function mapDispatchToProps(dispatch) {
   return {

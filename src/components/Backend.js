@@ -15,7 +15,6 @@ import { fetchEvents } from '~/src/actions/events';
 import EditableEvents from './EditableEvents';
 import '../styles/backend.css';
 
-
 class Backend extends Component {
 
   constructor(props) {
@@ -55,9 +54,6 @@ class Backend extends Component {
       return {spaceName:'Invalid Account', spaceAddress:'', spaceUrl:''};
     }
 
-
-
-
   }
 
   attachedIndeces(relevantEvents){
@@ -65,23 +61,18 @@ class Backend extends Component {
       relevantEvent.index = this.props.events.findIndex((obj) => obj == relevantEvent);
     }
 
-
     )
 
     return relevantEvents;
   }
 
-
   render() {
-
 
     const thisSpace = !this.state.invalidAccount ? (this.findRelevantSpace.bind(this))() : {spaceName:'Invalid Account'};
 
     const relevantEvents = !this.state.invalidAccount ? this.props.events.filter((event) => event.spaceId == thisSpace.spaceId) : [];
 
     const updatedRelevantEvents = !this.state.invalidAccount ? (this.attachedIndeces.bind(this))(relevantEvents) : [];
-
-
 
     return (
       <div className="Backend">
@@ -98,7 +89,6 @@ class Backend extends Component {
           </div>
           : null}
 
-
       </div>
     );
   }
@@ -108,7 +98,6 @@ const FetchedBackend = fetch(Backend, {
   actions: [fetchSpaces, fetchEvents]
 });
 
-
 function mapStateToProps(state) {
   const spaces = state.spaces;
   const events = state.events;
@@ -117,7 +106,6 @@ function mapStateToProps(state) {
     events
   };
 }
-
 
 function mapDispatchToProps(dispatch) {
   return {

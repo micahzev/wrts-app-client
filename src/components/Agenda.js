@@ -15,7 +15,6 @@ class Agenda extends Component {
     }
   }
 
-
   componentDidUpdate(){
     if (this.state.counter < 1){
       let _this = this;
@@ -38,8 +37,6 @@ class Agenda extends Component {
     }
 
   }
-
-
 
   sortAndFilterEvents(events){
     const sortedEvents = _.sortBy(events, [function(o) {
@@ -71,7 +68,6 @@ class Agenda extends Component {
       let today = new Date();
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) > today;
     });
-
 
   }
 

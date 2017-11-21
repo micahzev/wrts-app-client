@@ -66,10 +66,10 @@ class Layout extends Component {
 
 
 
-        // this.refs.scrollcolumns.scrollLeft += window.innerWidth;
-        // window.requestAnimationFrame(function() {
-        //     _this.refs.scrollcolumns.scrollLeft += window.innerWidth;
-        // });
+      // this.refs.scrollcolumns.scrollLeft += window.innerWidth;
+      // window.requestAnimationFrame(function() {
+      //     _this.refs.scrollcolumns.scrollLeft += window.innerWidth;
+      // });
     }
   }
 
@@ -251,78 +251,78 @@ class Layout extends Component {
     const allSpaces = this.props.spaces ? this.props.spaces : [];
 
     return (
-      <div ref='appityapp' >
-      {this.state.loading ?
-        <div className="loader-case">
-          <Loader className="loader" type="ball-pulse-rise" active />
-        </div>  :
-        <div className='App'>
-          <CSSTransitionGroup
-            transitionName="landingTransition"
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={1200}>
-                {this.state.showLanding ?  <Landing className="Landme" /> : null}
-          </CSSTransitionGroup>
+      <div ref="appityapp" >
+        {this.state.loading ?
+          <div className="loader-case">
+            <Loader className="loader" type="ball-pulse-rise" active />
+          </div>  :
+          <div className="App">
+            <CSSTransitionGroup
+              transitionName="landingTransition"
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={1200}>
+              {this.state.showLanding ?  <Landing className="Landme" /> : null}
+            </CSSTransitionGroup>
 
 
-          <div className='RowChildHead' >
-            <div className='HeaderChild' >
+            <div className="RowChildHead" >
+              <div className="HeaderChild" >
                 <Maphead />
-            </div>
-            <div className='HeaderChildMiddle' >
+              </div>
+              <div className="HeaderChildMiddle" >
                 <Agendahead />
                 <p className="contactButtonMobile" onClick={this.contactsMobileOverlay.bind(this)}>about</p>
                 <p className="pastEventsButtonMobile" onClick={this.pastEventsOverlay.bind(this)}> <span className="past">past</span><span className="events">events</span></p>
-            </div>
-            <div className='HeaderChild' >
+              </div>
+              <div className="HeaderChild" >
                 <Spaceshead  />
+              </div>
             </div>
-          </div>
-          <div ref="scrollcolumns" className='RowChildCol' >
-            <div  className='ColumnChildLeft' >
-                  <Map className='ComponentChild' markerToShow={this.state.itemToShow} spaces={this.props.spaces} events={this.props.events}/>
-            </div>
-            <div ref="agendacolumn" className='ColumnChildMiddle' >
-                  <CSSTransitionGroup
-                    transitionName="labelTransition"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={300}>
+            <div ref="scrollcolumns" className="RowChildCol" >
+              <div  className="ColumnChildLeft" >
+                <Map className="ComponentChild" markerToShow={this.state.itemToShow} spaces={this.props.spaces} events={this.props.events}/>
+              </div>
+              <div ref="agendacolumn" className="ColumnChildMiddle" >
+                <CSSTransitionGroup
+                  transitionName="labelTransition"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}>
                   {this.state.showCurrent ? <p className="currentLabel">current</p> : null}
-                  </CSSTransitionGroup>
-                  <CSSTransitionGroup
-                    transitionName="labelTransition"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={300}>
+                </CSSTransitionGroup>
+                <CSSTransitionGroup
+                  transitionName="labelTransition"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}>
                   {this.state.showFuture ? <p className="futurLabel" >upcoming events</p> : null}
-                  </CSSTransitionGroup>
+                </CSSTransitionGroup>
 
-                  <Swipeable
-                        className='agendaSwipe'
-                        onSwipingRight={this.swipingRight.bind(this)}
-                        onSwipingLeft={this.swipingLeft.bind(this)}>
-                    <Agenda spaceToShow={this.spaceToShowFromAgenda.bind(this)} ref="agendaRef" className='ComponentChildAgenda' events={this.props.events} spaces={this.props.spaces} />
-                  </Swipeable>
+                <Swipeable
+                  className="agendaSwipe"
+                  onSwipingRight={this.swipingRight.bind(this)}
+                  onSwipingLeft={this.swipingLeft.bind(this)}>
+                  <Agenda spaceToShow={this.spaceToShowFromAgenda.bind(this)} ref="agendaRef" className="ComponentChildAgenda" events={this.props.events} spaces={this.props.spaces} />
+                </Swipeable>
 
-                  {this.state.showMapOverlay? <MobileMap  show={this.state.showMapOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
-                  {this.state.showSpacesOverlay? <MobileSpaces  show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
-
-
-
-                  <PastEvents  spaceToShow={this.spaceToShowFromAgendaDummy.bind(this)}  show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
-                  <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
+                {this.state.showMapOverlay? <MobileMap  show={this.state.showMapOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
+                {this.state.showSpacesOverlay? <MobileSpaces  show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
 
 
+
+                <PastEvents  spaceToShow={this.spaceToShowFromAgendaDummy.bind(this)}  show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
+                <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
+
+
+              </div>
+              <div className="ColumnChildRight" >
+                <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>
+                <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>
+                <Contact show={this.state.showOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
+                <Spaces spaceToShow={this.spaceToShow.bind(this)} className="ComponentChildSpaces" spaces={this.props.spaces} events={this.props.events}/>
+                <NavLink className="loginButton" to="/login">members</NavLink>
+              </div>
             </div>
-            <div className='ColumnChildRight' >
-                  <p className="contactButton" onClick={this.contactsOverlay.bind(this)}>about</p>
-                  <p className="pastEventsButton" onClick={this.pastEventsOverlay.bind(this)}>past events</p>
-                  <Contact show={this.state.showOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />
-                  <Spaces spaceToShow={this.spaceToShow.bind(this)} className='ComponentChildSpaces' spaces={this.props.spaces} events={this.props.events}/>
-                  <NavLink className="loginButton" to="/login">members</NavLink>
-            </div>
-          </div>
 
-        </div> }
+          </div>}
       </div>
     );
   }

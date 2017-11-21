@@ -10,7 +10,7 @@ class Space extends Component {
 
   render() {
 
-    const URL = "http://" + this.props.space.spaceUrl;
+    const URL = 'http://' + this.props.space.spaceUrl;
 
     return (
       <div className="spacecontainer spaceChild">

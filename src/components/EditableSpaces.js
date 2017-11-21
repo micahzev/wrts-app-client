@@ -88,12 +88,12 @@ class EditableSpaces extends Component {
   }
 
   isInt(x) {
-      return !isNaN(x) && eval(x).toString().length == parseInt(eval(x)).toString().length;
+    return !isNaN(x) && eval(x).toString().length == parseInt(eval(x)).toString().length;
   }
 
   isFloat(x) {
     return !isNaN(x) && !this.isInt(eval(x)) && x.toString().length > 0;
-    }
+  }
 
   addNewSpace (event) {
 
@@ -166,10 +166,10 @@ class EditableSpaces extends Component {
 
     toDelete.forEach(function(elem) {
       this.deleteSpaceFunction(elem);
-      const eventsToDelete = events.filter(event => event.spaceId == elem.spaceId);
+      const eventsToDelete = events.filter((event) => event.spaceId == elem.spaceId);
 
       if (eventsToDelete.length > 0) {
-          const eventsToDeleteWithIndex = eventsToDelete.map((event) => {
+        const eventsToDeleteWithIndex = eventsToDelete.map((event) => {
           event.index = events.indexOf(event);
           return event;
         })
@@ -230,26 +230,26 @@ class EditableSpaces extends Component {
 
         {this.state.loading?
           <div className="loader-case">
-                <Loader className="loader" type="semi-circle-spin" active />
+            <Loader className="loader" type="semi-circle-spin" active />
           </div>
           :
 
-        <ReactDataGrid
-          enableCellSelect
-          enableDragAndDrop={false}
-          columns={columns}
-          rowGetter={this.rowGetter.bind(this)}
-          rowsCount={rows.length}
-          minHeight={500}
-          onGridRowsUpdated={this.handleGridRowsUpdated.bind(this)}
-          rowSelection={{
-            showCheckbox: true,
-            onRowsSelected: this.onRowsSelected.bind(this),
-            onRowsDeselected: this.onRowsDeselected.bind(this),
-            selectBy: {
-              indexes: this.state.selectedIndexes
-            }
-          }}  />  }
+          <ReactDataGrid
+            enableCellSelect
+            enableDragAndDrop={false}
+            columns={columns}
+            rowGetter={this.rowGetter.bind(this)}
+            rowsCount={rows.length}
+            minHeight={500}
+            onGridRowsUpdated={this.handleGridRowsUpdated.bind(this)}
+            rowSelection={{
+              showCheckbox: true,
+              onRowsSelected: this.onRowsSelected.bind(this),
+              onRowsDeselected: this.onRowsDeselected.bind(this),
+              selectBy: {
+                indexes: this.state.selectedIndexes
+              }
+            }}  />}
 
 
         <Modal show={this.state.showAddSpaceModal} onHide={this.closeAddSpaceModal.bind(this)} backdrop="static">
@@ -311,7 +311,7 @@ class EditableSpaces extends Component {
               {this.state.alertInvalidCoord ?
                 <Alert bsStyle="danger" onDismiss={this.handlealertInvalidCoordDismiss.bind(this)}>
                   <p>Invalid Coordinate</p>
-                  </Alert> : null}
+                </Alert> : null}
 
             </Form>
           </Modal.Body>

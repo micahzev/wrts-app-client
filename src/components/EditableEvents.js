@@ -4,15 +4,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { Glyphicon,
-         ButtonToolbar,
-         Button,
-         Modal,
-         Form,
-         FormGroup,
-         FormControl,
-         Col,
-         ControlLabel,
-         Alert } from 'react-bootstrap';
+  ButtonToolbar,
+  Button,
+  Modal,
+  Form,
+  FormGroup,
+  FormControl,
+  Col,
+  ControlLabel,
+  Alert } from 'react-bootstrap';
 
 import Confirm from 'react-confirm-bootstrap';
 
@@ -243,13 +243,13 @@ class EditableEvents extends Component {
       loading:true,
     });
     await toDelete.forEach(function(elem) {
-       deleteFunction(elem);
+      deleteFunction(elem);
     })
 
-      this.setState({
-        selectedIndexes:[],
-        loading:false,
-        });
+    this.setState({
+      selectedIndexes:[],
+      loading:false,
+    });
   }
 
 
@@ -299,25 +299,25 @@ class EditableEvents extends Component {
 
         {this.state.loading?
           <div className="loader-case">
-                <Loader className="loader" type="semi-circle-spin" active />
+            <Loader className="loader" type="semi-circle-spin" active />
           </div>
           :
-        <ReactDataGrid
-          enableCellSelect
-          enableDragAndDrop={false}
-          columns={columns}
-          rowGetter={this.rowGetter.bind(this)}
-          rowsCount={rows.length}
-          minHeight={500}
-          onGridRowsUpdated={this.handleGridRowsUpdated.bind(this)}
-          rowSelection={{
-            showCheckbox: true,
-            onRowsSelected: this.onRowsSelected.bind(this),
-            onRowsDeselected: this.onRowsDeselected.bind(this),
-            selectBy: {
-              indexes: this.state.selectedIndexes
-            }
-          }}  />  }
+          <ReactDataGrid
+            enableCellSelect
+            enableDragAndDrop={false}
+            columns={columns}
+            rowGetter={this.rowGetter.bind(this)}
+            rowsCount={rows.length}
+            minHeight={500}
+            onGridRowsUpdated={this.handleGridRowsUpdated.bind(this)}
+            rowSelection={{
+              showCheckbox: true,
+              onRowsSelected: this.onRowsSelected.bind(this),
+              onRowsDeselected: this.onRowsDeselected.bind(this),
+              selectBy: {
+                indexes: this.state.selectedIndexes
+              }
+            }}  />}
 
 
         <Modal show={this.state.showAddEventModal} onHide={this.closeAddEventModal.bind(this)} backdrop="static">

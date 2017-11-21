@@ -64,16 +64,16 @@ class AgendaItem extends Component {
     const hasHappened = this.pastDay(today, vernissage);
 
     this.setState({
-      spaceName:space ? space.spaceName : "",
+      spaceName:space ? space.spaceName : '',
       startDate:inputProps.events.eventStartDate.replace(/-/g,'.'),
       endDate:inputProps.events.eventEndDate.replace(/-/g,'.'),
       artist:inputProps.events.eventArtist,
       exposition:inputProps.events.eventExposition,
       startTime:inputProps.events.eventStartTime,
       endTime:inputProps.events.eventEndTime,
-      extraInfo:inputProps.events.eventExtraInfo ? inputProps.events.eventExtraInfo : "",
-      contact:inputProps.events.eventContact ? inputProps.events.eventContact : "",
-      facebook:inputProps.events.eventFacebook ? inputProps.events.eventFacebook : "",
+      extraInfo:inputProps.events.eventExtraInfo ? inputProps.events.eventExtraInfo : '',
+      contact:inputProps.events.eventContact ? inputProps.events.eventContact : '',
+      facebook:inputProps.events.eventFacebook ? inputProps.events.eventFacebook : '',
       isVernissage:isVernissage,
       hasHappened:hasHappened
     });
@@ -103,24 +103,24 @@ class AgendaItem extends Component {
   }
 
   handleClick(e) {
-     e.stopPropagation();
-     console.log('child');
-   }
+    e.stopPropagation();
+    console.log('child');
+  }
 
   render() {
 
     // const colorToUse = this.props.styler ? {color:'white'} : {color:'#0c0321'};
 
-    const styler = this.state.isVernissage ? "vernissageItem"   : this.state.hasHappened ?
-    "hasHappenedItem" :  "AgendaChild";
+    const styler = this.state.isVernissage ? 'vernissageItem'   : this.state.hasHappened ?
+      'hasHappenedItem' :  'AgendaChild';
 
-      const splitted1 = this.state.startDate ? this.state.startDate.split('.') : ["  ","  ","    "];
-      splitted1[2] = splitted1[2].slice(-2);
-      const joined1 = splitted1.join('.');
+    const splitted1 = this.state.startDate ? this.state.startDate.split('.') : ['  ','  ','    '];
+    splitted1[2] = splitted1[2].slice(-2);
+    const joined1 = splitted1.join('.');
 
-      const splitted2 = this.state.endDate ? this.state.endDate.split('.') : ["  ","  ","    "];
-      splitted2[2] = splitted2[2].slice(-2);
-      const joined2 = splitted2.join('.');
+    const splitted2 = this.state.endDate ? this.state.endDate.split('.') : ['  ','  ','    '];
+    splitted2[2] = splitted2[2].slice(-2);
+    const joined2 = splitted2.join('.');
 
     const expos = {fontStyle:'italic',paddingTop:'0.5%'};
 
@@ -128,72 +128,72 @@ class AgendaItem extends Component {
 
     return (
       <div  className={styler} onClick={this.expand.bind(this)}>
-            <div className="agendaSplitTop">
-                    <div className="agendaDataDate">
-                        <div className="dateTop">
-                        {joined1}
-                        </div>
-                        <div className="dateBottom">
-                          {this.state.hasHappened && ' to ' + joined2}
-                        </div>
-
-                    </div>
-
-                    <div className="agendaDataName">
-                      {this.state.spaceName}
-                    </div>
-
-                    {
-                      !this.state.hasHappened &&
-                             <div className="agendaDataTime">
-                                <div className="timeTop">
-                                {this.state.startTime}
-                                </div>
-                                <div className="timeBottom">
-                                  {this.state.endTime}
-                                </div>
-
-                             </div>
-                    }
+        <div className="agendaSplitTop">
+          <div className="agendaDataDate">
+            <div className="dateTop">
+              {joined1}
+            </div>
+            <div className="dateBottom">
+              {this.state.hasHappened && ' to ' + joined2}
             </div>
 
-                    <div className="agendaDataInfo">
+          </div>
 
-                      <div >
-                        {this.state.artist}
-                      </div>
+          <div className="agendaDataName">
+            {this.state.spaceName}
+          </div>
 
-                      <div style={expos}>
-                        {this.state.exposition}
-                      </div>
-
-                      <CSSTransitionGroup
-                        transitionName="expandAgendaContent"
-                        transitionEnterTimeout={500}
-                        transitionLeaveTimeout={300}>
-
-                        {this.state.showExpansion ?
-
-                          <div className="expansionBox">
-                               <div className="extraInfo">
-                                {this.state.extraInfo}
+          {
+            !this.state.hasHappened &&
+                             <div className="agendaDataTime">
+                               <div className="timeTop">
+                                 {this.state.startTime}
                                </div>
-                               <div className="expansionLinks">
-                                  <Mailto email={this.state.contact} onClick={this.handleClick.bind(this)} className="expansionContact">
+                               <div className="timeBottom">
+                                 {this.state.endTime}
+                               </div>
+
+                             </div>
+          }
+        </div>
+
+        <div className="agendaDataInfo">
+
+          <div >
+            {this.state.artist}
+          </div>
+
+          <div style={expos}>
+            {this.state.exposition}
+          </div>
+
+          <CSSTransitionGroup
+            transitionName="expandAgendaContent"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}>
+
+            {this.state.showExpansion ?
+
+              <div className="expansionBox">
+                <div className="extraInfo">
+                  {this.state.extraInfo}
+                </div>
+                <div className="expansionLinks">
+                  <Mailto email={this.state.contact} onClick={this.handleClick.bind(this)} className="expansionContact">
                                     Contact
-                                  </Mailto>
-                                  <a href={this.state.facebook} onClick={this.handleClick.bind(this)} className="expansionFacebook">
+                  </Mailto>
+                  <a href={this.state.facebook} onClick={this.handleClick.bind(this)} className="expansionFacebook">
                                       Event Facebook
-                                  </a>
-                               </div>
-                           </div>
-                           : null}
-                           </CSSTransitionGroup>
-                    </div>
+                  </a>
+                </div>
+              </div>
+              : null}
+          </CSSTransitionGroup>
+        </div>
 
-                    { !this.state.showExpansion ?
-                      <div className="downarrow">&#8601; </div> :
-                      <div className="uparrow"> &#8601; </div> }
+        {!this.state.showExpansion ?
+          <div className="downarrow">&#8601; </div> :
+          <div className="uparrow"> &#8601; </div>}
 
       </div>
     );

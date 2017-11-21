@@ -63,7 +63,7 @@ class UserSignup extends Component {
     }
 
 
-};
+  };
 
   resetToNormal(){
     this.setState({

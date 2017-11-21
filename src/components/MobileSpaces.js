@@ -13,31 +13,31 @@ class MobileSpaces extends Component {
 
   }
 
-hideMe() {
-  this.props.undoShow();
-}
+  hideMe() {
+    this.props.undoShow();
+  }
 
-spaceToShow(event){
-return;
-}
+  spaceToShow(event){
+    return;
+  }
 
   render() {
 
     return (
 
-        <CSSTransitionGroup
-          transitionName="pastEventsTransition"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
+      <CSSTransitionGroup
+        transitionName="pastEventsTransition"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}>
 
-          <div className='MobileSpacesContainer'>
-            <div className='HeaderChildMapMobile' >
-                <Spaceshead  />
-                <div className="mapCloseButton" onClick={this.hideMe.bind(this)}>
-                </div>
+        <div className="MobileSpacesContainer">
+          <div className="HeaderChildMapMobile" >
+            <Spaceshead  />
+            <div className="mapCloseButton" onClick={this.hideMe.bind(this)}>
             </div>
-            <Spaces spaceToShow={this.spaceToShow.bind(this)} className='MobileChildSpaces' spaces={this.props.spaces} events={this.props.events}/>
           </div>
+          <Spaces spaceToShow={this.spaceToShow.bind(this)} className="MobileChildSpaces" spaces={this.props.spaces} events={this.props.events}/>
+        </div>
 
       </CSSTransitionGroup>
 

@@ -48,9 +48,9 @@ class Backend extends Component {
     const spaceIndex = this.props.spaces.length >0 ? this.props.spaces.findIndex((x) => x.spaceId == userSpaceId) : -1;
 
     if (userSpaceObject) {
-        userSpaceObject.index = spaceIndex;
+      userSpaceObject.index = spaceIndex;
 
-        return userSpaceObject;
+      return userSpaceObject;
     } else {
       return {spaceName:'Invalid Account', spaceAddress:'', spaceUrl:''};
     }

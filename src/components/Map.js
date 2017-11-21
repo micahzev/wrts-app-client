@@ -26,16 +26,16 @@ const SimpleMapExampleGoogleMap = withGoogleMap((props) => (
     }}
     onClick={() => props.onMapClick()}
     disableDefaultUI>
-  {props.markers.map(marker => (
+    {props.markers.map((marker) => (
       <Marker
         {...marker}
         onClick={() => props.onMarkerClick(marker)}>
         {marker.showInfo && (
           <InfoWindow
-          onCloseClick={() => props.onMarkerClose(marker)}
-          defaultOptions={{
-            disableAutoPan:true
-          }}>
+            onCloseClick={() => props.onMarkerClose(marker)}
+            defaultOptions={{
+              disableAutoPan:true
+            }}>
             <div className="infowindow">{marker.infoContent}</div>
           </InfoWindow>
         )}
@@ -55,49 +55,49 @@ class Map extends Component {
   componentDidMount(){
 
 
-      const vernissageIds = this.props.events.filter((event) => {
-          const today = new Date();
-          const splitted = event.eventStartDate.split('-');
-          // const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-')+"T12:00:00-00:00");
-          const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-'));
-          return this.sameDay(today,vernissage);
-        }).map((o) => {
-            return o.spaceId;
-          }
-        );
+    const vernissageIds = this.props.events.filter((event) => {
+      const today = new Date();
+      const splitted = event.eventStartDate.split('-');
+      // const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-')+"T12:00:00-00:00");
+      const vernissage = new Date(event.eventStartDate.split('-').reverse().join('-'));
+      return this.sameDay(today,vernissage);
+    }).map((o) => {
+      return o.spaceId;
+    }
+    );
 
-      const markers = this.props.spaces ? this.props.spaces.map(function(space) {
+    const markers = this.props.spaces ? this.props.spaces.map(function(space) {
 
-        if (_.includes(vernissageIds, space.spaceId)) {
-          return {
-                  position: {
-                    lat: parseFloat(space.spaceLat),
-                    lng: parseFloat(space.spaceLong),
-                  },
-                  showInfo: false,
-                  key: space.spaceName,
-                  icon:mapMarkerCircle,
-                  infoContent: space.spaceName,
-                }
-        } else {
-          return {
-                  position: {
-                    lat: parseFloat(space.spaceLat),
-                    lng: parseFloat(space.spaceLong),
-                  },
-                  showInfo: false,
-                  key: space.spaceName,
-                  icon:mapMarkerCross,
-                  infoContent: space.spaceName,
-                }
+      if (_.includes(vernissageIds, space.spaceId)) {
+        return {
+          position: {
+            lat: parseFloat(space.spaceLat),
+            lng: parseFloat(space.spaceLong),
+          },
+          showInfo: false,
+          key: space.spaceName,
+          icon:mapMarkerCircle,
+          infoContent: space.spaceName,
         }
+      } else {
+        return {
+          position: {
+            lat: parseFloat(space.spaceLat),
+            lng: parseFloat(space.spaceLong),
+          },
+          showInfo: false,
+          key: space.spaceName,
+          icon:mapMarkerCross,
+          infoContent: space.spaceName,
+        }
+      }
 
 
-      }) : [];
+    }) : [];
 
-      this.setState({
-        markers:markers,
-      });
+    this.setState({
+      markers:markers,
+    });
 
 
 
@@ -106,30 +106,30 @@ class Map extends Component {
 
 
   componentDidUpdate(prevProps) {
-  if (prevProps.markerToShow !== this.props.markerToShow) {
+    if (prevProps.markerToShow !== this.props.markerToShow) {
 
       const targetMarker = _.find(this.state.markers, { 'key': this.props.markerToShow});
 
 
-        this.setState({
-          markers: this.state.markers.map(marker => {
-            if (marker === targetMarker) {
-              return {
-                ...marker,
-                showInfo: true,
-              };
-            }
+      this.setState({
+        markers: this.state.markers.map((marker) => {
+          if (marker === targetMarker) {
             return {
               ...marker,
-              showInfo: false,
+              showInfo: true,
             };
-          }),
-        });
+          }
+          return {
+            ...marker,
+            showInfo: false,
+          };
+        }),
+      });
 
 
 
+    }
   }
-}
 
   sameDay(d1, d2) {
     return d1.getFullYear() === d2.getFullYear() &&
@@ -138,46 +138,46 @@ class Map extends Component {
   }
 
   handleMarkerClick(targetMarker) {
-  this.setState({
-    markers: this.state.markers.map(marker => {
-      if (marker === targetMarker) {
-        return {
-          ...marker,
-          showInfo: true,
-        };
-      }
-      return {
-        ...marker,
-        showInfo: false,
-      };
-    }),
-  });
-}
-
-handleMarkerClose(targetMarker) {
-  this.setState({
-    markers: this.state.markers.map(marker => {
-      if (marker === targetMarker) {
+    this.setState({
+      markers: this.state.markers.map((marker) => {
+        if (marker === targetMarker) {
+          return {
+            ...marker,
+            showInfo: true,
+          };
+        }
         return {
           ...marker,
           showInfo: false,
         };
-      }
-      return marker;
-    }),
-  });
-}
+      }),
+    });
+  }
 
-onMapClick(){
-  this.setState({
-    markers: this.state.markers.map(marker => {
+  handleMarkerClose(targetMarker) {
+    this.setState({
+      markers: this.state.markers.map((marker) => {
+        if (marker === targetMarker) {
+          return {
+            ...marker,
+            showInfo: false,
+          };
+        }
+        return marker;
+      }),
+    });
+  }
+
+  onMapClick(){
+    this.setState({
+      markers: this.state.markers.map((marker) => {
         return {
           ...marker,
           showInfo: false,
         };
-    }),
-  });
-}
+      }),
+    });
+  }
 
   render() {
     return (

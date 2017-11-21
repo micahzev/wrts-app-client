@@ -21,7 +21,7 @@ class PastEvents extends Component {
     const pastEvents = this.props.events ? this.props.events : [];
     const allSpaces = this.props.spaces ? this.props.spaces : [];
 
-    const pastStyle = {color:"white"};
+    const pastStyle = {color:'white'};
 
     return (
       <div>
@@ -29,26 +29,26 @@ class PastEvents extends Component {
           transitionName="pastEventsTransition"
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}>
-        {show?
-          <div className="pastEventsOverlay">
-            <div className="closeButton" onClick={this.hideMe.bind(this)}>
-            </div>
-            <div className="pastEventsDiv">
+          {show?
+            <div className="pastEventsOverlay">
+              <div className="closeButton" onClick={this.hideMe.bind(this)}>
+              </div>
+              <div className="pastEventsDiv">
 
-              <PastEventsHead />
+                <PastEventsHead />
 
 
-              <div className="pastEventsScroll">
-                <div className="pastEvents">
-                {pastEvents.map((eventData,idx) =>
-                  <AgendaItem spaceToShow={this.props.spaceToShow.bind(this)} key={idx} styler={pastStyle} events={eventData} spaces={allSpaces}/>
-                )}
+                <div className="pastEventsScroll">
+                  <div className="pastEvents">
+                    {pastEvents.map((eventData,idx) =>
+                      <AgendaItem spaceToShow={this.props.spaceToShow.bind(this)} key={idx} styler={pastStyle} events={eventData} spaces={allSpaces}/>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          : null}
-          </CSSTransitionGroup>
+            : null}
+        </CSSTransitionGroup>
 
       </div>
     );

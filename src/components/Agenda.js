@@ -18,22 +18,22 @@ class Agenda extends Component {
 
   componentDidUpdate(){
     if (this.state.counter < 1){
-      var _this = this;
+      let _this = this;
 
       if (this.props.events.length > 0 && this.props.spaces.length > 0 && this.refs.scrolltome){
 
-          window.requestAnimationFrame(function() {
-              const offset = 1.3*window.innerHeight;
-              if ((_this.refs.scrolltome.getBoundingClientRect().top - offset) > (_this.refs.scrolltest.scrollHeight-window.innerHeight)) {
-                  _this.refs.scrolltest.scrollTop = _this.refs.scrolltest.scrollHeight-window.innerHeight;
-              } else {
-                  _this.refs.scrolltest.scrollTop += _this.refs.scrolltome.getBoundingClientRect().top - offset;
-              }
-          });
+        window.requestAnimationFrame(function() {
+          const offset = 1.3*window.innerHeight;
+          if ((_this.refs.scrolltome.getBoundingClientRect().top - offset) > (_this.refs.scrolltest.scrollHeight-window.innerHeight)) {
+            _this.refs.scrolltest.scrollTop = _this.refs.scrolltest.scrollHeight-window.innerHeight;
+          } else {
+            _this.refs.scrolltest.scrollTop += _this.refs.scrolltome.getBoundingClientRect().top - offset;
+          }
+        });
 
-          this.setState({
-            counter:1
-          });
+        this.setState({
+          counter:1
+        });
       }
     }
 
@@ -57,13 +57,13 @@ class Agenda extends Component {
     });
 
     sortedEvents.forEach(function(element) {
-        element.scroller = element.eventArtist;
-        element.lastHashappened = element.eventStartTime;
+      element.scroller = element.eventArtist;
+      element.lastHashappened = element.eventStartTime;
     });
 
     if (scrollToIndex > -1) {
-      sortedEvents[scrollToIndex-1].scroller = "scrolltome";
-      sortedEvents[scrollToIndex-2].lastHashappened = "specialClass"
+      sortedEvents[scrollToIndex-1].scroller = 'scrolltome';
+      sortedEvents[scrollToIndex-2].lastHashappened = 'specialClass'
     }
 
     return sortedEvents.filter(function(o) {

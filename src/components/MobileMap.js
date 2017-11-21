@@ -24,27 +24,27 @@ class MobileMap extends Component {
     }
   }
 
-hideMe() {
-  this.props.undoShow();
-}
+  hideMe() {
+    this.props.undoShow();
+  }
 
   render() {
 
     return (
 
-        <CSSTransitionGroup
-          transitionName="pastEventsTransition"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
+      <CSSTransitionGroup
+        transitionName="pastEventsTransition"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}>
 
-          <div className='MobileMapContainer'>
-            <div className='HeaderChildMapMobile' >
-                <Maphead />
-                <div className="mapCloseButton" onClick={this.hideMe.bind(this)}>
-                </div>
+        <div className="MobileMapContainer">
+          <div className="HeaderChildMapMobile" >
+            <Maphead />
+            <div className="mapCloseButton" onClick={this.hideMe.bind(this)}>
             </div>
-            <Map className='ComponentChildMapMobile' markerToShow={this.state.itemToShow} spaces={this.props.spaces} events={this.props.events}/>
           </div>
+          <Map className="ComponentChildMapMobile" markerToShow={this.state.itemToShow} spaces={this.props.spaces} events={this.props.events}/>
+        </div>
 
       </CSSTransitionGroup>
 

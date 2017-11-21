@@ -22,12 +22,12 @@ class EditSpace extends Component {
   }
 
   isInt(x) {
-      return !isNaN(x) && eval(x).toString().length == parseInt(eval(x)).toString().length;
+    return !isNaN(x) && eval(x).toString().length == parseInt(eval(x)).toString().length;
   }
 
   isFloat(x) {
     return !isNaN(x) && !this.isInt(eval(x)) && x.toString().length > 0;
-    }
+  }
 
 
   editSpace(event){
@@ -70,11 +70,11 @@ class EditSpace extends Component {
   }
 
 
-    handlealertEmptyFieldShow(){
-      this.setState({
-        alertEmptyField:true
-      })
-    }
+  handlealertEmptyFieldShow(){
+    this.setState({
+      alertEmptyField:true
+    })
+  }
 
 
   handlealertEmptyFieldDismiss(){
@@ -84,18 +84,18 @@ class EditSpace extends Component {
   }
 
 
-    handlealertInvalidCoordShow() {
-      this.setState({
-        alertInvalidCoord:true
-      })
-    }
+  handlealertInvalidCoordShow() {
+    this.setState({
+      alertInvalidCoord:true
+    })
+  }
 
 
-    handlealertInvalidCoordDismiss() {
-      this.setState({
-        alertInvalidCoord:false
-      })
-    }
+  handlealertInvalidCoordDismiss() {
+    this.setState({
+      alertInvalidCoord:false
+    })
+  }
 
 
   render() {
@@ -185,10 +185,10 @@ class EditSpace extends Component {
                 <Alert bsStyle="danger" onDismiss={this.handlealertEmptyFieldDismiss.bind(this)}>
                   <p>All fields must be filled out</p>
                 </Alert> : null}
-                {this.state.alertInvalidCoord ?
-                  <Alert bsStyle="danger" onDismiss={this.handlealertInvalidCoordDismiss.bind(this)}>
-                    <p>Invalid Coordinate</p>
-                    </Alert> : null}
+              {this.state.alertInvalidCoord ?
+                <Alert bsStyle="danger" onDismiss={this.handlealertInvalidCoordDismiss.bind(this)}>
+                  <p>Invalid Coordinate</p>
+                </Alert> : null}
 
 
             </Form>

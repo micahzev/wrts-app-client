@@ -15,7 +15,7 @@ class Landing extends Component {
         </div>
         <div className="LandingWhite">
           <span className="the">THE </span>  <span className="space"> SPACE</span>
-      </div>
+        </div>
 
       </div>
     );

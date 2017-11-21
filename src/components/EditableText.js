@@ -35,16 +35,16 @@ class EditableText extends Component {
   }
 
   handleChange(e) {
-      this.setState({ text: e.target.value });
+    this.setState({ text: e.target.value });
   }
 
 
   onConfirm(){
-      console.log(this.state.text);
-      const textData = {
-        aboutText:this.state.text
-      };
-      this.props.boundUpdateText(textData);
+    console.log(this.state.text);
+    const textData = {
+      aboutText:this.state.text
+    };
+    this.props.boundUpdateText(textData);
   }
 
   render() {
@@ -56,19 +56,19 @@ class EditableText extends Component {
         </h2>
 
         <FormGroup controlId="formControlsTextarea">
-           <FormControl componentClass="textarea" className="editableText"
-           value={this.state.text}
-           onChange={this.handleChange.bind(this)}
-            />
-         </FormGroup>
+          <FormControl componentClass="textarea" className="editableText"
+            value={this.state.text}
+            onChange={this.handleChange.bind(this)}
+          />
+        </FormGroup>
 
-         <Confirm
-           onConfirm={this.onConfirm.bind(this)}
-           body={this.state.text}
-           confirmText="Confirm Change About Text"
-           title="Are you sure you want to change the about text?">
-           <Button bsStyle="primary" >Click To Edit About Text!</Button>
-         </Confirm>
+        <Confirm
+          onConfirm={this.onConfirm.bind(this)}
+          body={this.state.text}
+          confirmText="Confirm Change About Text"
+          title="Are you sure you want to change the about text?">
+          <Button bsStyle="primary" >Click To Edit About Text!</Button>
+        </Confirm>
 
       </div>
     );

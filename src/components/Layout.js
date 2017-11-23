@@ -222,11 +222,13 @@ class Layout extends Component {
   }
 
   swipingRight(e, absX){
+    return;
     this.mapOverlay();
 
   }
 
   swipingLeft(e, absX){
+    return;
     this.spacesOverlay();
 
   }
@@ -259,8 +261,14 @@ class Layout extends Component {
               </div>
               <div className="HeaderChildMiddle" >
                 <Agendahead />
-                <p className="contactButtonMobile" onClick={this.contactsMobileOverlay.bind(this)}>about</p>
-                <p className="pastEventsButtonMobile" onClick={this.pastEventsOverlay.bind(this)}> <span className="past">past</span><span className="events">events</span></p>
+                <p className="mapButtonMobile" onClick={this.mapOverlay.bind(this)}>map</p>
+                <p className="spacesButtonMobile" onClick={this.spacesOverlay.bind(this)}>spaces</p>
+
+                {/*
+                  <p className="contactButtonMobile" onClick={this.contactsMobileOverlay.bind(this)}>about</p>
+                  <p className="pastEventsButtonMobile" onClick={this.pastEventsOverlay.bind(this)}> <span className="past">past</span><span className="events">events</span></p>
+
+                  */}
               </div>
               <div className="HeaderChild" >
                 <Spaceshead  />
@@ -286,13 +294,27 @@ class Layout extends Component {
 
                 <Swipeable
                   className="agendaSwipe"
+                  delta={150}
                   onSwipingRight={this.swipingRight.bind(this)}
                   onSwipingLeft={this.swipingLeft.bind(this)}>
                   <Agenda spaceToShow={this.spaceToShowFromAgenda.bind(this)} ref="agendaRef" className="ComponentChildAgenda" events={this.props.events} spaces={this.props.spaces} />
+                  <p className="contactButtonMobile" onClick={this.contactsMobileOverlay.bind(this)}>about</p>
+                  <p className="pastEventsButtonMobile" onClick={this.pastEventsOverlay.bind(this)}> <span className="past">past</span><span className="events">events</span></p>
+
                 </Swipeable>
 
+                <CSSTransitionGroup
+                  transitionName="labelTransition"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}>
                 {this.state.showMapOverlay? <MobileMap  show={this.state.showMapOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
+                </CSSTransitionGroup>
+                <CSSTransitionGroup
+                  transitionName="labelTransition"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}>
                 {this.state.showSpacesOverlay? <MobileSpaces  show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
+                </CSSTransitionGroup>
 
                 <PastEvents  spaceToShow={this.spaceToShowFromAgendaDummy.bind(this)}  show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />
                 <Contact show={this.state.showMobileOverLay} text={this.props.text} undoShow={this.undoShow.bind(this)} />

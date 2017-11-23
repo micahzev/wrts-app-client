@@ -36,7 +36,9 @@ class MobileSpaces extends Component {
             <div className="mapCloseButton" onClick={this.hideMe.bind(this)}>
             </div>
           </div>
-          <Spaces spaceToShow={this.spaceToShow.bind(this)} className="MobileChildSpaces" spaces={this.props.spaces} events={this.props.events}/>
+          <div className="MobileChildSpaces">
+          <Spaces spaceToShow={this.spaceToShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/>
+          </div>
         </div>
 
       </CSSTransitionGroup>

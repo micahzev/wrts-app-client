@@ -241,6 +241,7 @@
 .agendaSwipe{
   overflow:hidden;
   height:100%;
+  position:relative;
 }
 
 .ComponentChildSpaces {
@@ -380,6 +381,14 @@
   display: none;
 }
 
+.mapButtonMobile{
+  display:none;
+}
+
+.spacesButtonMobile{
+  display: none;
+}
+
 
 .labelTransition-enter {
   opacity: 0.01;
@@ -400,7 +409,7 @@
   transition: opacity 300ms ease-out;
 }
 
-@media (max-width: 800px) {
+@media only screen and (max-width: 800px) {
 
 .past{
   display: block;
@@ -424,15 +433,18 @@ visibility: hidden;
   display: block;
   color: #0c0321;
   position:absolute;
-  top:8%;
-  right:1%;
+  bottom:13%;
+  right:2%;
+  padding:0;
+  margin:0;
   font-size:  3vw;
   font-family: 'NeuzeitS-Book';
     z-index: 1;
     white-space: nowrap;
-    height:inherit;
+    height:3.5vw;
     text-align: left;
     line-height: 1;
+    overflow: hidden;
 }
 
 .contactButtonMobile:hover{
@@ -443,8 +455,34 @@ visibility: hidden;
 .pastEventsButtonMobile{
   color: #0c0321;
   position:absolute;
+  bottom:15vh;
+  left:2%;
+  padding:0;
+  margin:0;
+  font-size:  3vw;
+  font-family: 'NeuzeitS-Book';
+  z-index: 2;
+  display: -webkit-flex;
+  display:flex;
+  -webkit-flex-direction:column;
+  flex-direction:column;
+  height:3.5vw;
+  text-align: left;
+  line-height: 1;
+}
+
+.pastEventsButtonMobile:hover{
+  text-decoration: underline;
+}
+
+
+.mapButtonMobile{
+  color: #0c0321;
+  position:absolute;
   top:8%;
-  left:1%;
+  left:2%;
+  padding:0;
+  margin:0;
   font-size:  3vw;
   font-family: 'NeuzeitS-Book';
     z-index: 2;
@@ -452,12 +490,35 @@ visibility: hidden;
     display:flex;
     -webkit-flex-direction:column;
     flex-direction:column;
-    height:inherit;
+    height:3.5vw;
     text-align: left;
     line-height: 1;
 }
 
-.pastEventsButtonMobile:hover{
+.mapButtonMobile:hover{
+  text-decoration: underline;
+}
+
+
+.spacesButtonMobile{
+  display: block;
+  color: #0c0321;
+  position:absolute;
+  top:8%;
+  right:2%;
+  padding:0;
+  margin:0;
+  font-size:  3vw;
+  font-family: 'NeuzeitS-Book';
+    z-index: 1;
+    white-space: nowrap;
+    height:3.5vw;
+    text-align: left;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.spacesButtonMobile:hover{
   text-decoration: underline;
 }
 
@@ -564,46 +625,85 @@ visibility: hidden;
 }
 
 
-@media (max-width: 400px) {
+@media only screen and (max-width: 400px) {
   .contactButtonMobile{
-    display: block;
-    color: #0c0321;
-    position:absolute;
-    top:8%;
-    right:1%;
-    font-size:  3vh;
-    font-family: 'NeuzeitS-Book';
+      display: block;
+      color: #0c0321;
+      position:absolute;
+      bottom:1vh;
+      right:2%;
+      padding:0;
+      margin:0;
+      font-size:  3vh;
+      font-family: 'NeuzeitS-Book';
       z-index: 1;
       white-space: nowrap;
-      height:inherit;
+      height:3.5vh;
       text-align: left;
       line-height: 1;
-  }
+      overflow: hidden;
 
-  .contactButtonMobile:hover{
-    text-decoration: underline;
   }
 
 
   .pastEventsButtonMobile{
     color: #0c0321;
     position:absolute;
-    top:8%;
-    left:1%;
+    bottom:4vh;
+    left:2%;
+    padding:0;
+    margin:0;
     font-size:  3vh;
     font-family: 'NeuzeitS-Book';
-      z-index: 2;
-      display: -webkit-flex;
-      display:flex;
-      -webkit-flex-direction:column;
-      flex-direction:column;
-      height:inherit;
-      text-align: left;
-      line-height: 1;
+    z-index: 2;
+    display: -webkit-flex;
+    display:flex;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+    height:3.5vh;
+    text-align: left;
+    line-height: 1;
   }
 
-  .pastEventsButtonMobile:hover{
-    text-decoration: underline;
+  .spacesButtonMobile{
+      display: block;
+      color: #0c0321;
+      position:absolute;
+      top:8%;
+      right:2%;
+      padding:0;
+      margin:0;
+      font-size:  3vh;
+      font-family: 'NeuzeitS-Book';
+      z-index: 1;
+      white-space: nowrap;
+      height:3.5vh;
+      text-align: left;
+      line-height: 1;
+      overflow: hidden;
+
   }
+
+
+  .mapButtonMobile{
+    color: #0c0321;
+    position:absolute;
+      top:8%;
+    left:2%;
+    padding:0;
+    margin:0;
+    font-size:  3vh;
+    font-family: 'NeuzeitS-Book';
+    z-index: 2;
+    display: -webkit-flex;
+    display:flex;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+    height:3.5vh;
+    text-align: left;
+    line-height: 1;
+  }
+
+
 
 }

@@ -64,6 +64,12 @@
   flex-grow: 4;
 }
 
+.MobileChildSpaces{
+
+  height:89vh;
+}
+
+
   .MobileMapContainer{
     display: -webkit-flex;
     display:flex;

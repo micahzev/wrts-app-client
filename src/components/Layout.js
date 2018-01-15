@@ -305,15 +305,15 @@ class Layout extends Component {
 
                 <CSSTransitionGroup
                   transitionName="labelTransition"
-                  transitionEnterTimeout={500}
+                  transitionEnterTimeout={100}
                   transitionLeaveTimeout={300}>
                 {this.state.showMapOverlay? <MobileMap  show={this.state.showMapOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
                 </CSSTransitionGroup>
                 <CSSTransitionGroup
                   transitionName="labelTransition"
-                  transitionEnterTimeout={500}
+                  transitionEnterTimeout={100}
                   transitionLeaveTimeout={300}>
-                {this.state.showSpacesOverlay? <MobileSpaces  show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
+                {this.state.showSpacesOverlay? <MobileSpaces className="MobileSpaces" show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
                 </CSSTransitionGroup>
 
                 <PastEvents  spaceToShow={this.spaceToShowFromAgendaDummy.bind(this)}  show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />

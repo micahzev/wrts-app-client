@@ -1,8 +1,5 @@
 .Map {
-
-
   padding:50px;
-
 }
 
 .MapHead {
@@ -65,8 +62,8 @@
 }
 
 .MobileChildSpaces{
-
-  height:89vh;
+  height:100%;
+  overflow: auto;
 }
 
 

@@ -31,12 +31,6 @@ class MobileMap extends Component {
   render() {
 
     return (
-
-      <CSSTransitionGroup
-        transitionName="pastEventsTransition"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}>
-
         <div className="MobileMapContainer">
           <div className="HeaderChildMapMobile" >
             <Maphead />
@@ -45,9 +39,6 @@ class MobileMap extends Component {
           </div>
           <Map className="ComponentChildMapMobile" markerToShow={this.state.itemToShow} spaces={this.props.spaces} events={this.props.events}/>
         </div>
-
-      </CSSTransitionGroup>
-
     );
   }
 }

@@ -409,6 +409,11 @@
   transition: opacity 300ms ease-out;
 }
 
+.MobileSpaces {
+  height:100%;
+  overflow: auto;
+}
+
 @media only screen and (max-width: 800px) {
 
 .past{

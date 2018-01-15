@@ -24,12 +24,6 @@ class MobileSpaces extends Component {
   render() {
 
     return (
-
-      <CSSTransitionGroup
-        transitionName="pastEventsTransition"
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}>
-
         <div className="MobileSpacesContainer">
           <div className="HeaderChildMapMobile" >
             <Spaceshead  />
@@ -37,12 +31,9 @@ class MobileSpaces extends Component {
             </div>
           </div>
           <div className="MobileChildSpaces">
-          <Spaces spaceToShow={this.spaceToShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/>
+            <Spaces spaceToShow={this.spaceToShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/>
           </div>
         </div>
-
-      </CSSTransitionGroup>
-
     );
   }
 }

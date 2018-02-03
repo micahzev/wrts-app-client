@@ -102,7 +102,6 @@ class AgendaItem extends Component {
 
   handleClick(e) {
     e.stopPropagation();
-    console.log('child');
   }
 
   render() {
@@ -175,21 +174,32 @@ class AgendaItem extends Component {
                   {this.state.extraInfo}
                 </div>
                 <div className="expansionLinks">
-                  <Mailto email={this.state.contact} onClick={this.handleClick.bind(this)} className="expansionContact">
-                                    Contact
-                  </Mailto>
-                  <a href={this.state.facebook} onClick={this.handleClick.bind(this)} className="expansionFacebook">
-                                      Event Facebook
-                  </a>
+                  { this.state.contact ?
+                    <Mailto email={this.state.contact} onClick={this.handleClick.bind(this)} className="expansionContact">
+                                      Contact
+                    </Mailto>
+                    : null }
+
+                    { this.state.facebook ?
+                      <a href={this.state.facebook} onClick={this.handleClick.bind(this)} className="expansionFacebook">
+                                          Event Facebook
+                      </a>
+                      : null }
+
                 </div>
               </div>
               : null}
           </CSSTransitionGroup>
         </div>
 
-        {!this.state.showExpansion ?
-          <div className="downarrow">&#8601; </div> :
-          <div className="uparrow"> &#8601; </div>}
+        { this.state.extraInfo || this.state.contact || this.state.facebook ?
+
+            !this.state.showExpansion ?
+              <div className="downarrow">&#8601; </div> :
+              <div className="uparrow"> &#8601; </div>
+
+          : null}
+
 
       </div>
     );

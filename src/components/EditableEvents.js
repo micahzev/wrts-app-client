@@ -94,22 +94,26 @@ class EditableEvents extends Component {
     if (  updateObject.eventStartDate  == '' ||
           updateObject.eventEndDate    == '' ||
           updateObject.eventArtist     == '' ||
-          updateObject.eventExposition == '' ||
-          updateObject.eventStartTime  == '' ||
-          updateObject.eventEndTime    == ''  ||
-          updateObject.eventExtraInfo == '' ||
-          updateObject.eventContact  == '' ||
-          updateObject.eventFacebook    == '') {
+          updateObject.eventExposition == '') {
       alert('Invalid. The Field Is Empty.');
       return false;
     } else if  ( !dateregexer.test(updateObject.eventEndDate) ||
                  !dateregexer.test(updateObject.eventStartDate) ) {
       alert('Invalid Date. Format: DD-MM-YYYY');
       return false;
-    } else if (!regexer.test(updateObject.eventStartTime) ||
-               !regexer.test(updateObject.eventEndTime)) {
+
+    } else if (updateObject.eventStartTime  &&
+               !regexer.test(updateObject.eventStartTime)) {
+
       alert('Invalid Time. Format: HH:MM');
       return false;
+
+    } else if (updateObject.eventEndTime &&
+               !regexer.test(updateObject.eventEndTime)) {
+
+      alert('Invalid Time. Format: HH:MM');
+      return false;
+
     } else {
       return true;
     }
@@ -148,13 +152,18 @@ class EditableEvents extends Component {
       eventFacebook:this.eventFacebook.value
     }
 
+    if ( eventData.eventStartTime == ':' ) {
+      eventData.eventStartTime = ''
+    }
+
+    if ( eventData.eventEndTime == ':' ) {
+      eventData.eventEndTime = ''
+    }
+
     const timeRegex =  /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/;
 
     if (eventData.eventStartDate == '' || eventData.eventEndDate    == '' ||
-        eventData.eventArtist    == '' || eventData.eventExposition == '' ||
-        eventData.eventStartTime == '' || eventData.eventEndTime    == '' ||
-        eventData.eventExtraInfo == '' || eventData.eventContact    == '' ||
-        eventData.eventFacebook  == '') {
+        eventData.eventArtist    == '' || eventData.eventExposition == ''  ) {
 
       this.handleAlertEmptyFieldShow();
 
@@ -166,7 +175,14 @@ class EditableEvents extends Component {
 
       return;
 
-    } else if ( !timeRegex.test(eventData.eventStartTime) || ! timeRegex.test(eventData.eventEndTime) ) {
+    } else if (eventData.eventStartTime != '' && !timeRegex.test(eventData.eventStartTime)) {
+
+      this.handleAlertInvalidTimeShow();
+
+      return;
+
+
+    } else if (eventData.eventEndTime != '' && !timeRegex.test(eventData.eventEndTime)) {
 
       this.handleAlertInvalidTimeShow();
 
@@ -370,7 +386,7 @@ class EditableEvents extends Component {
 
               <FormGroup controlId="formHorizontalStartTime">
                 <Col componentClass={ControlLabel} sm={2}>
-                Start Time
+                Start Time &#42;
                 </Col>
                 <Col sm={2}>
                   <FormControl inputRef={(ref) => { this.eventStartTimeHour = ref; }} type="text" placeholder="HH" />
@@ -383,7 +399,7 @@ class EditableEvents extends Component {
 
               <FormGroup controlId="formHorizontalEndTime">
                 <Col componentClass={ControlLabel} sm={2}>
-                End Time
+                End Time &#42;
                 </Col>
                 <Col sm={2}>
                   <FormControl inputRef={(ref) => { this.eventEndTimeHour = ref; }} type="text" placeholder="HH" />
@@ -396,7 +412,7 @@ class EditableEvents extends Component {
 
               <FormGroup controlId="formHorizontalExtraInfo">
                 <Col componentClass={ControlLabel} sm={2}>
-                Extra Text
+                Extra Text &#42;
                 </Col>
                 <Col sm={10}>
                   <FormControl inputRef={(ref) => { this.eventExtraInfo = ref; }} type="text" placeholder="Extra Text" />
@@ -405,7 +421,7 @@ class EditableEvents extends Component {
 
               <FormGroup controlId="formHorizontalContact">
                 <Col componentClass={ControlLabel} sm={2}>
-                Contact
+                Contact &#42;
                 </Col>
                 <Col sm={10}>
                   <FormControl inputRef={(ref) => { this.eventContact = ref; }} type="text" placeholder="Contact" />
@@ -414,12 +430,15 @@ class EditableEvents extends Component {
 
               <FormGroup controlId="formHorizontalFacebook">
                 <Col componentClass={ControlLabel} sm={2}>
-                Facebook Event Link
+                Facebook Event Link &#42;
                 </Col>
                 <Col sm={10}>
                   <FormControl inputRef={(ref) => { this.eventFacebook = ref; }} type="text" placeholder="Facebook Link" />
                 </Col>
               </FormGroup>
+
+              ( &#42; &#61; optionnel, laissez vide si vous ne le voulez pas )
+
               {this.state.alertEmptyField ?
                 <Alert bsStyle="danger" onDismiss={this.handleAlertEmptyFieldDismiss.bind(this)}>
                   <p>All fields must be filled out</p>

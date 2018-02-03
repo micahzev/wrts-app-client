@@ -58,7 +58,7 @@ class Agenda extends Component {
       element.lastHashappened = element.eventStartTime;
     });
 
-    if (scrollToIndex > -1) {
+    if (scrollToIndex > 1) {
       sortedEvents[scrollToIndex-1].scroller = 'scrolltome';
       sortedEvents[scrollToIndex-2].lastHashappened = 'specialClass'
     }

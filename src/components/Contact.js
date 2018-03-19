@@ -44,7 +44,7 @@ class Contact extends Component {
                 <div className="rightColumnContact">
 
                   <div className="rejoindreBox">
-                    <Mailto email="info@werunthespace.fr" className="Mailer">
+                    <Mailto email="info@werunthespace.com" className="Mailer">
                 Rejoindre <br/>
                  We Run <br/>
                   The Space <br/>
@@ -52,7 +52,7 @@ class Contact extends Component {
                   </div>
 
                   <div className="rejoindreBox">
-                    <Mailto email="info@werunthespace.fr" className="Mailer">
+                    <Mailto email="info@werunthespace.com" className="Mailer">
                 Donner  à<br/>
                 We Run <br/>
                 The Space <br/>
@@ -64,27 +64,7 @@ class Contact extends Component {
             Contact:
                   </div>
                   <div className="contactEmail">
-            info (at) werunthespace.fr
-                  </div>
-                  <div className="contactEmail">
-            Bénédicte Albessard
-                    <br/>
-            benedicte (at) werunthespace.fr
-                  </div>
-                  <div className="contactEmail">
-            Margaux Barthélemy
-                    <br/>
-            margaux (at) werunthespace.fr
-                  </div>
-                  <div className="contactEmail">
-            Théophile Calot
-                    <br/>
-            theophile (at) werunthespace.fr
-                  </div>
-                  <div className="contactEmail">
-            Timothée Chaillou
-                    <br/>
-            timothee (at) werunthespace.fr
+            info (at) werunthespace.com
                   </div>
                   <div className="contactEmail">
             Retrouvez nous sur :

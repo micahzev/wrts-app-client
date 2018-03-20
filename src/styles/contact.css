@@ -169,6 +169,13 @@
   color:white;
 }
 
+.Mailer:visited {
+  color:white;
+}
+
+.Mailer:link {
+  color:white;
+}
 
 .logoText {
   text-align: center;
@@ -215,10 +222,12 @@
 
 .socialLink {
   color:white;
+  z-index:100;
 }
 
 .socialLink:hover {
   color:white;
+  z-index:100;
 }
 
 

@@ -64,12 +64,14 @@ class Contact extends Component {
             Contact:
                   </div>
                   <div className="contactEmail">
-            info (at) werunthespace.com
+                    <Mailto className="Mailer" email="info@werunthespace.com">
+                  info (at) werunthespace.com
+                    </Mailto>
                   </div>
                   <div className="contactEmail">
             Retrouvez nous sur :
                     <br/>
-                    <a className="socialLink" href="https://www.facebook.com/werunthespace/">Facebook</a> - <a className="socialLink" href="https://www.instagram.com/werunthespace/">Instragram</a>
+                    <a className="Mailer" href="https://www.facebook.com/werunthespace/">Facebook</a> - <a className="Mailer" href="https://www.instagram.com/werunthespace/">Instragram</a>
                   </div>
 
                 </div>

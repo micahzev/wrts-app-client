@@ -6,12 +6,24 @@ import '../styles/spaces.css';
 class Space extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      url:undefined
+    };
+  }
+
+  openInNewTab() {
+    let win = window.open(this.state.url, '_blank');
+    // win.focus();
+  }
+
+  componentDidMount(){
+    this.setState({
+      url: 'http://' + this.props.space.spaceUrl
+    })
   }
 
   render() {
-
-    const URL = 'http://' + this.props.space.spaceUrl;
-
     return (
       <div className="spacecontainer spaceChild">
         <div className="leftspacecontainer spacename spaceData" value={this.props.space.spaceName} onClick={this.props.spaceToShow.bind(this)}>
@@ -22,9 +34,9 @@ class Space extends Component {
             {this.props.space.spaceAddress}
           </div>
 
-          <a href={URL} className="spaceurl">
+          <div onClick={this.openInNewTab.bind(this)} className="spaceurl">
             {this.props.space.spaceUrl}
-          </a>
+          </div>
         </div>
       </div>
     );

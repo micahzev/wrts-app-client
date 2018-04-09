@@ -189,10 +189,10 @@ class Layout extends Component {
       let splitted = o.eventStartDate.split('-');
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-'));
     }]);
-
     return sortedEvents.filter(function(o) {
       let splitted = o.eventEndDate.split('-');
       let today = new Date();
+      today.setHours(0,0,0,0);
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) < today;
     });
 
@@ -307,13 +307,13 @@ class Layout extends Component {
                   transitionName="labelTransition"
                   transitionEnterTimeout={100}
                   transitionLeaveTimeout={300}>
-                {this.state.showMapOverlay? <MobileMap  show={this.state.showMapOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
+                  {this.state.showMapOverlay? <MobileMap  show={this.state.showMapOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
                 </CSSTransitionGroup>
                 <CSSTransitionGroup
                   transitionName="labelTransition"
                   transitionEnterTimeout={100}
                   transitionLeaveTimeout={300}>
-                {this.state.showSpacesOverlay? <MobileSpaces className="MobileSpaces" show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
+                  {this.state.showSpacesOverlay? <MobileSpaces className="MobileSpaces" show={this.state.showSpacesOverlay} undoShow={this.undoShow.bind(this)} spaces={this.props.spaces} events={this.props.events}/> : null}
                 </CSSTransitionGroup>
 
                 <PastEvents  spaceToShow={this.spaceToShowFromAgendaDummy.bind(this)}  show={this.state.showPastEventsOverlay} spaces={allSpaces} events={filteredEvents} undoShow={this.undoShow.bind(this)} />

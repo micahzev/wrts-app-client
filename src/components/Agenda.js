@@ -48,6 +48,7 @@ class Agenda extends Component {
     const scrollToIndex = sortedEvents.findIndex(function(o) {
       let splitted = o.eventStartDate.split('-');
       let today = new Date();
+      today.setHours(0,0,0,0);
       // console.log(today);
       // return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')+"T12:00:00-00:00") > today;
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) > today;
@@ -66,6 +67,7 @@ class Agenda extends Component {
     return sortedEvents.filter(function(o) {
       let splitted = o.eventEndDate.split('-');
       let today = new Date();
+      today.setHours(0,0,0,0);
       return Date.parse([splitted[2],splitted[1],splitted[0]].join('-')) > today;
     });
 

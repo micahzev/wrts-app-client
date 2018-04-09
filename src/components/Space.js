@@ -18,9 +18,19 @@ class Space extends Component {
   }
 
   componentDidMount(){
-    this.setState({
-      url: 'http://' + this.props.space.spaceUrl.trim()
-    })
+
+    let heading = this.props.space.spaceUrl.trim().substring(0,4);
+
+    if (heading == 'http') {
+      this.setState({
+        url: this.props.space.spaceUrl.trim()
+      })
+    } else {
+      this.setState({
+        url: 'http://' + this.props.space.spaceUrl.trim()
+      })
+    }
+
   }
 
   render() {

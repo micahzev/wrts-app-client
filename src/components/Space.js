@@ -19,7 +19,7 @@ class Space extends Component {
 
   componentDidMount(){
     this.setState({
-      url: 'http://' + this.props.space.spaceUrl
+      url: 'http://' + this.props.space.spaceUrl.trim()
     })
   }
 

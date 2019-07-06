@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-import { fetchTextAPI, updateTextAPI } from '~/src/helpers/ClientAPI';
+import { fetchTextAPI, updateTextAPI } from '../helpers/ClientAPI';
 
 export function fetchText(options) {
   return {

@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-import { fetchEventsAPI,  addEventAPI, deleteEventAPI, updateEventAPI  } from '~/src/helpers/ClientAPI';
+import { fetchEventsAPI,  addEventAPI, deleteEventAPI, updateEventAPI  } from '../helpers/ClientAPI';
 
 export function fetchEvents(options) {
   return {

@@ -1,5 +1,5 @@
 import * as types from '../constants/ActionTypes';
-import { fetchSpacesAPI, addSpaceAPI, deleteSpaceAPI, updateSpaceAPI  } from '~/src/helpers/ClientAPI';
+import { fetchSpacesAPI, addSpaceAPI, deleteSpaceAPI, updateSpaceAPI  } from '../helpers/ClientAPI';
 
 export function fetchSpaces(options) {
   return {
